@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Detour</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="row header">
+      <img src="images/icon-96.png" alt="" width="28" height="28">
+      <h1 id="title" data-i18n="extension_name">Detour</h1>
+    </header>
+
+    <label class="row toggle-row" for="enabled">
+      <span data-i18n="popup_enabled_label">Redirect to Apple Maps</span>
+      <span class="switch">
+        <input type="checkbox" id="enabled" checked>
+        <span class="slider" aria-hidden="true"></span>
+      </span>
+    </label>
+    <p class="status" id="status" data-i18n="popup_status_on">On. Google Maps links open in Apple Maps.</p>
+
+    <section class="row count-row">
+      <span data-i18n="popup_count_label">Links redirected</span>
+      <span class="count-wrap">
+        <strong id="count">0</strong>
+        <button type="button" id="reset" class="link-button" data-i18n="popup_reset">Reset</button>
+      </span>
+    </section>
+
+    <button type="button" id="open-current" class="primary hidden" data-i18n="popup_open_current">Open this page in Apple Maps</button>
+
+    <footer>
+      <p class="muted" data-i18n="popup_footer">No tracking. Everything stays on this device.</p>
+      <p class="links">
+        <a id="privacy-link" href="#" target="_blank" rel="noopener" data-i18n="popup_privacy">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a id="support-link" href="#" target="_blank" rel="noopener" data-i18n="popup_support">Support</a>
+      </p>
+    </footer>
+  </main>
+  <script src="mapsConverter.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

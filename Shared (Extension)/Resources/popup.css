@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1d1d1f;
+  --muted: #6e6e73;
+  --line: #e5e5ea;
+  --accent: #0a84ff;
+  --accent-fg: #ffffff;
+  --track: #d1d1d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1e;
+    --fg: #f5f5f7;
+    --muted: #98989d;
+    --line: #3a3a3c;
+    --track: #48484a;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+body {
+  font: 14px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-width: 280px;
+}
+.popup { padding: 14px 16px 12px; display: flex; flex-direction: column; gap: 10px; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.header { justify-content: flex-start; gap: 10px; padding-bottom: 4px; border-bottom: 1px solid var(--line); }
+.header img { border-radius: 7px; }
+h1 { font-size: 17px; font-weight: 600; margin: 0; }
+.toggle-row { padding-top: 4px; cursor: pointer; font-weight: 500; }
+.status { margin: -4px 0 0; color: var(--muted); font-size: 12px; }
+.count-row { padding-top: 8px; border-top: 1px solid var(--line); }
+.count-wrap { display: flex; align-items: baseline; gap: 10px; }
+.count-wrap strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.link-button {
+  background: none; border: 0; padding: 0; color: var(--accent); font: inherit; font-size: 12px; cursor: pointer;
+}
+.primary {
+  appearance: none; border: 0; border-radius: 10px; padding: 10px 12px; width: 100%;
+  background: var(--accent); color: var(--accent-fg); font: inherit; font-weight: 600; cursor: pointer;
+}
+.primary:active { filter: brightness(0.9); }
+.hidden { display: none; }
+footer { border-top: 1px solid var(--line); padding-top: 8px; }
+footer p { margin: 0; font-size: 12px; }
+.muted { color: var(--muted); }
+.links { margin-top: 4px !important; display: flex; gap: 8px; }
+.links a { color: var(--accent); text-decoration: none; }
+
+/* iOS-style switch */
+.switch { position: relative; display: inline-block; width: 46px; height: 28px; flex: none; }
+.switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.slider {
+  position: absolute; inset: 0; background: var(--track); border-radius: 28px; transition: background .2s;
+}
+.slider::before {
+  content: ""; position: absolute; width: 24px; height: 24px; left: 2px; top: 2px; background: #fff;
+  border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .2s;
+}
+.switch input:checked + .slider { background: #34c759; }
+.switch input:checked + .slider::before { transform: translateX(18px); }
+.switch input:focus-visible + .slider { outline: 2px solid var(--accent); outline-offset: 2px; }

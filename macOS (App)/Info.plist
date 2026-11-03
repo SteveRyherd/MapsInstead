@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Custom keys read by Branding.swift. Values come from Config/Branding.xcconfig. -->
+	<key>DetourExtensionBundleIdentifier</key>
+	<string>$(DETOUR_EXTENSION_BUNDLE_ID)</string>
+	<key>DetourSupportURL</key>
+	<string>$(DETOUR_SUPPORT_URL)</string>
+	<key>DetourPrivacyURL</key>
+	<string>$(DETOUR_PRIVACY_URL)</string>
+	<key>DetourSourceURL</key>
+	<string>$(DETOUR_SOURCE_URL)</string>
+	<key>DetourTestURL</key>
+	<string>$(DETOUR_TEST_URL)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+</dict>
+</plist>

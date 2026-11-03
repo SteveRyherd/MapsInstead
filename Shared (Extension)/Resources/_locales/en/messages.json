@@ -1,0 +1,14 @@
+{
+  "_comment": { "message": "RENAMING: extension_name is the only place the extension's user-facing name lives. Change it here (and in Config/Branding.xcconfig for the app) to rename the product." },
+  "extension_name": { "message": "Detour" },
+  "extension_description": { "message": "Opens Google Maps links in Apple Maps. Directions included." },
+  "popup_enabled_label": { "message": "Redirect to Apple Maps" },
+  "popup_status_on": { "message": "On. Google Maps links open in Apple Maps." },
+  "popup_status_off": { "message": "Paused. Links open normally." },
+  "popup_count_label": { "message": "Links redirected" },
+  "popup_reset": { "message": "Reset" },
+  "popup_open_current": { "message": "Open this page in Apple Maps" },
+  "popup_privacy": { "message": "Privacy" },
+  "popup_support": { "message": "Support" },
+  "popup_footer": { "message": "No tracking. Everything stays on this device." }
+}

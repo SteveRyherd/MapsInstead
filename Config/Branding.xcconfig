@@ -1,0 +1,33 @@
+// Branding.xcconfig
+//
+// THE ONE PLACE TO RENAME THE APP.
+//
+// Every Xcode target reads these values. Change DETOUR_DISPLAY_NAME (what users see
+// under the icon and in Settings) and, if you like, DETOUR_PRODUCT_NAME (the .app
+// file name, module name and target product). Then update the extension's own name
+// in "Shared (Extension)/Resources/_locales/en/messages.json" (extension_name) and
+// the URLs below if the GitHub Pages site moves. That is the whole rename.
+//
+// The bundle identifier prefix is a placeholder. Replace "com.example" with your own
+// reverse-DNS prefix before archiving. iOS and macOS deliberately share the same
+// bundle IDs: that is what makes the App Store treat them as one universal purchase.
+
+DETOUR_DISPLAY_NAME = Detour
+DETOUR_PRODUCT_NAME = Detour
+DETOUR_BUNDLE_ID_PREFIX = com.example
+DETOUR_BUNDLE_ID = $(DETOUR_BUNDLE_ID_PREFIX).Detour
+DETOUR_EXTENSION_BUNDLE_ID = $(DETOUR_BUNDLE_ID).Extension
+
+// Public pages (GitHub Pages from the docs/ folder). Also referenced in popup.js.
+DETOUR_SUPPORT_URL = https:/$()/steveryherd.github.io/detour/support.html
+DETOUR_PRIVACY_URL = https:/$()/steveryherd.github.io/detour/privacy.html
+DETOUR_SOURCE_URL = https:/$()/github.com/SteveRyherd/detour
+
+// A real Google Maps directions link used by the "Test it" button.
+DETOUR_TEST_URL = https:/$()/www.google.com/maps/dir//Apple+Park,+One+Apple+Park+Way,+Cupertino,+CA+95014
+
+// Version numbers. The app and its extension must always match; they both read these.
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1
+
+// Leave DEVELOPMENT_TEAM unset here: pick your team once in the Signing tab of each target.

@@ -1,0 +1,800 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D0000000000000000000201 /* DetourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000101 /* DetourApp.swift */; };
+		0D0000000000000000000202 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000102 /* ContentView.swift */; };
+		0D0000000000000000000203 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000103 /* OnboardingView.swift */; };
+		0D0000000000000000000204 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
+		0D0000000000000000000205 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
+		0D0000000000000000000206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
+		0D0000000000000000000207 /* Detour Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000010F /* Detour Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D0000000000000000000211 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
+		0D0000000000000000000212 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000108 /* Resources */; };
+		0D0000000000000000000221 /* DetourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000101 /* DetourApp.swift */; };
+		0D0000000000000000000222 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000102 /* ContentView.swift */; };
+		0D0000000000000000000223 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000103 /* OnboardingView.swift */; };
+		0D0000000000000000000224 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
+		0D0000000000000000000225 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
+		0D0000000000000000000226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
+		0D0000000000000000000227 /* Detour Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000111 /* Detour Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D0000000000000000000231 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
+		0D0000000000000000000232 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000108 /* Resources */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D0000000000000000000702 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D0000000000000000000302;
+			remoteInfo = "Detour Extension (iOS)";
+		};
+		0D0000000000000000000704 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D0000000000000000000304;
+			remoteInfo = "Detour Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0D0000000000000000000404 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0D0000000000000000000207 /* Detour Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000424 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0D0000000000000000000227 /* Detour Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0D0000000000000000000101 /* DetourApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetourApp.swift; sourceTree = "<group>"; };
+		0D0000000000000000000102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0D0000000000000000000103 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0D0000000000000000000104 /* Branding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branding.swift; sourceTree = "<group>"; };
+		0D0000000000000000000105 /* ExtensionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStatus.swift; sourceTree = "<group>"; };
+		0D0000000000000000000106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D0000000000000000000107 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		0D0000000000000000000108 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		0D0000000000000000000109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D000000000000000000010A /* Detour.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detour.entitlements; sourceTree = "<group>"; };
+		0D000000000000000000010B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D000000000000000000010C /* Detour Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Detour Extension.entitlements"; sourceTree = "<group>"; };
+		0D000000000000000000010D /* Branding.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Branding.xcconfig; sourceTree = "<group>"; };
+		0D000000000000000000010E /* Detour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Detour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D000000000000000000010F /* Detour Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Detour Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000110 /* Detour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Detour.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000111 /* Detour Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Detour Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D0000000000000000000113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D0000000000000000000403 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000413 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000433 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000004 /* Shared (App) */,
+				0D0000000000000000000005 /* Shared (Extension) */,
+				0D0000000000000000000006 /* iOS (App) */,
+				0D0000000000000000000007 /* iOS (Extension) */,
+				0D0000000000000000000008 /* macOS (App) */,
+				0D0000000000000000000009 /* macOS (Extension) */,
+				0D000000000000000000000A /* Config */,
+				0D0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D000000000000000000010E /* Detour.app */,
+				0D000000000000000000010F /* Detour Extension.appex */,
+				0D0000000000000000000110 /* Detour.app */,
+				0D0000000000000000000111 /* Detour Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000004 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000101 /* DetourApp.swift */,
+				0D0000000000000000000102 /* ContentView.swift */,
+				0D0000000000000000000103 /* OnboardingView.swift */,
+				0D0000000000000000000105 /* ExtensionStatus.swift */,
+				0D0000000000000000000104 /* Branding.swift */,
+				0D0000000000000000000106 /* Assets.xcassets */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000005 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000107 /* SafariWebExtensionHandler.swift */,
+				0D0000000000000000000108 /* Resources */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000006 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000112 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000007 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000109 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000008 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000113 /* Info.plist */,
+				0D000000000000000000010A /* Detour.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		0D0000000000000000000009 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				0D000000000000000000010B /* Info.plist */,
+				0D000000000000000000010C /* Detour Extension.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		0D000000000000000000000A /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0D000000000000000000010D /* Branding.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D0000000000000000000301 /* Detour (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Detour (iOS)" */;
+			buildPhases = (
+				0D0000000000000000000401 /* Sources */,
+				0D0000000000000000000403 /* Frameworks */,
+				0D0000000000000000000402 /* Resources */,
+				0D0000000000000000000404 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D0000000000000000000701 /* PBXTargetDependency */,
+			);
+			name = "Detour (iOS)";
+			productName = "Detour (iOS)";
+			productReference = 0D000000000000000000010E /* Detour.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D0000000000000000000302 /* Detour Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Detour Extension (iOS)" */;
+			buildPhases = (
+				0D0000000000000000000411 /* Sources */,
+				0D0000000000000000000413 /* Frameworks */,
+				0D0000000000000000000412 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Detour Extension (iOS)";
+			productName = "Detour Extension (iOS)";
+			productReference = 0D000000000000000000010F /* Detour Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		0D0000000000000000000303 /* Detour (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Detour (macOS)" */;
+			buildPhases = (
+				0D0000000000000000000421 /* Sources */,
+				0D0000000000000000000423 /* Frameworks */,
+				0D0000000000000000000422 /* Resources */,
+				0D0000000000000000000424 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D0000000000000000000703 /* PBXTargetDependency */,
+			);
+			name = "Detour (macOS)";
+			productName = "Detour (macOS)";
+			productReference = 0D0000000000000000000110 /* Detour.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D0000000000000000000304 /* Detour Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Detour Extension (macOS)" */;
+			buildPhases = (
+				0D0000000000000000000431 /* Sources */,
+				0D0000000000000000000433 /* Frameworks */,
+				0D0000000000000000000432 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Detour Extension (macOS)";
+			productName = "Detour Extension (macOS)";
+			productReference = 0D0000000000000000000111 /* Detour Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					0D0000000000000000000301 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					0D0000000000000000000302 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					0D0000000000000000000303 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					0D0000000000000000000304 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 0D0000000000000000000501 /* Build configuration list for PBXProject "Detour" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D0000000000000000000002;
+			productRefGroup = 0D0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D0000000000000000000301 /* Detour (iOS) */,
+				0D0000000000000000000302 /* Detour Extension (iOS) */,
+				0D0000000000000000000303 /* Detour (macOS) */,
+				0D0000000000000000000304 /* Detour Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D0000000000000000000402 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000206 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000412 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000212 /* Resources in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000422 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000226 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000432 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000232 /* Resources in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D0000000000000000000401 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000201 /* DetourApp.swift in Sources */,
+				0D0000000000000000000202 /* ContentView.swift in Sources */,
+				0D0000000000000000000203 /* OnboardingView.swift in Sources */,
+				0D0000000000000000000204 /* Branding.swift in Sources */,
+				0D0000000000000000000205 /* ExtensionStatus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000411 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000211 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000421 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000221 /* DetourApp.swift in Sources */,
+				0D0000000000000000000222 /* ContentView.swift in Sources */,
+				0D0000000000000000000223 /* OnboardingView.swift in Sources */,
+				0D0000000000000000000224 /* Branding.swift in Sources */,
+				0D0000000000000000000225 /* ExtensionStatus.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D0000000000000000000431 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0000000000000000000231 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D0000000000000000000701 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D0000000000000000000302 /* Detour Extension (iOS) */;
+			targetProxy = 0D0000000000000000000702 /* PBXContainerItemProxy */;
+		};
+		0D0000000000000000000703 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D0000000000000000000304 /* Detour Extension (macOS) */;
+			targetProxy = 0D0000000000000000000704 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D0000000000000000000601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D000000000000000000010D /* Branding.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0D0000000000000000000602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D000000000000000000010D /* Branding.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0D0000000000000000000603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D0000000000000000000604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0D0000000000000000000605 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_EXTENSION_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME) Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D0000000000000000000606 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_EXTENSION_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME) Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0D0000000000000000000607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Detour.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		0D0000000000000000000608 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Detour.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		0D0000000000000000000609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Detour Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_EXTENSION_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME) Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0D000000000000000000060A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Detour Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(DETOUR_DISPLAY_NAME)";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(DETOUR_EXTENSION_BUNDLE_ID)";
+				PRODUCT_NAME = "$(DETOUR_PRODUCT_NAME) Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D0000000000000000000501 /* Build configuration list for PBXProject "Detour" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0000000000000000000601 /* Debug */,
+				0D0000000000000000000602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Detour (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0000000000000000000603 /* Debug */,
+				0D0000000000000000000604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Detour Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0000000000000000000605 /* Debug */,
+				0D0000000000000000000606 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Detour (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0000000000000000000607 /* Debug */,
+				0D0000000000000000000608 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Detour Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D0000000000000000000609 /* Debug */,
+				0D000000000000000000060A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D0000000000000000000001 /* Project object */;
+}

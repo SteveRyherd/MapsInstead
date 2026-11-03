@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detour Privacy Policy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+<img class="logo" src="icon.png" alt="">
+<h1>Privacy Policy</h1>
+<p class="muted">Last updated: November 2026</p>
+
+<h2>The short version</h2>
+<p>Detour collects no data. None. There are no analytics, no crash reporters, no advertising identifiers, no accounts and no servers run by us.</p>
+
+<h2>What the extension does</h2>
+<p>Detour is a Safari extension. When you tap a Google Maps link, it rewrites that link into an Apple Maps link on your device and opens it. The conversion happens entirely inside Safari, in plain JavaScript you can read on <a href="https://github.com/SteveRyherd/detour">GitHub</a>.</p>
+
+<h2>What it stores</h2>
+<p>Two values, kept only on your device using Safari's local extension storage: whether the extension is switched on, and a count of how many links it has redirected so you can see it working. Deleting the app deletes them. Nothing is synced or sent anywhere.</p>
+
+<h2>The one network request</h2>
+<p>Google's shortened map links (<code>maps.app.goo.gl</code>, <code>goo.gl/maps</code>, <code>g.page</code>) do not contain the destination; the destination is only revealed when the link is followed. For those links, and only those, Detour asks Google's redirect service where the link goes, in the same way Safari would if you simply opened it. Google sees that request as it would any visit to the short link. Detour sends no cookies with it and adds no identifying information. Detour never contacts any other server.</p>
+
+<h2>What it can see</h2>
+<p>Safari only lets Detour run on the websites you allow. Detour asks for Google's domains and Google's short-link domains, nothing else. It cannot read or change any other website.</p>
+
+<h2>Apple Maps</h2>
+<p>Once a link is handed to Apple Maps, Apple's own privacy policy applies to what you do there.</p>
+
+<h2>Children</h2>
+<p>Detour collects no data from anyone, including children.</p>
+
+<h2>Changes</h2>
+<p>If this policy ever changes, the new version will be published at this address with a new date, and the change will be visible in the project's public source history.</p>
+
+<h2>Contact</h2>
+<p>Questions: open an issue on <a href="https://github.com/SteveRyherd/detour/issues">GitHub</a> or see the <a href="support.html">support page</a>.</p>
+
+<footer>Detour is open source under the MIT licence.</footer>
+</main>
+</body>
+</html>
