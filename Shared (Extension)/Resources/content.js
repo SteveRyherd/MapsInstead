@@ -220,8 +220,10 @@
   // Keep rewriting href targets that Google adds after load (local cards, carousels) so
   // long-press / "Open in New Tab" context menus also land on Apple Maps. Clicks are
   // already covered by the capture listener above; this is a belt-and-braces layer.
+  var isMapsPage = DetourMaps.classify(window.location.href) === "maps";
+
   function rewriteAnchor(anchor) {
-    if (!enabled || anchor.dataset.detourRewritten) return;
+    if (!enabled || isMapsPage || anchor.dataset.detourRewritten) return;
     var href = anchor.getAttribute("href");
     if (!href || DetourMaps.classify(href) !== "maps") return;
     var result = DetourMaps.convert(href, { fallbackText: contextText(anchor) });
@@ -239,6 +241,61 @@
       if (a.dataset.detourOriginal) a.setAttribute("href", a.dataset.detourOriginal);
       delete a.dataset.detourRewritten;
       delete a.dataset.detourOriginal;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // Safety net: Google's "get the app" interstitials
+  // ---------------------------------------------------------------------------
+  //
+  // Normally the user leaves a Maps page before Google can show its "For a better
+  // experience, download the app" box. If a page slips through, this dismisses the box:
+  // it prefers Google's own "Continue in browser" style button, and only hides the
+  // container itself when it is an overlay (a dialog or a fixed element) that links to
+  // the App Store. Nothing else on the page is touched.
+
+  var STORE_LINK_SELECTOR = 'a[href*="apps.apple.com"], a[href*="itunes.apple.com"], a[href^="itms-apps:"], a[href*="play.google.com/store"]';
+  // Click only a button that names the browser, or a plain dismissal. Never anything
+  // that mentions the app or the store.
+  var CONTINUE_TEXT_RE = /^(?:(?:continue|stay|keep|use|proceed|go)\b.*\b(?:browser|web|website|site)\b.*|not now|no,? thanks|dismiss|close|later|maybe later)$/i;
+  var APP_TEXT_RE = /\b(?:app|apps|download|install|store|get)\b/i;
+
+  function isOverlay(el) {
+    if (!el || el === document.body || el === document.documentElement) return false;
+    if (el.getAttribute("role") === "dialog" || el.getAttribute("aria-modal") === "true") return true;
+    var position = window.getComputedStyle(el).position;
+    return position === "fixed" || position === "sticky";
+  }
+
+  function findContinueButton(container) {
+    var candidates = container.querySelectorAll('button, [role="button"], a');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      if (el.matches(STORE_LINK_SELECTOR)) continue;
+      var text = (el.getAttribute("aria-label") || el.textContent || "").replace(/\s+/g, " ").trim();
+      if (text && text.length <= 40 && CONTINUE_TEXT_RE.test(text) && !APP_TEXT_RE.test(text)) return el;
+    }
+    return null;
+  }
+
+  function dismissAppInterstitials() {
+    if (!enabled) return;
+    var links = document.querySelectorAll(STORE_LINK_SELECTOR);
+    for (var i = 0; i < links.length; i++) {
+      var node = links[i];
+      var container = null;
+      for (var depth = 0; node && depth < 8; depth++) {
+        if (isOverlay(node)) { container = node; break; }
+        node = node.parentElement;
+      }
+      if (!container || container.dataset.detourDismissed) continue;
+      container.dataset.detourDismissed = "1";
+      var button = findContinueButton(container);
+      if (button) {
+        button.click();
+      } else {
+        container.style.setProperty("display", "none", "important");
+      }
     }
   }
 
@@ -264,22 +321,16 @@
             if (n.tagName === "A") rewriteAnchor(n); else scanAnchors(n);
           }
         }
+        dismissAppInterstitials();
       });
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", function () { scanAnchors(document); }, { once: true });
-    } else {
+    whenDOMReady(function () {
       scanAnchors(document);
-    }
+      dismissAppInterstitials();
+    });
   }
-
-  // Only rewrite hrefs on ordinary Google pages. On a Maps page we are leaving anyway,
-  // and rewriting Google Maps' own in-app links would break its UI if the user disabled us.
-  var isMapsPage = DetourMaps.classify(window.location.href) === "maps";
 
   handlePageLoad();
-  if (!isMapsPage) {
-    loadEnabled().then(startObserver);
-  }
+  loadEnabled().then(startObserver);
 })();
