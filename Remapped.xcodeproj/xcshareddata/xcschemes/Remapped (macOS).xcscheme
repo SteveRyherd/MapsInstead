@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D0000000000000000000303"
-               BuildableName = "Detour.app"
-               BlueprintName = "Detour (macOS)"
-               ReferencedContainer = "container:Detour.xcodeproj">
+               BuildableName = "Remapped.app"
+               BlueprintName = "Remapped (macOS)"
+               ReferencedContainer = "container:Remapped.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0000000000000000000303"
-            BuildableName = "Detour.app"
-            BlueprintName = "Detour (macOS)"
-            ReferencedContainer = "container:Detour.xcodeproj">
+            BuildableName = "Remapped.app"
+            BlueprintName = "Remapped (macOS)"
+            ReferencedContainer = "container:Remapped.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0000000000000000000303"
-            BuildableName = "Detour.app"
-            BlueprintName = "Detour (macOS)"
-            ReferencedContainer = "container:Detour.xcodeproj">
+            BuildableName = "Remapped.app"
+            BlueprintName = "Remapped (macOS)"
+            ReferencedContainer = "container:Remapped.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

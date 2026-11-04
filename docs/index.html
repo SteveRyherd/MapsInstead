@@ -3,25 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Detour for Safari</title>
-<meta name="description" content="Detour opens Google Maps links in Apple Maps. Directions actually work. One purchase for iPhone, iPad and Mac. No tracking.">
+<title>Remapped for Safari</title>
+<meta name="description" content="Remapped opens Google Maps links in Apple Maps. Directions actually work. One purchase for iPhone, iPad and Mac. No tracking.">
+<meta property="og:title" content="Remapped: Google Maps links open in Apple Maps">
+<meta property="og:description" content="Directions actually work. Buy once for iPhone, iPad and Mac. No tracking, open source.">
+<meta property="og:image" content="images/icon.png">
+<link rel="icon" href="images/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="index.html"><img src="images/icon.png" alt="">Remapped</a>
+  <nav><a href="setup.html">Setup</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+</header>
+
 <main>
-<nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
-<img class="logo" src="icon.png" alt="">
-<h1>Detour</h1>
-<p>Google Maps links open in Apple Maps. Directions included.</p>
-<p>Detour is a Safari extension for iPhone, iPad and Mac. Tap any Google Maps link, from search results, a shared message or a web page, and Apple Maps opens with the right place, search or directions. No Google Maps app required, no App Store detour.</p>
-<ul>
-  <li><strong>Directions actually work.</strong> Google's Directions buttons, <code>/maps/dir/</code> links and directions parameters all open Apple Maps directions with the travel mode preserved.</li>
-  <li><strong>Every link type.</strong> Places, searches, coordinates, short shared links, map thumbnails and local business cards, including ones Google adds after the page loads.</li>
-  <li><strong>One purchase.</strong> Universal purchase covers iPhone, iPad and Mac.</li>
-  <li><strong>Privacy you can check.</strong> No analytics, no tracking, no data collected, and the source is on <a href="https://github.com/SteveRyherd/detour">GitHub</a>.</li>
-</ul>
-<p><a href="#">Download on the App Store</a> <span class="muted">(link goes live after release)</span></p>
-<footer>Open source under the MIT licence. <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></footer>
+<section class="hero">
+  <img class="logo" src="images/icon.png" alt="Remapped icon">
+  <h1>Google Maps links open in Apple Maps.</h1>
+  <p class="lead">Tap any Google Maps link in Safari and Apple Maps opens with the right place, search or directions. No Google Maps app, no App Store detour.</p>
+  <div class="cta-row">
+    <a class="cta" href="#" id="store-link">Download on the App Store</a>
+    <a class="cta secondary" href="setup.html">Setup guide</a>
+  </div>
+  <p class="small">$1.99 once. iPhone, iPad and Mac included. No subscription.</p>
+
+  <div class="media" id="hero-media">
+    <video id="hero-video" playsinline muted loop autoplay poster="images/hero-poster.jpg" hidden>
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+    <img id="hero-image" src="images/hero.jpg" alt="Apple Maps showing directions that arrived from a Google Maps link" hidden>
+    <p class="small" id="hero-placeholder">Hero video slot: <code>images/hero.mp4</code> (or <code>images/hero.jpg</code>). See <code>images/README.md</code>.</p>
+  </div>
+</section>
+
+<section class="grid" aria-label="Why Remapped">
+  <div class="card"><div class="ic">🧭</div><h3>Directions actually work</h3><p>Google's Directions buttons, shared links, short links and search results all open Apple Maps directions, with walking, transit and cycling kept.</p></div>
+  <div class="card"><div class="ic">🔗</div><h3>Every kind of link</h3><p>Places, searches, coordinates, map thumbnails, local business cards, and links Google adds after the page loads. Regional Google sites too.</p></div>
+  <div class="card"><div class="ic">🛍️</div><h3>Buy once, use everywhere</h3><p>One purchase covers iPhone, iPad and Mac. No subscription, no in-app purchases.</p></div>
+  <div class="card"><div class="ic">🔒</div><h3>Privacy you can check</h3><p>No analytics, no tracking, no data collected. The source is on <a href="https://github.com/SteveRyherd/detour">GitHub</a>, so you don't have to take our word for it.</p></div>
+</section>
+
+<h2>How it works</h2>
+<div class="steps">
+  <div class="step">
+    <div><span class="num">1</span><h3>Tap a Google Maps link in Safari</h3><p>From a Google search result, a shared message, a restaurant's website, anywhere.</p></div>
+    <div class="shot" data-src="images/app-main.png"><img alt=""><span class="placeholder">Screenshot slot<br><code>images/app-main.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">2</span><h3>Remapped converts it on your device</h3><p>The link is rewritten into an Apple Maps link in plain JavaScript, in a few milliseconds. Nothing is sent anywhere.</p></div>
+    <div class="shot" data-src="images/popup.png"><img alt=""><span class="placeholder">Screenshot slot<br><code>images/popup.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">3</span><h3>Apple Maps opens, already filled in</h3><p>Directions, a pin, or a search, matching what the Google link meant.</p></div>
+    <div class="shot" data-src="images/ios-test.png"><img alt=""><span class="placeholder">Screenshot slot<br><code>images/ios-test.png</code></span></div>
+  </div>
+</div>
+
+<h2>Questions</h2>
+<details><summary>Does it work with the "Directions" button in Google search results?</summary><p>Yes. That is the case most of these extensions get wrong, and the one Remapped is built around.</p></details>
+<details><summary>Do shared short links (maps.app.goo.gl) work?</summary><p>Yes. Where the destination is inside the link it is converted instantly; otherwise Remapped resolves it, which is the only network request it ever makes.</p></details>
+<details><summary>Can I pause it?</summary><p>Yes. Tap the Remapped button in Safari's toolbar and switch it off. Links open normally until you switch it back on.</p></details>
+<details><summary>Does it work in Chrome or other browsers?</summary><p>No. It is a Safari extension, and Safari extensions only run in Safari.</p></details>
+<details><summary>What does it collect?</summary><p>Nothing. See the <a href="privacy.html">privacy policy</a>; it is short.</p></details>
+
+<div class="badges">
+  <span>🧭 Directions actually work</span><span>📱 iPhone · iPad · Mac</span><span>🔒 No tracking</span><span>🧾 Open source</span>
+</div>
 </main>
+
+<footer class="site">
+  <span>Remapped is open source under the MIT licence. Not affiliated with Apple or Google.</span>
+  <span><a href="setup.html">Setup</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/SteveRyherd/detour">GitHub</a></span>
+</footer>
+</div>
+<script src="site.js"></script>
 </body>
 </html>

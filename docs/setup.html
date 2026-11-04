@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Set up Remapped</title>
+<meta name="description" content="Turn on the Remapped Safari extension on iPhone, iPad or Mac in about a minute.">
+<link rel="icon" href="images/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="index.html"><img src="images/icon.png" alt="">Remapped</a>
+  <nav><a href="setup.html" aria-current="page">Setup</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+</header>
+
+<main>
+<h1>Set up in about a minute</h1>
+<p class="small">Safari extensions are off until you turn them on. These are the exact taps.</p>
+
+<div class="platform-tabs" role="tablist">
+  <button role="tab" data-platform="ios" aria-selected="true">iPhone and iPad</button>
+  <button role="tab" data-platform="mac" aria-selected="false">Mac</button>
+</div>
+
+<section data-platform-panel="ios">
+<div class="steps">
+  <div class="step">
+    <div><span class="num">1</span><h3>Open Settings, then Apps</h3><p>On iOS 17 and earlier, skip this step: Safari is directly in the main Settings list.</p></div>
+    <div class="shot" data-src="images/ios-settings-apps.png"><img alt="Settings showing the Apps entry"><span class="placeholder">Screenshot slot<br><code>images/ios-settings-apps.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">2</span><h3>Tap Safari, then Extensions</h3><p>Extensions is near the bottom of Safari's settings, under the General section.</p></div>
+    <div class="shot" data-src="images/ios-settings-safari.png"><img alt="Safari settings showing Extensions"><span class="placeholder">Screenshot slot<br><code>images/ios-settings-safari.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">3</span><h3>Tap Remapped and turn on Allow Extension</h3><p>This is the switch that makes it run. It is off by default for every extension.</p></div>
+    <div class="shot" data-src="images/ios-settings-remapped.png"><img alt="Remapped settings page with Allow Extension on"><span class="placeholder">Screenshot slot<br><code>images/ios-settings-remapped.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">4</span><h3>Under Permissions, set the Google sites to Allow</h3><p>Remapped can only act on sites you allow. It asks for Google's domains and Google's short-link domains, nothing else. Setting them here means Safari never has to ask.</p></div>
+    <div class="shot" data-src="images/ios-settings-remapped.png"><img alt="Permissions section with Google sites set to Allow"><span class="placeholder">Screenshot slot<br><code>images/ios-settings-remapped.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">5</span><h3>If Safari asks, choose Always Allow</h3><p>The first time you open a Google page, Safari may show this prompt instead. "Always Allow" is the one to pick; "Allow for One Day" means setting it up again tomorrow.</p></div>
+    <div class="shot" data-src="images/ios-safari-prompt.png"><img alt="Safari permission prompt with Always Allow highlighted"><span class="placeholder">Screenshot slot<br><code>images/ios-safari-prompt.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">6</span><h3>Test it</h3><p>Open the Remapped app and press Test it. Safari opens a real Google Maps directions link and Apple Maps should take over with directions to Apple Park.</p></div>
+    <div class="shot" data-src="images/ios-test.png"><img alt="Apple Maps showing directions to Apple Park"><span class="placeholder">Screenshot slot<br><code>images/ios-test.png</code></span></div>
+  </div>
+</div>
+</section>
+
+<section data-platform-panel="mac" hidden>
+<div class="steps">
+  <div class="step">
+    <div><span class="num">1</span><h3>Open the Remapped app once</h3><p>That registers the extension with Safari. You can quit the app afterwards; the extension lives in Safari.</p></div>
+    <div class="shot wide" data-src="images/app-main.png"><img alt="Remapped app on the Mac"><span class="placeholder">Screenshot slot<br><code>images/app-main.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">2</span><h3>Safari, then Settings…, then Extensions</h3><p>Tick Remapped in the list on the left. The app's Open Safari Extensions Settings button takes you straight here.</p></div>
+    <div class="shot wide" data-src="images/mac-safari-settings.png"><img alt="Safari Extensions settings with Remapped ticked"><span class="placeholder">Screenshot slot<br><code>images/mac-safari-settings.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">3</span><h3>Allow it on Google sites</h3><p>With Remapped selected, click Always Allow on Every Website, or Edit Websites… to allow only Google. Remapped only ever asks for Google domains either way.</p></div>
+    <div class="shot wide" data-src="images/mac-permissions.png"><img alt="Safari website permissions for Remapped"><span class="placeholder">Screenshot slot<br><code>images/mac-permissions.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">4</span><h3>Test it</h3><p>Back in the Remapped app, the status card should now say On. Press Test it and Maps opens with directions to Apple Park.</p></div>
+    <div class="shot wide" data-src="images/mac-test.png"><img alt="Maps on the Mac showing directions to Apple Park"><span class="placeholder">Screenshot slot<br><code>images/mac-test.png</code></span></div>
+  </div>
+</div>
+</section>
+
+<h2>Not working?</h2>
+<p>The <a href="support.html">support page</a> covers the three things that account for nearly every problem, and how to report a link that misbehaves.</p>
+</main>
+
+<footer class="site">
+  <span>Remapped is open source under the MIT licence.</span>
+  <span><a href="setup.html">Setup</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/SteveRyherd/detour">GitHub</a></span>
+</footer>
+</div>
+<script src="site.js"></script>
+</body>
+</html>

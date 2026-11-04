@@ -1,9 +1,9 @@
-# Detour
+# Remapped
 
 **Google Maps links open in Apple Maps. Directions included.**
 
-Detour is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
-Safari, Detour converts it on your device and opens Apple Maps instead of the Google Maps app or the
+Remapped is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
+Safari, Remapped converts it on your device and opens Apple Maps instead of the Google Maps app or the
 App Store. It handles places, searches, coordinates, shared short links and, above all, directions,
 including the "Directions" buttons in Google search results.
 
@@ -12,12 +12,15 @@ including the "Directions" buttons in Google search results.
 - One Xcode project, one purchase for iOS, iPadOS and macOS (universal purchase).
 - MIT licensed.
 
-Site, support and privacy policy: `docs/` (publish with GitHub Pages).
+Site, setup guide, support and privacy policy: `docs/` (published with GitHub Pages).
+
+"Detour" was the working title. It survives as the repository name, in the `DETOUR_*` build
+settings and in the `DetourMaps` JavaScript object. Users never see it.
 
 ## Repository layout
 
 ```
-Detour.xcodeproj/            Xcode project with four targets and two shared schemes
+Remapped.xcodeproj/          Xcode project with four targets and two shared schemes
 Config/Branding.xcconfig     Product name, bundle IDs, URLs, version. The one place to rename.
 Shared (App)/                SwiftUI container app (onboarding, status, Test it button)
 Shared (Extension)/
@@ -41,7 +44,7 @@ Requirements: Xcode 15 or later, a paid Apple Developer account, Node 18 or late
 ```
 git clone https://github.com/SteveRyherd/detour.git
 cd detour
-open Detour.xcodeproj
+open Remapped.xcodeproj
 ```
 
 Then in Xcode:
@@ -51,14 +54,14 @@ Then in Xcode:
 2. In `Config/Branding.xcconfig`, change `DETOUR_BUNDLE_ID_PREFIX` from `com.example` to your own
    reverse-DNS prefix. iOS and macOS intentionally share the same bundle IDs; that is what makes the
    App Store treat them as one universal purchase.
-3. Pick the **Detour (iOS)** scheme and a device or simulator, then Run. For the Mac, pick
-   **Detour (macOS)**.
+3. Pick the **Remapped (iOS)** scheme and a device or simulator, then Run. For the Mac, pick
+   **Remapped (macOS)**.
 
 Running on a device for the first time:
 
 - iPhone and iPad: after the app launches, go to Settings › Apps › Safari › Extensions (Settings ›
-  Safari › Extensions on iOS 17 and earlier), turn on Detour, and set Google sites to Allow.
-- Mac: Safari › Settings › Extensions, tick Detour. During development also enable
+  Safari › Extensions on iOS 17 and earlier), turn on Remapped, and set Google sites to Allow.
+- Mac: Safari › Settings › Extensions, tick Remapped. During development also enable
   Safari › Settings › Developer › **Allow unsigned extensions** if Safari refuses to list it.
 
 Press **Test it** in the app. Apple Maps should open with directions to Apple Park.
@@ -95,7 +98,8 @@ also checks that `manifest.json` keeps `host_permissions` and the content script
 2. **Landing on a Google Maps page.** If the user arrives at a `google.com/maps/...` URL directly
    (shared link, universal link, redirect from a short link), the content script asks the
    background page to confirm the setting, stops the page and replaces it with the Apple Maps URL
-   before Google's "open in app" interstitial can run.
+   before Google's "open in app" interstitial can run. If a Maps page does load anyway,
+   the content script dismisses Google's app-promotion overlay rather than leaving the user stuck.
 3. **Short links.** `maps.app.goo.gl`, `goo.gl/maps` and `g.page` are resolved in `background.js`
    with a `fetch` that follows redirects. This is the only network request the extension makes.
    Short links of the form `maps.app.goo.gl/?link=...&ifl=...` carry the destination in the
@@ -111,7 +115,8 @@ on every supported OS version and falls back to the Apple Maps web app if needed
 
 ## Renaming the app
 
-The name is deliberately kept in two files:
+The product has been renamed once already (Detour to Remapped), so the path is proven. The
+name is deliberately kept in two files:
 
 1. `Config/Branding.xcconfig`: set `DETOUR_DISPLAY_NAME` (what users see) and optionally
    `DETOUR_PRODUCT_NAME` (the `.app` file and module name). Every target reads these.
@@ -119,8 +124,9 @@ The name is deliberately kept in two files:
    like, `extension_description`. Safari shows these in its Extensions settings and toolbar.
 
 That is the whole rename for the product. Cosmetic follow-ups, none of which affect the build:
-rename the Xcode targets and schemes if you want them to match, update the title and headings in
-`docs/`, and search `docs/app-store/copy.md` for the old name. The Swift code never hard-codes the
+rename the Xcode project, targets and schemes if you want them to match (plain text edits in
+`project.pbxproj` and the `.xcscheme` files), update the headings in `docs/`, and search
+`docs/app-store/` for the old name. The Swift code never hard-codes the
 name; it reads it from the bundle at runtime (`Shared (App)/Branding.swift`), and all app copy
 lives in that same file.
 
@@ -154,8 +160,9 @@ git push origin main --tags
 Before archiving for the App Store, bump `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` in
 `Config/Branding.xcconfig`. The app and extension read the same values, so they always match.
 
-App Store copy, the privacy label answers, review notes and the screenshot checklist are in
-`docs/app-store/`.
+App Store copy, the privacy label answers, review notes, the screenshot checklist and the launch
+plan (competitor notes, pricing, App Preview storyboard) are in `docs/app-store/`. The docs site
+has picture slots for every setup step; `docs/images/README.md` lists the captures it needs.
 
 ## Licence
 

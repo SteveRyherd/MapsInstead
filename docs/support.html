@@ -3,40 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Detour Support</title>
+<title>Remapped Support</title>
+<meta name="description" content="Help with the Remapped Safari extension: setup, permissions, links that still open Google Maps, and how to report a problem.">
+<link rel="icon" href="images/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="wrap">
+<header class="site">
+  <a class="brand" href="index.html"><img src="images/icon.png" alt="">Remapped</a>
+  <nav><a href="setup.html">Setup</a><a href="support.html" aria-current="page">Support</a><a href="privacy.html">Privacy</a></nav>
+</header>
+
 <main>
-<nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
-<img class="logo" src="icon.png" alt="">
 <h1>Support</h1>
-<p>Detour opens Google Maps links in Apple Maps. If something is not working, the steps below fix almost every case.</p>
+<p class="small">Most problems come down to one of the first three items. Each takes under a minute to check.</p>
 
-<h2>Turn the extension on</h2>
-<p><strong>iPhone and iPad:</strong> Settings &rsaquo; Apps &rsaquo; Safari &rsaquo; Extensions &rsaquo; Detour, then turn on <em>Allow Extension</em>. On iOS 17 and earlier the path is Settings &rsaquo; Safari &rsaquo; Extensions.</p>
-<p><strong>Mac:</strong> Safari &rsaquo; Settings… &rsaquo; Extensions, then tick Detour.</p>
-
-<h2>Allow it on Google sites</h2>
-<p>On the same settings page, under Permissions, set google.com and the other Google sites to <em>Allow</em>. Safari also asks the first time you open a Google page; choose <em>Always Allow</em>. Detour cannot work on a site it has not been allowed on.</p>
-
-<h2>Directions still open Google Maps or the App Store</h2>
-<ol>
-  <li>Check the permission above. The Directions button lives on google.com, so google.com must be allowed.</li>
-  <li>Open the Detour app and press <em>Test it</em>. If Apple Maps opens with directions to Apple Park, the extension is working and the problem is the specific link. Please report it (below) with the link.</li>
-  <li>Make sure Safari is the browser you are tapping the link in. Safari extensions do not run in other browsers or in in-app browsers inside other apps.</li>
-</ol>
-
-<h2>A link opened a map instead of directions, or the wrong place</h2>
-<p>Please send the Google link. Google has dozens of link formats; the converter is tested against all the known ones and new ones are added quickly when reported.</p>
-
-<h2>Turning it off temporarily</h2>
-<p>Tap the Detour button in Safari's toolbar (on iPhone, the <em>AA</em> or puzzle-piece menu in the address bar) and switch off <em>Redirect to Apple Maps</em>. Links open normally until you switch it back on.</p>
+<h2>Fix it</h2>
+<details open><summary>Links still open Google's page or the App Store</summary>
+  <p><strong>1. Is the extension on?</strong> iPhone and iPad: Settings › Apps › Safari › Extensions › Remapped › Allow Extension. Mac: Safari › Settings › Extensions, Remapped ticked. The <a href="setup.html">setup guide</a> has pictures.</p>
+  <p><strong>2. Is it allowed on Google?</strong> Same screen, under Permissions. Safari treats google.com, maps.google.com and your country's Google site separately, and "Ask" means the page loads untouched. Set each one to Allow, or choose Always Allow when Safari asks.</p>
+  <p><strong>3. Was it Safari?</strong> Safari extensions only run in Safari. Links opened inside another app's built-in browser, or in Chrome, are not touched. Tapping the link's "Open in Safari" option, or sharing it to Safari, fixes that.</p>
+  <p>Then open the Remapped app and press <strong>Test it</strong>. If Apple Maps opens with directions to Apple Park, the extension is working and the problem is the specific link, so please report it below.</p>
+</details>
+<details><summary>Google shows a "get the app" box</summary>
+  <p>That box belongs to Google's web page, which means Remapped did not run on that page load. It dismisses the box for you when it can, but the real fix is the permission check above. If you keep seeing it, copy the address from Safari's address bar and report it.</p>
+</details>
+<details><summary>The wrong place, or a map instead of directions</summary>
+  <p>Google has dozens of link formats and new ones appear. Send the Google link and what you expected; each report becomes a permanent test case and the fix ships in the next update.</p>
+</details>
+<details><summary>I want Google's page this time</summary>
+  <p>Tap the Remapped button in Safari's toolbar and switch it off. On iPhone the button is in the menu at the left of the address bar. Links open normally until you switch it back on; the popup also shows how many links it has redirected so far.</p>
+</details>
+<details><summary>Does it run in the background or drain the battery?</summary>
+  <p>No. It only runs when a Google page is open in Safari, and it does its work in a few milliseconds when you tap a link.</p>
+</details>
+<details><summary>Can I use it on my Mac too?</summary>
+  <p>Yes, with the same purchase. Download it from the Mac App Store with the same Apple ID, then follow the Mac tab of the <a href="setup.html">setup guide</a>.</p>
+</details>
 
 <h2>Report a problem</h2>
-<p>Open an issue at <a href="https://github.com/SteveRyherd/detour/issues">github.com/SteveRyherd/detour/issues</a>. Include the device, the OS version and, if you can, the link that misbehaved. Replace this paragraph with an email address if you prefer email support.</p>
+<p>Open an issue at <a href="https://github.com/SteveRyherd/detour/issues">github.com/SteveRyherd/detour/issues</a>, or email <a href="mailto:support@example.com">support@example.com</a>. Include:</p>
+<ul>
+  <li>Device and OS version (for example iPhone 15, iOS 26.1)</li>
+  <li>Where you tapped the link (Google search, Messages, a website)</li>
+  <li>The link itself, copied from Safari's address bar or the share sheet</li>
+</ul>
+<p class="small">Replace the email address above with your real support address before launch. App Store Connect requires a working support URL, and this page is it.</p>
 
-<footer>Detour collects no data. See the <a href="privacy.html">privacy policy</a>.</footer>
+<h2>Privacy</h2>
+<p>Remapped collects no data. The <a href="privacy.html">privacy policy</a> is five short paragraphs.</p>
 </main>
+
+<footer class="site">
+  <span>Remapped is open source under the MIT licence.</span>
+  <span><a href="setup.html">Setup</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="https://github.com/SteveRyherd/detour">GitHub</a></span>
+</footer>
+</div>
+<script src="site.js"></script>
 </body>
 </html>

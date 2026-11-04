@@ -1,6 +1,6 @@
 {
   "_comment": { "message": "RENAMING: extension_name is the only place the extension's user-facing name lives. Change it here (and in Config/Branding.xcconfig for the app) to rename the product." },
-  "extension_name": { "message": "Detour" },
+  "extension_name": { "message": "Remapped" },
   "extension_description": { "message": "Opens Google Maps links in Apple Maps. Directions included." },
   "popup_enabled_label": { "message": "Redirect to Apple Maps" },
   "popup_status_on": { "message": "On. Google Maps links open in Apple Maps." },
