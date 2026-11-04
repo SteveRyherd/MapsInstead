@@ -15,7 +15,15 @@
 		0D0000000000000000000206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
 		0D0000000000000000000207 /* Detour Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000010F /* Detour Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000211 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
-		0D0000000000000000000212 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000108 /* Resources */; };
+		0D0000000000000000000240 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000114 /* manifest.json */; };
+		0D0000000000000000000241 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000115 /* background.js */; };
+		0D0000000000000000000242 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000116 /* content.js */; };
+		0D0000000000000000000243 /* mapsConverter.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000117 /* mapsConverter.js */; };
+		0D0000000000000000000244 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000118 /* popup.html */; };
+		0D0000000000000000000245 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000119 /* popup.css */; };
+		0D0000000000000000000246 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011A /* popup.js */; };
+		0D0000000000000000000247 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011B /* _locales */; };
+		0D0000000000000000000248 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011C /* images */; };
 		0D0000000000000000000221 /* DetourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000101 /* DetourApp.swift */; };
 		0D0000000000000000000222 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000102 /* ContentView.swift */; };
 		0D0000000000000000000223 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000103 /* OnboardingView.swift */; };
@@ -24,7 +32,15 @@
 		0D0000000000000000000226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
 		0D0000000000000000000227 /* Detour Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000111 /* Detour Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000231 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
-		0D0000000000000000000232 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000108 /* Resources */; };
+		0D0000000000000000000250 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000114 /* manifest.json */; };
+		0D0000000000000000000251 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000115 /* background.js */; };
+		0D0000000000000000000252 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000116 /* content.js */; };
+		0D0000000000000000000253 /* mapsConverter.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000117 /* mapsConverter.js */; };
+		0D0000000000000000000254 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000118 /* popup.html */; };
+		0D0000000000000000000255 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000119 /* popup.css */; };
+		0D0000000000000000000256 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011A /* popup.js */; };
+		0D0000000000000000000257 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011B /* _locales */; };
+		0D0000000000000000000258 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011C /* images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +93,15 @@
 		0D0000000000000000000105 /* ExtensionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStatus.swift; sourceTree = "<group>"; };
 		0D0000000000000000000106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D0000000000000000000107 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		0D0000000000000000000108 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		0D0000000000000000000114 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		0D0000000000000000000115 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		0D0000000000000000000116 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
+		0D0000000000000000000117 /* mapsConverter.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mapsConverter.js; sourceTree = "<group>"; };
+		0D0000000000000000000118 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		0D0000000000000000000119 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		0D000000000000000000011A /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		0D000000000000000000011B /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		0D000000000000000000011C /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		0D0000000000000000000109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D000000000000000000010A /* Detour.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detour.entitlements; sourceTree = "<group>"; };
 		0D000000000000000000010B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +147,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D0000000000000000000108 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0D0000000000000000000114 /* manifest.json */,
+				0D0000000000000000000115 /* background.js */,
+				0D0000000000000000000116 /* content.js */,
+				0D0000000000000000000117 /* mapsConverter.js */,
+				0D0000000000000000000118 /* popup.html */,
+				0D0000000000000000000119 /* popup.css */,
+				0D000000000000000000011A /* popup.js */,
+				0D000000000000000000011B /* _locales */,
+				0D000000000000000000011C /* images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0D0000000000000000000002 = {
 			isa = PBXGroup;
 			children = (
@@ -345,7 +385,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D0000000000000000000212 /* Resources in Resources */,
+				0D0000000000000000000240 /* manifest.json in Resources */,
+				0D0000000000000000000241 /* background.js in Resources */,
+				0D0000000000000000000242 /* content.js in Resources */,
+				0D0000000000000000000243 /* mapsConverter.js in Resources */,
+				0D0000000000000000000244 /* popup.html in Resources */,
+				0D0000000000000000000245 /* popup.css in Resources */,
+				0D0000000000000000000246 /* popup.js in Resources */,
+				0D0000000000000000000247 /* _locales in Resources */,
+				0D0000000000000000000248 /* images in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +409,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D0000000000000000000232 /* Resources in Resources */,
+				0D0000000000000000000250 /* manifest.json in Resources */,
+				0D0000000000000000000251 /* background.js in Resources */,
+				0D0000000000000000000252 /* content.js in Resources */,
+				0D0000000000000000000253 /* mapsConverter.js in Resources */,
+				0D0000000000000000000254 /* popup.html in Resources */,
+				0D0000000000000000000255 /* popup.css in Resources */,
+				0D0000000000000000000256 /* popup.js in Resources */,
+				0D0000000000000000000257 /* _locales in Resources */,
+				0D0000000000000000000258 /* images in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

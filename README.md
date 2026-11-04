@@ -63,6 +63,12 @@ Running on a device for the first time:
 
 Press **Test it** in the app. Apple Maps should open with directions to Apple Park.
 
+Adding a new file to the extension: put it in `Shared (Extension)/Resources`, add it to the
+Resources group in Xcode and tick both extension targets. The files are copied individually to
+the root of the extension bundle. Do not add the folder itself as a folder reference: a
+top-level `Resources` directory inside a flat iOS bundle makes the system look for `Info.plist`
+in the wrong place and the extension fails to load.
+
 Tip for iterating on the JavaScript: after editing files under `Shared (Extension)/Resources`,
 build and run again. Safari picks up the new copy; on Mac you can also inspect the background page
 from Safari › Develop › Web Extension Background Content.
