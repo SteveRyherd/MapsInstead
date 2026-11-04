@@ -254,6 +254,16 @@
       return cont ? unwrap(cont, depth + 1) : null;
     }
 
+    // App-link style short links carry the destination in ?link= and an App Store
+    // fallback in ?ifl=. Read the destination directly; never follow the fallback.
+    if (isShortHost(url)) {
+      var link = url.searchParams.get("link");
+      if (link) {
+        var inner = unwrap(link, depth + 1);
+        if (inner) return inner;
+      }
+    }
+
     return url;
   }
 

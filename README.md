@@ -98,8 +98,10 @@ also checks that `manifest.json` keeps `host_permissions` and the content script
    before Google's "open in app" interstitial can run.
 3. **Short links.** `maps.app.goo.gl`, `goo.gl/maps` and `g.page` are resolved in `background.js`
    with a `fetch` that follows redirects. This is the only network request the extension makes.
-   `webNavigation.onBeforeNavigate` handles short links the user opens directly; clicks are
-   resolved on demand.
+   Short links of the form `maps.app.goo.gl/?link=...&ifl=...` carry the destination in the
+   `link` parameter and an App Store fallback in `ifl`; the converter reads `link` directly and
+   never follows the fallback. `webNavigation.onBeforeNavigate` redirects any Google Maps or
+   short-link navigation before the page starts loading; clicks are resolved on demand.
 4. **Fallback.** A Google Maps link that cannot be parsed still opens Apple Maps, searching for the
    link text or a nearby heading when one exists, so the user is never left on an interstitial.
 

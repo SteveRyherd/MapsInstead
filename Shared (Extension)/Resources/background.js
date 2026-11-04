@@ -104,23 +104,32 @@ function convertShortLink(url, fallbackText) {
   }).catch(function () { return null; });
 }
 
-// Fast path for short links typed, shared or tapped from other apps: redirect the tab
-// before the page has even loaded. The content script still covers the final page.
+// Redirect the tab before the page even starts loading. This beats both Google's
+// "open in app" interstitials and short links that bounce to the App Store. The
+// content script remains as a backup for navigations this event does not see.
 if (browserAPI.webNavigation && browserAPI.webNavigation.onBeforeNavigate) {
   browserAPI.webNavigation.onBeforeNavigate.addListener(function (details) {
     if (details.frameId !== 0 || details.tabId < 0) return;
     var url = details.url;
-    if (!DetourMaps.isShortLink(url)) return;
+    var cls = DetourMaps.classify(url);
+    if (cls !== "maps" && cls !== "short") return;
     isEnabled().then(function (enabled) {
       if (!enabled || wasHandled(details.tabId, url)) return;
-      return convertShortLink(url).then(function (appleURL) {
+      var conversion;
+      if (cls === "maps") {
+        var result = DetourMaps.convert(url);
+        conversion = Promise.resolve(result ? result.url : null);
+      } else {
+        conversion = convertShortLink(url);
+      }
+      return conversion.then(function (appleURL) {
         if (!appleURL || wasHandled(details.tabId, url)) return;
         markHandled(details.tabId, url);
         markHandled(details.tabId, appleURL);
         return browserAPI.tabs.update(details.tabId, { url: appleURL }).then(incrementCount);
       });
     }).catch(function () {});
-  }, { url: [{ hostEquals: "maps.app.goo.gl" }, { hostEquals: "goo.gl" }, { hostEquals: "g.page" }] });
+  });
 }
 
 browserAPI.runtime.onMessage.addListener(function (message, sender, sendResponse) {
@@ -132,11 +141,14 @@ browserAPI.runtime.onMessage.addListener(function (message, sender, sendResponse
     case "pageLoad": {
       isEnabled().then(function (enabled) {
         if (!enabled) return { handled: false };
-        if (wasHandled(tabId, message.url)) return { handled: false, reason: "duplicate" };
         var result = DetourMaps.convert(message.url, { fallbackText: message.fallbackText });
         if (!result) return { handled: false };
-        markHandled(tabId, message.url);
-        incrementCount();
+        // If webNavigation already redirected this tab, still answer with the URL so the
+        // content script can finish the job if that redirect did not take; just do not count twice.
+        if (!wasHandled(tabId, message.url)) {
+          markHandled(tabId, message.url);
+          incrementCount();
+        }
         return { handled: true, url: result.url, kind: result.kind };
       }).then(sendResponse, function () { sendResponse({ handled: false }); });
       return true;

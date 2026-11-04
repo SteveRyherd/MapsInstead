@@ -323,6 +323,25 @@ test("wrapper: consent.google.com/m?continue= unwraps", () => {
   assert.equal(r.p.q, "Brandenburg Gate");
 });
 
+test("app-link short URL: destination read from link=, App Store fallback in ifl= ignored", () => {
+  const u = "https://maps.app.goo.gl/?utm_campaign=ml-le-16204870&pcampaignid=ml-le-16204870&apn=com.google.android.apps.maps&amv=965100030&link=https%3A%2F%2Fwww.google.com%2Fmaps%2Fdir%2F%2F4177%2BGorman%2BAve%2C%2BEnglewood%2C%2BOH%2B45322%2F%4039.8506829%2C-84.2962419%2C15z%2Fdata%3D!4m5!4m4!1m0!1m2!1m1!1s0x883f80721db8837b%3A0x588b10a9e5ff3165%3Fentry%3Dml%26utm_campaign%3Dml-le-16204870%26coh%3D230964&isi=585027354&ibi=com.google.Maps&ius=comgooglemapsurl&pt=9008&mt=8&ct=ml-le-16204870&ifl=https%3A%2F%2Fapps.apple.com%2Fapp%2Fid585027354%3Fct%3Dml-le-16204870%26pt%3D9008%26mt%3D8%26ppid%3Da2beb448-b2c7-4ed7-ae8b-78fdcf9f33a8&efr=1";
+  assert.equal(Maps.classify(u), "maps", "no network needed: the destination is in the URL");
+  const r = conv(u);
+  assert.equal(r.kind, "directions");
+  assert.equal(r.p.daddr, "4177 Gorman Ave, Englewood, OH 45322");
+  assert.equal(r.p.saddr, undefined);
+});
+
+test("app-link short URL with a place destination", () => {
+  const r = conv("https://maps.app.goo.gl/?link=https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2FEiffel%2BTower%2F%4048.858%2C2.294%2C17z%2Fdata%3D!8m2!3d48.8583701!4d2.2944813&apn=com.google.android.apps.maps&ifl=https%3A%2F%2Fapps.apple.com%2Fapp%2Fid585027354");
+  assert.equal(r.p.q, "Eiffel Tower");
+  assert.equal(r.p.ll, "48.8583701,2.2944813");
+});
+
+test("short URL without link= still needs resolving", () => {
+  assert.equal(Maps.classify("https://maps.app.goo.gl/XZ3nnTjxQPbfeqM57?g_st=ic"), "short");
+});
+
 test("relative links on google.com are handled", () => {
   const r = conv("/maps/dir//Apple+Park,+Cupertino,+CA/data=!4m2!4m1!3e0");
   assert.equal(r.p.daddr, "Apple Park, Cupertino, CA");
