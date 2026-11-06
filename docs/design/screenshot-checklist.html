@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screenshot Checklist</title>
+<style>
+  @page { size: letter; margin: 0.6in; }
+  body { font: 11.5pt/1.4 -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #111; margin: 0; padding: 24px; max-width: 8.5in; }
+  h1 { font-size: 20pt; margin: 0 0 2px; }
+  .sub { color: #555; margin: 0 0 14px; }
+  h2 { font-size: 13pt; margin: 18px 0 6px; padding-bottom: 3px; border-bottom: 2px solid #111; }
+  table { width: 100%; border-collapse: collapse; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  th, td { text-align: left; vertical-align: top; padding: 5px 6px; border-bottom: 1px solid #ccc; }
+  th { font-size: 9.5pt; text-transform: uppercase; letter-spacing: .04em; color: #555; border-bottom: 1px solid #111; }
+  td.box { width: 18px; }
+  td.box::before { content: ""; display: inline-block; width: 12px; height: 12px; border: 1.5px solid #111; border-radius: 2px; vertical-align: -2px; }
+  code { font: 9.5pt ui-monospace, Menlo, monospace; background: #f1f1f1; padding: 1px 4px; border-radius: 3px; white-space: nowrap; }
+  .tips { background: #f6f6f6; border-radius: 8px; padding: 10px 14px; margin: 10px 0 0; }
+  .tips li { margin: 3px 0; }
+  .pb { page-break-before: always; }
+  @media print { body { padding: 0; } .noprint { display: none; } }
+  .noprint { color: #555; font-size: 10pt; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<p class="noprint">Press Command-P to print this page.</p>
+<h1>Maps Instead: screenshot checklist</h1>
+<p class="sub">Part A feeds the website (exact file names matter). Part B is for the App Store listing. Part C is the App Preview video.</p>
+
+<h2>Before you start</h2>
+<ul class="tips">
+  <li>Light mode on every device. Portrait on iPhone and iPad.</li>
+  <li>Make sure the extension is <strong>on</strong> and allowed on Google sites before the "working" shots, and <strong>off</strong> for the Settings shots where you want the switch visibly being turned on.</li>
+  <li>iPhone screenshot: Side button + Volume Up. Mac window: Shift-Command-4, then Space, click the window. Mac full screen recording: Shift-Command-5.</li>
+  <li>Annotate afterwards in Preview: Tools › Annotate › Rectangle, red, border 4. One red rounded box around the thing to tap.</li>
+  <li>AirDrop phone shots to the Mac, rename to the file names below, put them in <code>docs/images/</code>.</li>
+</ul>
+
+<h2>Part A: website pictures (14)</h2>
+<table>
+  <tr><th></th><th>File name</th><th>Device</th><th>What is on screen</th><th>Red box around</th></tr>
+  <tr><td class="box"></td><td><code>ios-settings-apps.png</code></td><td>iPhone</td><td>Settings main list, scrolled to show Apps</td><td>Apps</td></tr>
+  <tr><td class="box"></td><td><code>ios-settings-safari.png</code></td><td>iPhone</td><td>Settings › Apps › Safari, scrolled so Extensions is visible</td><td>Extensions</td></tr>
+  <tr><td class="box"></td><td><code>ios-settings-extensions.png</code></td><td>iPhone</td><td>The Extensions list</td><td>Maps Instead</td></tr>
+  <tr><td class="box"></td><td><code>ios-settings-remapped.png</code></td><td>iPhone</td><td>Maps Instead's page: Allow Extension on, Permissions list with Google sites set to Allow (name is historical; keep it)</td><td>Allow Extension switch</td></tr>
+  <tr><td class="box"></td><td><code>ios-safari-prompt.png</code></td><td>iPhone</td><td>Safari's "Maps Instead would like to access google.com" prompt. To trigger it, set google.com back to Ask in Settings, then open google.com</td><td>Always Allow</td></tr>
+  <tr><td class="box"></td><td><code>ios-test.png</code></td><td>iPhone</td><td>Apple Maps showing directions to Apple Park, right after pressing Test it</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>mac-safari-settings.png</code></td><td>Mac</td><td>Safari › Settings › Extensions with Maps Instead ticked</td><td>the tick box</td></tr>
+  <tr><td class="box"></td><td><code>mac-permissions.png</code></td><td>Mac</td><td>Same window, the Edit Websites… sheet or the Always Allow on Every Website button</td><td>Always Allow on Every Website</td></tr>
+  <tr><td class="box"></td><td><code>mac-test.png</code></td><td>Mac</td><td>Maps app showing directions to Apple Park</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>app-main.png</code></td><td>Mac (or iPhone)</td><td>Maps Instead app main screen, status card showing On</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>popup.png</code></td><td>Mac (or iPhone)</td><td>Safari toolbar popup: toggle on, redirect count above zero</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>hero.jpg</code></td><td>iPhone</td><td>Apple Maps with a route drawn, arrived from a Google link. Used if there is no video</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>hero.mp4</code></td><td>iPhone</td><td>Screen recording, 15 to 30 s: Google result › tap Directions › Apple Maps opens. Same cut as Part C</td><td>none</td></tr>
+  <tr><td class="box"></td><td><code>hero-poster.jpg</code></td><td>iPhone</td><td>Optional. The Apple Maps frame from the video, used as the video's poster</td><td>none</td></tr>
+</table>
+
+<h2 class="pb">Part B: App Store screenshots</h2>
+<p class="sub">Take each shot on an iPhone 16 or 17 Pro Max (6.9"), a 13" iPad Pro, and the Mac. No annotations; captions are added later in a design tool or left off.</p>
+<table>
+  <tr><th></th><th>#</th><th>What is on screen</th><th>Caption to pair with it</th></tr>
+  <tr><td class="box"></td><td>1</td><td>Apple Maps with directions drawn, arrived from a Google link</td><td>Directions actually work</td></tr>
+  <tr><td class="box"></td><td>2</td><td>Google search result card in Safari with the Directions button visible</td><td>Tap Directions in Safari</td></tr>
+  <tr><td class="box"></td><td>3</td><td>Messages thread containing a Google Maps short link</td><td>Shared links open in Apple Maps</td></tr>
+  <tr><td class="box"></td><td>4</td><td>Maps Instead app main screen, status On</td><td>Set up in a minute</td></tr>
+  <tr><td class="box"></td><td>5</td><td>Safari popup with the toggle and a count</td><td>Pause any time</td></tr>
+  <tr><td class="box"></td><td>6</td><td>(graphic, no capture) iPhone, iPad and Mac side by side</td><td>Buy once. All three.</td></tr>
+  <tr><td class="box"></td><td>7</td><td>(graphic, no capture) lock icon, "No tracking, no data, open source"</td><td>Privacy you can check</td></tr>
+  <tr><td class="box"></td><td>8</td><td>Mac only: Safari Extensions settings with Maps Instead ticked</td><td>Lives in Safari</td></tr>
+</table>
+<p class="sub">Required sizes: iPhone 6.9" 1320 × 2868, iPad 13" 2064 × 2752, Mac 2880 × 1800 (16:10). Simulator screenshots are fine for iPhone and iPad shots 2, 4 and 5.</p>
+
+<h2>Part C: App Preview video (iPhone, 22 seconds)</h2>
+<table>
+  <tr><th></th><th>Time</th><th>On screen</th><th>Overlay caption (optional)</th></tr>
+  <tr><td class="box"></td><td>0 to 3 s</td><td>Safari, Google search for a restaurant, local card visible</td><td>A Google result</td></tr>
+  <tr><td class="box"></td><td>3 to 6 s</td><td>Tap Directions on the card</td><td>Tap Directions</td></tr>
+  <tr><td class="box"></td><td>6 to 10 s</td><td>Apple Maps opens with the route drawn</td><td>Apple Maps. Every time.</td></tr>
+  <tr><td class="box"></td><td>10 to 14 s</td><td>Messages, a shared maps.app.goo.gl link, tap it</td><td>Shared links too</td></tr>
+  <tr><td class="box"></td><td>14 to 18 s</td><td>Apple Maps opens on the place</td><td>No app store detour</td></tr>
+  <tr><td class="box"></td><td>18 to 22 s</td><td>Maps Instead app main screen, status On</td><td>Set up in a minute</td></tr>
+</table>
+<ul class="tips">
+  <li>Record with the iPhone's built-in screen recorder (Control Centre), trim in Photos or QuickTime, export at native size.</li>
+  <li>No hands, no device frame, portrait. Set the poster frame to the Apple Maps directions frame.</li>
+  <li>Repeat on the Mac in landscape for the macOS preview, ending on Safari's Extensions settings.</li>
+</ul>
+</body>
+</html>
