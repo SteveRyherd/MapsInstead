@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0D0000000000000000000301"
-               BuildableName = "Remapped.app"
-               BlueprintName = "Remapped (iOS)"
-               ReferencedContainer = "container:Remapped.xcodeproj">
+               BlueprintIdentifier = "0D0000000000000000000303"
+               BuildableName = "Maps Instead.app"
+               BlueprintName = "Maps Instead (macOS)"
+               ReferencedContainer = "container:MapsInstead.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,10 +43,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0D0000000000000000000301"
-            BuildableName = "Remapped.app"
-            BlueprintName = "Remapped (iOS)"
-            ReferencedContainer = "container:Remapped.xcodeproj">
+            BlueprintIdentifier = "0D0000000000000000000303"
+            BuildableName = "Maps Instead.app"
+            BlueprintName = "Maps Instead (macOS)"
+            ReferencedContainer = "container:MapsInstead.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -60,10 +60,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0D0000000000000000000301"
-            BuildableName = "Remapped.app"
-            BlueprintName = "Remapped (iOS)"
-            ReferencedContainer = "container:Remapped.xcodeproj">
+            BlueprintIdentifier = "0D0000000000000000000303"
+            BuildableName = "Maps Instead.app"
+            BlueprintName = "Maps Instead (macOS)"
+            ReferencedContainer = "container:MapsInstead.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

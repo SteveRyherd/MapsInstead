@@ -30,12 +30,12 @@
     function select(name) {
       tabs.forEach(function (b) { b.setAttribute("aria-selected", b.dataset.platform === name ? "true" : "false"); });
       document.querySelectorAll("[data-platform-panel]").forEach(function (p) { p.hidden = p.dataset.platformPanel !== name; });
-      try { localStorage.setItem("remapped-platform", name); } catch (e) {}
+      try { localStorage.setItem("mapsinstead-platform", name); } catch (e) {}
     }
     tabs.forEach(function (b) { b.addEventListener("click", function () { select(b.dataset.platform); }); });
     var initial = "ios";
-    try { initial = localStorage.getItem("remapped-platform") || initial; } catch (e) {}
-    if (/Macintosh/.test(navigator.userAgent) && !("ontouchend" in document)) initial = localStorage.getItem("remapped-platform") || "mac";
+    try { initial = localStorage.getItem("mapsinstead-platform") || initial; } catch (e) {}
+    if (/Macintosh/.test(navigator.userAgent) && !("ontouchend" in document)) initial = localStorage.getItem("mapsinstead-platform") || "mac";
     select(initial);
   }
 })();

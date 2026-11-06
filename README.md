@@ -1,9 +1,9 @@
-# Remapped
+# Maps Instead
 
 **Google Maps links open in Apple Maps. Directions included.**
 
-Remapped is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
-Safari, Remapped converts it on your device and opens Apple Maps instead of the Google Maps app or the
+Maps Instead is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
+Safari, Maps Instead converts it on your device and opens Apple Maps instead of the Google Maps app or the
 App Store. It handles places, searches, coordinates, shared short links and, above all, directions,
 including the "Directions" buttons in Google search results.
 
@@ -20,7 +20,7 @@ settings and in the `DetourMaps` JavaScript object. Users never see it.
 ## Repository layout
 
 ```
-Remapped.xcodeproj/          Xcode project with four targets and two shared schemes
+MapsInstead.xcodeproj/          Xcode project with four targets and two shared schemes
 Config/Branding.xcconfig     Product name, bundle IDs, URLs, version. The one place to rename.
 Shared (App)/                SwiftUI container app (onboarding, status, Test it button)
 Shared (Extension)/
@@ -44,7 +44,7 @@ Requirements: Xcode 15 or later, a paid Apple Developer account, Node 18 or late
 ```
 git clone https://github.com/SteveRyherd/detour.git
 cd detour
-open Remapped.xcodeproj
+open MapsInstead.xcodeproj
 ```
 
 Then in Xcode:
@@ -54,14 +54,14 @@ Then in Xcode:
 2. In `Config/Branding.xcconfig`, change `DETOUR_BUNDLE_ID_PREFIX` from `com.example` to your own
    reverse-DNS prefix. iOS and macOS intentionally share the same bundle IDs; that is what makes the
    App Store treat them as one universal purchase.
-3. Pick the **Remapped (iOS)** scheme and a device or simulator, then Run. For the Mac, pick
-   **Remapped (macOS)**.
+3. Pick the **Maps Instead (iOS)** scheme and a device or simulator, then Run. For the Mac, pick
+   **Maps Instead (macOS)**.
 
 Running on a device for the first time:
 
 - iPhone and iPad: after the app launches, go to Settings › Apps › Safari › Extensions (Settings ›
-  Safari › Extensions on iOS 17 and earlier), turn on Remapped, and set Google sites to Allow.
-- Mac: Safari › Settings › Extensions, tick Remapped. During development also enable
+  Safari › Extensions on iOS 17 and earlier), turn on Maps Instead, and set Google sites to Allow.
+- Mac: Safari › Settings › Extensions, tick Maps Instead. During development also enable
   Safari › Settings › Developer › **Allow unsigned extensions** if Safari refuses to list it.
 
 Press **Test it** in the app. Apple Maps should open with directions to Apple Park.
@@ -115,7 +115,7 @@ on every supported OS version and falls back to the Apple Maps web app if needed
 
 ## Renaming the app
 
-The product has been renamed once already (Detour to Remapped), so the path is proven. The
+The product has been renamed twice already (Detour, Remapped, Maps Instead), so the path is proven. The
 name is deliberately kept in two files:
 
 1. `Config/Branding.xcconfig`: set `DETOUR_DISPLAY_NAME` (what users see) and optionally
@@ -130,14 +130,18 @@ rename the Xcode project, targets and schemes if you want them to match (plain t
 name; it reads it from the bundle at runtime (`Shared (App)/Branding.swift`), and all app copy
 lives in that same file.
 
-## Replacing the placeholder icon
+## Updating the icon
 
-The icons in `Shared (App)/Assets.xcassets/AppIcon.appiconset` and
-`Shared (Extension)/Resources/images` are generated placeholders. Drop a 1024 × 1024 PNG (no alpha,
-no rounded corners) in as `ios-1024.png`, then export the macOS sizes (16, 32, 128, 256, 512 at 1x
-and 2x, rounded corners baked in) with the same file names, and re-export the extension icons at
-48, 96, 128, 256 and 512. The toolbar icons (16 to 72 px) should be a black glyph on transparent;
-Safari tints them.
+The icon artwork is `docs/design/icon-source.png`, a square 1024 x 1024 PNG with no rounded
+corners and no transparency. Every size the project needs is cut from it by one script:
+
+```
+python3 docs/design/make-icons.py
+```
+
+That rewrites the iOS and macOS app icon set, the Safari extension icons, the toolbar glyph and
+the website icon. To change the icon, replace the source file and run the script. It needs
+Python 3 with Pillow.
 
 ## Branching and releasing
 

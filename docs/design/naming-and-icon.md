@@ -51,4 +51,10 @@ leaning on "open".
 
 ## Decision
 
-_Pending._
+Name: **Maps Instead**. Chosen 6 November 2026.
+
+Icon: a split tile, a plain red map pin on a light street map on the left, a white arrow
+curving across to a blue navigation arrow on a blue road on the right. Generic pin, generic
+navigation arrow, no four-colour Google pin and no Apple compass, so it stays clear of both
+trademarks. The source image lives at `docs/design/icon-source.png`; everything in the asset
+catalog is cut from it.

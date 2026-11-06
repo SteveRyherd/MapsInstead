@@ -1,6 +1,6 @@
 # Launch plan
 
-Working notes for taking Remapped from "it works on my phone" to a listing that out-sells the
+Working notes for taking Maps Instead from "it works on my phone" to a listing that out-sells the
 incumbents. Everything here is a recommendation; the numbered checklists at the end are the
 actual to-do list.
 
@@ -23,7 +23,7 @@ Takeaways:
 
 ## 2. Positioning
 
-One sentence: **Remapped opens Google Maps links in Apple Maps, and directions actually work.**
+One sentence: **Maps Instead opens Google Maps links in Apple Maps, and directions actually work.**
 
 Three supporting claims, in the order they should appear everywhere (listing, website, onboarding):
 
@@ -58,10 +58,10 @@ Storyboard, 22 seconds:
 | 6 to 10 s | Apple Maps opens with the route drawn | "Apple Maps. Every time." |
 | 10 to 14 s | Back in Messages, a shared maps.app.goo.gl link, tap it | "Shared links too" |
 | 14 to 18 s | Apple Maps opens on the place | "No app store detour" |
-| 18 to 22 s | Remapped app main screen, status card showing On | "Set up in a minute" |
+| 18 to 22 s | Maps Instead app main screen, status card showing On | "Set up in a minute" |
 
 Record the same flow on the Mac for the macOS preview (landscape, 1920 x 1080 or the Mac's
-native size), ending on Safari's Extensions settings with Remapped ticked.
+native size), ending on Safari's Extensions settings with Maps Instead ticked.
 
 Set the preview's poster frame to the Apple Maps directions frame, not the opening Google frame.
 
@@ -74,7 +74,7 @@ Captions short enough to read at thumbnail size. Device frames are optional; Map
 | 1 | Apple Maps with directions drawn, arrived from a Google link | Directions actually work |
 | 2 | Google search result card with the Directions button highlighted | Tap Directions in Safari |
 | 3 | Messages thread with a Google Maps short link, Apple Maps peeking behind | Shared links open in Apple Maps |
-| 4 | Remapped main screen, status On | Set up in a minute |
+| 4 | Maps Instead main screen, status On | Set up in a minute |
 | 5 | Safari popup with the toggle and counter | Pause any time |
 | 6 | Simple graphic: iPhone, iPad, Mac outlines | Buy once. All three. |
 | 7 | Simple graphic: lock, "No tracking, no data, open source" | Privacy you can check |
@@ -100,8 +100,10 @@ Capture guidance:
 
 Metadata and assets:
 
-1. Confirm the name "Remapped" is available when creating the app record. Fallback: "Remapped for Safari".
-2. Replace the placeholder icon if you want final artwork. The current icon is usable.
+1. Confirm the name "Maps Instead" is available when creating the app record. Fallback: "Maps Instead for Safari".
+2. Icon: the current set is cut from the AI mockup (`docs/design/icon-source.png`), which still
+   carries the mockup's bevelled edge. For the final cut, export the icon alone from the generator
+   at 1024 x 1024 with square corners, overwrite that file and run `docs/design/make-icons.py`.
 3. Record the two App Previews (iPhone, Mac) and take the seven screenshots per device class.
 4. Paste `copy.md` into App Store Connect. Set Promotional Text separately; it can change without a build.
 5. Answer the privacy questions: no data collected.

@@ -7,11 +7,11 @@ import Foundation
 
 enum Branding {
     static let productName: String =
-        info("CFBundleDisplayName") ?? info("CFBundleName") ?? "Remapped"
+        info("CFBundleDisplayName") ?? info("CFBundleName") ?? "Maps Instead"
 
     static let extensionBundleIdentifier: String =
         info("DetourExtensionBundleIdentifier")
-        ?? (Bundle.main.bundleIdentifier ?? "com.example.Remapped") + ".Extension"
+        ?? (Bundle.main.bundleIdentifier ?? "com.example.MapsInstead") + ".Extension"
 
     static let supportURL = url("DetourSupportURL", fallback: "https://steveryherd.github.io/detour/support.html")
     static let privacyURL = url("DetourPrivacyURL", fallback: "https://steveryherd.github.io/detour/privacy.html")

@@ -13,7 +13,7 @@
 		0D0000000000000000000204 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
 		0D0000000000000000000205 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
 		0D0000000000000000000206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
-		0D0000000000000000000207 /* Remapped Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000010F /* Remapped Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D0000000000000000000207 /* Maps Instead Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000010F /* Maps Instead Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000211 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
 		0D0000000000000000000221 /* DetourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000101 /* DetourApp.swift */; };
 		0D0000000000000000000222 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000102 /* ContentView.swift */; };
@@ -21,7 +21,7 @@
 		0D0000000000000000000224 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
 		0D0000000000000000000225 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
 		0D0000000000000000000226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
-		0D0000000000000000000227 /* Remapped Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000111 /* Remapped Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D0000000000000000000227 /* Maps Instead Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000111 /* Maps Instead Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000231 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
 		0D0000000000000000000240 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000114 /* manifest.json */; };
 		0D0000000000000000000241 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000115 /* background.js */; };
@@ -49,14 +49,14 @@
 			containerPortal = 0D0000000000000000000001 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0D0000000000000000000302;
-			remoteInfo = "Remapped Extension (iOS)";
+			remoteInfo = "Maps Instead Extension (iOS)";
 		};
 		0D0000000000000000000704 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0D0000000000000000000001 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0D0000000000000000000304;
-			remoteInfo = "Remapped Extension (macOS)";
+			remoteInfo = "Maps Instead Extension (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -67,7 +67,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0D0000000000000000000207 /* Remapped Extension.appex in Embed Foundation Extensions */,
+				0D0000000000000000000207 /* Maps Instead Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,7 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0D0000000000000000000227 /* Remapped Extension.appex in Embed Foundation Extensions */,
+				0D0000000000000000000227 /* Maps Instead Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,10 +98,10 @@
 		0D000000000000000000010B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D000000000000000000010C /* Detour Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Detour Extension.entitlements"; sourceTree = "<group>"; };
 		0D000000000000000000010D /* Branding.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Branding.xcconfig; sourceTree = "<group>"; };
-		0D000000000000000000010E /* Remapped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remapped.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D000000000000000000010F /* Remapped Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Remapped Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D0000000000000000000110 /* Remapped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remapped.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D0000000000000000000111 /* Remapped Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Remapped Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D000000000000000000010E /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps Instead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D000000000000000000010F /* Maps Instead Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Maps Instead Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000110 /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps Instead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000111 /* Maps Instead Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Maps Instead Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0000000000000000000112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0000000000000000000113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0000000000000000000114 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
@@ -164,10 +164,10 @@
 		0D0000000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0D000000000000000000010E /* Remapped.app */,
-				0D000000000000000000010F /* Remapped Extension.appex */,
-				0D0000000000000000000110 /* Remapped.app */,
-				0D0000000000000000000111 /* Remapped Extension.appex */,
+				0D000000000000000000010E /* Maps Instead.app */,
+				0D000000000000000000010F /* Maps Instead Extension.appex */,
+				0D0000000000000000000110 /* Maps Instead.app */,
+				0D0000000000000000000111 /* Maps Instead Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0D0000000000000000000301 /* Remapped (iOS) */ = {
+		0D0000000000000000000301 /* Maps Instead (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Remapped (iOS)" */;
+			buildConfigurationList = 0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Maps Instead (iOS)" */;
 			buildPhases = (
 				0D0000000000000000000401 /* Sources */,
 				0D0000000000000000000403 /* Frameworks */,
@@ -269,14 +269,14 @@
 			dependencies = (
 				0D0000000000000000000701 /* PBXTargetDependency */,
 			);
-			name = "Remapped (iOS)";
-			productName = "Remapped (iOS)";
-			productReference = 0D000000000000000000010E /* Remapped.app */;
+			name = "Maps Instead (iOS)";
+			productName = "Maps Instead (iOS)";
+			productReference = 0D000000000000000000010E /* Maps Instead.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0D0000000000000000000302 /* Remapped Extension (iOS) */ = {
+		0D0000000000000000000302 /* Maps Instead Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Remapped Extension (iOS)" */;
+			buildConfigurationList = 0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Maps Instead Extension (iOS)" */;
 			buildPhases = (
 				0D0000000000000000000411 /* Sources */,
 				0D0000000000000000000413 /* Frameworks */,
@@ -286,14 +286,14 @@
 			);
 			dependencies = (
 			);
-			name = "Remapped Extension (iOS)";
-			productName = "Remapped Extension (iOS)";
-			productReference = 0D000000000000000000010F /* Remapped Extension.appex */;
+			name = "Maps Instead Extension (iOS)";
+			productName = "Maps Instead Extension (iOS)";
+			productReference = 0D000000000000000000010F /* Maps Instead Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		0D0000000000000000000303 /* Remapped (macOS) */ = {
+		0D0000000000000000000303 /* Maps Instead (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Remapped (macOS)" */;
+			buildConfigurationList = 0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Maps Instead (macOS)" */;
 			buildPhases = (
 				0D0000000000000000000421 /* Sources */,
 				0D0000000000000000000423 /* Frameworks */,
@@ -305,14 +305,14 @@
 			dependencies = (
 				0D0000000000000000000703 /* PBXTargetDependency */,
 			);
-			name = "Remapped (macOS)";
-			productName = "Remapped (macOS)";
-			productReference = 0D0000000000000000000110 /* Remapped.app */;
+			name = "Maps Instead (macOS)";
+			productName = "Maps Instead (macOS)";
+			productReference = 0D0000000000000000000110 /* Maps Instead.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0D0000000000000000000304 /* Remapped Extension (macOS) */ = {
+		0D0000000000000000000304 /* Maps Instead Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Remapped Extension (macOS)" */;
+			buildConfigurationList = 0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Maps Instead Extension (macOS)" */;
 			buildPhases = (
 				0D0000000000000000000431 /* Sources */,
 				0D0000000000000000000433 /* Frameworks */,
@@ -322,9 +322,9 @@
 			);
 			dependencies = (
 			);
-			name = "Remapped Extension (macOS)";
-			productName = "Remapped Extension (macOS)";
-			productReference = 0D0000000000000000000111 /* Remapped Extension.appex */;
+			name = "Maps Instead Extension (macOS)";
+			productName = "Maps Instead Extension (macOS)";
+			productReference = 0D0000000000000000000111 /* Maps Instead Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +351,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0D0000000000000000000501 /* Build configuration list for PBXProject "Remapped" */;
+			buildConfigurationList = 0D0000000000000000000501 /* Build configuration list for PBXProject "Maps Instead" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -364,10 +364,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0D0000000000000000000301 /* Remapped (iOS) */,
-				0D0000000000000000000302 /* Remapped Extension (iOS) */,
-				0D0000000000000000000303 /* Remapped (macOS) */,
-				0D0000000000000000000304 /* Remapped Extension (macOS) */,
+				0D0000000000000000000301 /* Maps Instead (iOS) */,
+				0D0000000000000000000302 /* Maps Instead Extension (iOS) */,
+				0D0000000000000000000303 /* Maps Instead (macOS) */,
+				0D0000000000000000000304 /* Maps Instead Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -469,12 +469,12 @@
 /* Begin PBXTargetDependency section */
 		0D0000000000000000000701 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0D0000000000000000000302 /* Remapped Extension (iOS) */;
+			target = 0D0000000000000000000302 /* Maps Instead Extension (iOS) */;
 			targetProxy = 0D0000000000000000000702 /* PBXContainerItemProxy */;
 		};
 		0D0000000000000000000703 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0D0000000000000000000304 /* Remapped Extension (macOS) */;
+			target = 0D0000000000000000000304 /* Maps Instead Extension (macOS) */;
 			targetProxy = 0D0000000000000000000704 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -809,7 +809,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0D0000000000000000000501 /* Build configuration list for PBXProject "Remapped" */ = {
+		0D0000000000000000000501 /* Build configuration list for PBXProject "Maps Instead" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0000000000000000000601 /* Debug */,
@@ -818,7 +818,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Remapped (iOS)" */ = {
+		0D0000000000000000000502 /* Build configuration list for PBXNativeTarget "Maps Instead (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0000000000000000000603 /* Debug */,
@@ -827,7 +827,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Remapped Extension (iOS)" */ = {
+		0D0000000000000000000503 /* Build configuration list for PBXNativeTarget "Maps Instead Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0000000000000000000605 /* Debug */,
@@ -836,7 +836,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Remapped (macOS)" */ = {
+		0D0000000000000000000504 /* Build configuration list for PBXNativeTarget "Maps Instead (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0000000000000000000607 /* Debug */,
@@ -845,7 +845,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Remapped Extension (macOS)" */ = {
+		0D0000000000000000000505 /* Build configuration list for PBXNativeTarget "Maps Instead Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0D0000000000000000000609 /* Debug */,

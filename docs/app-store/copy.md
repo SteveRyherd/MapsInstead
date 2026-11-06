@@ -7,16 +7,17 @@ the description and keywords as a compatibility statement is normal and accepted
 
 ## Name (30 characters max)
 
-Remapped
+Maps Instead
 
-Fallback if taken: Remapped for Safari
+Fallback if taken: Maps Instead for Safari
 
 ## Subtitle (30 characters max)
 
-Google Maps links → Apple Maps
+Google Maps links open in Maps
 
 Alternatives:
 
+- Map Link Converter (the tagline on the logo mockup; fine on the website, weaker for search)
 - Directions that actually work
 - Open map links in Apple Maps
 
@@ -26,7 +27,7 @@ Directions, places, searches and shared short links all open in Apple Maps. One 
 
 ## Description (4000 characters max)
 
-Remapped opens Google Maps links in Apple Maps.
+Maps Instead opens Google Maps links in Apple Maps.
 
 Tap a Google Maps link in Safari and Apple Maps opens instead, with the right place, search or directions already filled in. No Google Maps app needed, no App Store interruption, no copying addresses by hand.
 
@@ -41,13 +42,13 @@ EVERY KIND OF LINK
 • Map thumbnails and local business cards in search results
 • Links Google adds to the page after it loads
 • Google's regional sites (google.co.uk, google.ca, google.de and the rest)
-If a link cannot be understood, Remapped still opens Apple Maps with the best search it can, so you are never stuck.
+If a link cannot be understood, Maps Instead still opens Apple Maps with the best search it can, so you are never stuck.
 
 ONE PURCHASE, THREE DEVICES
 Buy once and use it on iPhone, iPad and Mac.
 
 PRIVACY YOU CAN CHECK
-No analytics. No tracking. No accounts. No data collected. The only network request Remapped ever makes is to resolve a shortened link, and only when you tap one. The complete source code is public on GitHub, so you do not have to take our word for it.
+No analytics. No tracking. No accounts. No data collected. The only network request Maps Instead ever makes is to resolve a shortened link, and only when you tap one. The complete source code is public on GitHub, so you do not have to take our word for it.
 
 FAST
 Links are converted on your device in plain JavaScript. There is no noticeable delay when you tap.
@@ -58,7 +59,7 @@ SETUP
 3. Allow it on Google sites.
 4. Press "Test it" to watch a real directions link open in Apple Maps.
 
-Remapped is an independent project and is not affiliated with Apple or Google. Google Maps is a trademark of Google LLC. Apple Maps is a trademark of Apple Inc.
+Maps Instead is an independent project and is not affiliated with Apple or Google. Google Maps is a trademark of Google LLC. Apple Maps is a trademark of Apple Inc.
 
 ## Keywords (100 characters max, comma separated, no spaces after commas)
 
@@ -102,7 +103,7 @@ already does (Config/Branding.xcconfig). Set the price once; it applies to both.
 
 ## Review notes (App Review Information)
 
-Remapped is a Safari Web Extension. To test:
+Maps Instead is a Safari Web Extension. To test:
 
 1. Install and open the app, then enable the extension in Settings › Apps › Safari › Extensions (iOS) or Safari › Settings › Extensions (macOS) and allow it on google.com.
 2. In Safari, open https://www.google.com/maps/dir//Apple+Park,+Cupertino,+CA (the app's "Test it" button opens this link).

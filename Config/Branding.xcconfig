@@ -15,10 +15,10 @@
 // reverse-DNS prefix before archiving. iOS and macOS deliberately share the same
 // bundle IDs: that is what makes the App Store treat them as one universal purchase.
 
-DETOUR_DISPLAY_NAME = Remapped
-DETOUR_PRODUCT_NAME = Remapped
+DETOUR_DISPLAY_NAME = Maps Instead
+DETOUR_PRODUCT_NAME = Maps Instead
 DETOUR_BUNDLE_ID_PREFIX = com.example
-DETOUR_BUNDLE_ID = $(DETOUR_BUNDLE_ID_PREFIX).Remapped
+DETOUR_BUNDLE_ID = $(DETOUR_BUNDLE_ID_PREFIX).MapsInstead
 DETOUR_EXTENSION_BUNDLE_ID = $(DETOUR_BUNDLE_ID).Extension
 
 // Public pages (GitHub Pages from the docs/ folder). Also referenced in popup.js.
