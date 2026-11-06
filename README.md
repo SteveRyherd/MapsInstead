@@ -132,16 +132,18 @@ lives in that same file.
 
 ## Updating the icon
 
-The icon artwork is `docs/design/icon-source.png`, a square 1024 x 1024 PNG with no rounded
-corners and no transparency. Every size the project needs is cut from it by one script:
+The icon is drawn in code. `docs/design/build-icon.py` renders `docs/design/icon-source.png`
+(a square 1024 x 1024 PNG) from a block of constants and seven named layers, so colours,
+positions and sizes are a one-line edit. Every size the project needs is then cut from that file:
 
 ```
+python3 docs/design/build-icon.py
 python3 docs/design/make-icons.py
 ```
 
-That rewrites the iOS and macOS app icon set, the Safari extension icons, the toolbar glyph and
-the website icon. To change the icon, replace the source file and run the script. It needs
-Python 3 with Pillow.
+The second command rewrites the iOS and macOS app icon set, the Safari extension icons, the toolbar glyph and
+the website icon. To use hand-made artwork instead, overwrite the source file and run only the
+second command. Both need Python 3 with Pillow.
 
 ## Branching and releasing
 

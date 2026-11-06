@@ -101,9 +101,8 @@ Capture guidance:
 Metadata and assets:
 
 1. Confirm the name "Maps Instead" is available when creating the app record. Fallback: "Maps Instead for Safari".
-2. Icon: the current set is cut from the AI mockup (`docs/design/icon-source.png`), which still
-   carries the mockup's bevelled edge. For the final cut, export the icon alone from the generator
-   at 1024 x 1024 with square corners, overwrite that file and run `docs/design/make-icons.py`.
+2. Icon: built layer by layer by `docs/design/build-icon.py`; tweak the constants at the top of
+   that script, run it, then run `docs/design/make-icons.py` to cut every size.
 3. Record the two App Previews (iPhone, Mac) and take the seven screenshots per device class.
 4. Paste `copy.md` into App Store Connect. Set Promotional Text separately; it can change without a build.
 5. Answer the privacy questions: no data collected.
