@@ -2,8 +2,8 @@
 
 **Google Maps links open in Apple Maps. Directions included.**
 
-Maps Instead is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
-Safari, Maps Instead converts it on your device and opens Apple Maps instead of the Google Maps app or the
+**Maps Instead** is a Safari Web Extension for iPhone, iPad and Mac. When you tap a Google Maps link in
+Safari, **Maps Instead** converts it on your device and opens Apple Maps instead of the Google Maps app or the
 App Store. It handles places, searches, coordinates, shared short links and, above all, directions,
 including the "Directions" buttons in Google search results.
 
@@ -118,7 +118,7 @@ on every supported OS version and falls back to the Apple Maps web app if needed
 
 ## Renaming the app
 
-The product has been renamed twice already (Detour, Remapped, Maps Instead), so the path is proven. The
+The product has been renamed twice already (Detour, Remapped, **Maps Instead**), so the path is proven. The
 name is deliberately kept in two files:
 
 1. `Config/Branding.xcconfig`: set `DETOUR_DISPLAY_NAME` (what users see) and optionally

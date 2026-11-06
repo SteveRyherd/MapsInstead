@@ -1,6 +1,6 @@
 # Launch plan
 
-Working notes for taking Maps Instead from "it works on my phone" to a listing that out-sells the
+Working notes for taking **Maps Instead** from "it works on my phone" to a listing that out-sells the
 incumbents. Everything here is a recommendation; the numbered checklists at the end are the
 actual to-do list.
 
@@ -58,10 +58,10 @@ Storyboard, 22 seconds:
 | 6 to 10 s | Apple Maps opens with the route drawn | "Apple Maps. Every time." |
 | 10 to 14 s | Back in Messages, a shared maps.app.goo.gl link, tap it | "Shared links too" |
 | 14 to 18 s | Apple Maps opens on the place | "No app store detour" |
-| 18 to 22 s | Maps Instead app main screen, status card showing On | "Set up in a minute" |
+| 18 to 22 s | **Maps Instead** app main screen, status card showing On | "Set up in a minute" |
 
 Record the same flow on the Mac for the macOS preview (landscape, 1920 x 1080 or the Mac's
-native size), ending on Safari's Extensions settings with Maps Instead ticked.
+native size), ending on Safari's Extensions settings with **Maps Instead** ticked.
 
 Set the preview's poster frame to the Apple Maps directions frame, not the opening Google frame.
 
@@ -74,7 +74,7 @@ Captions short enough to read at thumbnail size. Device frames are optional; Map
 | 1 | Apple Maps with directions drawn, arrived from a Google link | Directions actually work |
 | 2 | Google search result card with the Directions button highlighted | Tap Directions in Safari |
 | 3 | Messages thread with a Google Maps short link, Apple Maps peeking behind | Shared links open in Apple Maps |
-| 4 | Maps Instead main screen, status On | Set up in a minute |
+| 4 | **Maps Instead** main screen, status On | Set up in a minute |
 | 5 | Safari popup with the toggle and counter | Pause any time |
 | 6 | Simple graphic: iPhone, iPad, Mac outlines | Buy once. All three. |
 | 7 | Simple graphic: lock, "No tracking, no data, open source" | Privacy you can check |

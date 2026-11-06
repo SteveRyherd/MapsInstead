@@ -30,7 +30,7 @@ Mac shots: Shift-Command-4, then Space, then click the window, on a Retina displ
 5. **Privacy.** The app's footer or a simple graphic with "No analytics. No tracking. No data collected. Open source."
    Caption: "Privacy you can check."
 6. **Universal purchase.** iPhone, iPad and Mac side by side. Caption: "Buy once. iPhone, iPad and Mac."
-7. (Mac only) **Safari Extensions settings** with Maps Instead enabled, to show where it lives.
+7. (Mac only) **Safari Extensions settings** with **Maps Instead** enabled, to show where it lives.
 
 ## Caption rules of thumb
 

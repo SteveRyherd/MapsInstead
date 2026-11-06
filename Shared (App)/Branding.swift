@@ -77,7 +77,7 @@ enum Copy {
         "Or wait for Safari to ask the first time you open a Google page, then choose Always Allow."
     ]
     #endif
-    static let permissionFootnote = "\(name) only asks for Google domains and Google's short-link domains. It cannot see any other website."
+    static let permissionFootnote = "\"\(name)\" only asks for Google domains and Google's short-link domains. It cannot see any other website."
 
     static let testTitle = "Try it"
     static let testBody = "This opens a real Google Maps directions link in Safari. If the extension is on, Apple Maps opens with directions to Apple Park."
