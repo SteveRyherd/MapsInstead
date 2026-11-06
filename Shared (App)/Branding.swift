@@ -53,14 +53,14 @@ enum Copy {
     static let enableSteps = [
         "Open Safari.",
         "Choose Safari > Settings… and click Extensions.",
-        "Tick \(name) in the list on the left."
+        "Tick \"\(name)\" in the list on the left."
     ]
     static let enableFootnote = "The status card on the main screen updates as soon as Safari reports the extension is on."
     #else
     static let enableSteps = [
         "Open Settings on this device.",
         "Go to Apps > Safari > Extensions. On iOS 17 and earlier it is Settings > Safari > Extensions.",
-        "Tap \(name) and turn on Allow Extension."
+        "Tap \"\(name)\" and turn on Allow Extension."
     ]
     static let enableFootnote = "iOS does not let apps open Safari's extension settings directly, so these are the exact taps."
     #endif
@@ -68,12 +68,12 @@ enum Copy {
     static let permissionTitle = "Allow it on Google sites"
     #if os(macOS)
     static let permissionSteps = [
-        "With \(name) selected in Safari's Extensions settings, click Edit Websites… or Always Allow on Every Website.",
+        "With \"\(name)\" selected in Safari's Extensions settings, click Edit Websites… or Always Allow on Every Website.",
         "Alternatively, the first time you open a Google page Safari shows a prompt. Choose Always Allow."
     ]
     #else
     static let permissionSteps = [
-        "On the \(name) page in Settings, under Permissions, set google.com and the other Google sites to Allow.",
+        "On the \"\(name)\" page in Settings, under Permissions, set google.com and the other Google sites to Allow.",
         "Or wait for Safari to ask the first time you open a Google page, then choose Always Allow."
     ]
     #endif
@@ -92,7 +92,7 @@ enum Copy {
     static let statusEnabled = "On. Google Maps links now open in Apple Maps."
     static let statusDisabled = "Off. Turn it on in Safari's Extensions settings."
     static let statusUnknown = "Checking…"
-    static let statusUnavailable = "Check Settings > Apps > Safari > Extensions to see whether \(name) is on."
+    static let statusUnavailable = "Check Settings > Apps > Safari > Extensions to see whether \"\(name)\" is on."
     static let statusError = "Safari did not report a status. Open Safari once, then come back."
 
     static let openSafariSettings = "Open Safari Extensions Settings"

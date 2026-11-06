@@ -60,8 +60,8 @@ Then in Xcode:
 Running on a device for the first time:
 
 - iPhone and iPad: after the app launches, go to Settings › Apps › Safari › Extensions (Settings ›
-  Safari › Extensions on iOS 17 and earlier), turn on Maps Instead, and set Google sites to Allow.
-- Mac: Safari › Settings › Extensions, tick Maps Instead. During development also enable
+  Safari › Extensions on iOS 17 and earlier), turn on "Maps Instead", and set Google sites to Allow.
+- Mac: Safari › Settings › Extensions, tick "Maps Instead". During development also enable
   Safari › Settings › Developer › **Allow unsigned extensions** if Safari refuses to list it.
 
 Press **Test it** in the app. Apple Maps should open with directions to Apple Park.
