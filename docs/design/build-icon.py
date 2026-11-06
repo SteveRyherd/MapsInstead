@@ -37,25 +37,25 @@ STREET_L = (255, 255, 255)
 
 NIGHT_TOP = (36, 92, 196)
 NIGHT_BOTTOM = (20, 56, 140)
-ROAD_DARK = (18, 44, 104)
-ROAD_EDGE = (72, 128, 232)
+ROAD_DARK = (23, 38, 74)
+ROAD_EDGE = (179, 205, 255)
 DASH = (214, 230, 255)
 PARK_R = (46, 158, 92)
 STREET_R = (70, 130, 228)
 
 PIN_RED = (229, 52, 43)
 PIN_RED_DARK = (178, 28, 24)
-CHEV_BLUE = (111, 177, 255)
+CHEV_BLUE = (0, 157, 255)
 CHEV_BLUE_DARK = (42, 116, 240)
 WHITE = (255, 255, 255)
 
 # Divider: cubic Bezier from top to bottom. x values are fractions of width.
-DIV_TOP, DIV_C1, DIV_C2, DIV_BOTTOM = (0.62, 0.0), (0.58, 0.35), (0.36, 0.65), (0.42, 1.0)
+DIV_TOP, DIV_C1, DIV_C2, DIV_BOTTOM = (0.66, 0.0), (0.62, 0.35), (0.27, 0.65), (0.33, 1.0)
 
-PIN_CENTER, PIN_RADIUS = (0.27, 0.30), 0.115          # head centre, head radius
-ARROW_P0, ARROW_C, ARROW_P1 = (0.23, 0.74), (0.40, 0.54), (0.54, 0.56)   # quadratic Bezier
-ARROW_WIDTH = 0.05
-CHEV_CENTER, CHEV_SIZE, CHEV_ANGLE = (0.76, 0.62), 0.13, 22              # degrees
+PIN_CENTER, PIN_RADIUS = (0.265, 0.272), 0.117
+ARROW_P0, ARROW_C, ARROW_P1 = (0.218, 0.728), (0.342, 0.523), (0.549, 0.53)
+ARROW_WIDTH = 0.073
+CHEV_CENTER, CHEV_SIZE, CHEV_ANGLE = (0.738, 0.711), 0.12, 47
 
 # ---------------------------------------------------------------- helpers
 def P(x, y): return (x * S, y * S)
@@ -153,8 +153,8 @@ for (x0, y0, x1, y1) in [(0.50, 0.30, 1.05, 0.66), (0.62, 0.02, 1.05, 0.30)]:
     stroke(rd, [P(x0, y0), P(x1, y1)], px(0.016), STREET_R + (255,))
 # the wide road, bottom-left to top-right, with soft edges and a dashed centre line
 road_pts = bezier(P(0.44, 1.04), P(0.68, 0.64), P(1.04, 0.36))
-stroke(rd, road_pts, px(0.185), ROAD_EDGE + (255,))
-stroke(rd, road_pts, px(0.155), ROAD_DARK + (255,))
+stroke(rd, road_pts, px(0.27), ROAD_EDGE + (255,))
+stroke(rd, road_pts, px(0.24), ROAD_DARK + (255,))
 # dashes: split the centre line into on/off runs by arc length and stroke each run smoothly
 seg_on, seg_off = px(0.07), px(0.05)
 acc, on, run = 0.0, True, [road_pts[0]]
@@ -195,7 +195,7 @@ stroke(ad, apts, w * 0.45, WHITE + (255,), w_end=w)
 # arrowhead aligned with the curve's end tangent
 ex, ey = apts[-1]; tx, ty = apts[-1][0]-apts[-4][0], apts[-1][1]-apts[-4][1]
 n = math.hypot(tx, ty); tx, ty = tx/n, ty/n; nx, ny = -ty, tx
-L, H = w * 2.3, w * 1.5
+L, H = w * 2.75, w * 1.5
 back = (ex - tx * w * 0.6, ey - ty * w * 0.6)
 ad.polygon([(back[0] + tx*L, back[1] + ty*L), (back[0] + nx*H, back[1] + ny*H), (back[0] - nx*H, back[1] - ny*H)], fill=WHITE + (255,))
 canvas.alpha_composite(shadow_of(arrow, 0.012, 0.008, 0.014, 0.35))
@@ -230,14 +230,14 @@ def chevron_points(c, size, deg, scale=1.0):
     return [rotate((c[0] + x*size*scale, c[1] + y*size*scale), c, deg) for x, y in pts]
 cc = P(*CHEV_CENTER); cs = px(CHEV_SIZE)
 outline = layer(); od = ImageDraw.Draw(outline)
-od.polygon(chevron_points(cc, cs, CHEV_ANGLE, 1.18), fill=WHITE + (255,))
+od.polygon(chevron_points(cc, cs, CHEV_ANGLE, 1.4), fill=WHITE + (255,))
 body = layer(); bd = ImageDraw.Draw(body)
 bd.polygon(chevron_points(cc, cs, CHEV_ANGLE), fill=(0, 0, 255, 255))
 body = vgradient(CHEV_BLUE, CHEV_BLUE_DARK, body.split()[3])
 # facet: darker right half for a folded-paper look
 facet = layer(); fd = ImageDraw.Draw(facet)
 pts = chevron_points(cc, cs, CHEV_ANGLE)
-fd.polygon([pts[0], pts[2], pts[3]], fill=(0, 0, 0, 55))
+fd.polygon([pts[0], pts[2], pts[3]], fill=(0, 0, 0, 89))
 facet.putalpha(ImageChops.multiply(facet.split()[3], body.split()[3]))
 body.alpha_composite(facet)
 canvas.alpha_composite(shadow_of(outline, 0.016, 0.010, 0.018, 0.40))
