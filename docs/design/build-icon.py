@@ -57,7 +57,7 @@ CHEV_CENTER, CHEV_SIZE, CHEV_ANGLE = (0.79, 0.58), 0.13, 22              # degre
 def P(x, y): return (x * S, y * S)
 def px(v): return v * S
 
-def bezier(p0, p1, p2, p3=None, n=64):
+def bezier(p0, p1, p2, p3=None, n=240):
     pts = []
     for i in range(n + 1):
         t = i / n
@@ -87,9 +87,23 @@ def shadow_of(img, blur, dx, dy, alpha=0.35):
     sh = sh.filter(ImageFilter.GaussianBlur(px(blur)))
     out = layer(); out.alpha_composite(sh, (int(px(dx)), int(px(dy)))); return out
 
-def stroke(d, pts, w, fill):
-    d.line(pts, fill=fill, width=int(w), joint="curve")
-    for p in (pts[0], pts[-1]): d.ellipse([p[0]-w/2, p[1]-w/2, p[0]+w/2, p[1]+w/2], fill=fill)
+def stroke(d, pts, w, fill, w_end=None, caps=True):
+    """Smooth wide stroke: one polygon offset from the centre line, so curves have no segment joints.
+    w_end lets the width taper linearly from w at the start to w_end at the end."""
+    if w_end is None: w_end = w
+    n = len(pts) - 1
+    left, right = [], []
+    for i, (x, y) in enumerate(pts):
+        a = pts[max(i - 1, 0)]; b = pts[min(i + 1, n)]
+        tx, ty = b[0] - a[0], b[1] - a[1]
+        L = math.hypot(tx, ty) or 1.0
+        nx, ny = -ty / L, tx / L
+        hw = (w + (w_end - w) * i / n) / 2
+        left.append((x + nx * hw, y + ny * hw)); right.append((x - nx * hw, y - ny * hw))
+    d.polygon(left + right[::-1], fill=fill)
+    if caps:
+        for p, hw in ((pts[0], w / 2), (pts[-1], w_end / 2)):
+            d.ellipse([p[0]-hw, p[1]-hw, p[0]+hw, p[1]+hw], fill=fill)
 
 def rotate(pt, c, deg):
     a = math.radians(deg); x, y = pt[0]-c[0], pt[1]-c[1]
@@ -130,25 +144,27 @@ for (cx, cy, w, h, deg) in [(0.90, 0.12, 0.22, 0.16, 30), (0.60, 0.92, 0.20, 0.1
 rd = ImageDraw.Draw(night)
 # thin streets
 for off in (-0.30, 0.30):
-    stroke(rd, bezier(P(0.44 + off, 1.04), P(0.68 + off, 0.64), P(1.04 + off, 0.36), n=32), px(0.016), STREET_R + (255,))
+    stroke(rd, bezier(P(0.44 + off, 1.04), P(0.68 + off, 0.64), P(1.04 + off, 0.36)), px(0.016), STREET_R + (255,))
 for (x0, y0, x1, y1) in [(0.50, 0.30, 1.05, 0.66), (0.62, 0.02, 1.05, 0.30)]:
     stroke(rd, [P(x0, y0), P(x1, y1)], px(0.016), STREET_R + (255,))
 # the wide road, bottom-left to top-right, with soft edges and a dashed centre line
-road_pts = bezier(P(0.44, 1.04), P(0.68, 0.64), P(1.04, 0.36), n=48)
+road_pts = bezier(P(0.44, 1.04), P(0.68, 0.64), P(1.04, 0.36))
 stroke(rd, road_pts, px(0.185), ROAD_EDGE + (255,))
 stroke(rd, road_pts, px(0.155), ROAD_DARK + (255,))
-# dashes: walk the curve and draw short segments
-total = 0.0; seg_on = px(0.07); seg_off = px(0.05); on = True; start = road_pts[0]; acc = 0.0
+# dashes: split the centre line into on/off runs by arc length and stroke each run smoothly
+seg_on, seg_off = px(0.07), px(0.05)
+acc, on, run = 0.0, True, [road_pts[0]]
 for i in range(1, len(road_pts)):
     a, b = road_pts[i-1], road_pts[i]
-    d = math.dist(a, b)
-    if on: rd.line([a, b], fill=DASH + (255,), width=int(px(0.014)))
-    acc += d
-    if on and acc >= seg_on: on = False; acc = 0
-    elif not on and acc >= seg_off: on = True; acc = 0
+    acc += math.dist(a, b); run.append(b)
+    if on and acc >= seg_on:
+        stroke(rd, run, px(0.014), DASH + (255,), caps=False); on, acc, run = False, 0.0, [b]
+    elif not on and acc >= seg_off:
+        on, acc, run = True, 0.0, [b]
+if on and len(run) > 1: stroke(rd, run, px(0.014), DASH + (255,), caps=False)
 
 # mask the night panel to the right of the divider curve
-div = bezier(P(*DIV_TOP), P(*DIV_C1), P(*DIV_C2), P(*DIV_BOTTOM), n=96)
+div = bezier(P(*DIV_TOP), P(*DIV_C1), P(*DIV_C2), P(*DIV_BOTTOM))
 mask = Image.new("L", (S, S), 0)
 ImageDraw.Draw(mask).polygon(div + [(S, S), (S, 0)], fill=255)
 night.putalpha(mask)
@@ -168,14 +184,10 @@ canvas.alpha_composite(edge_sh)
 
 # ---------------------------------------------------------------- 4. arrow
 arrow = layer(); ad = ImageDraw.Draw(arrow)
-apts = bezier(P(*ARROW_P0), P(*ARROW_C), P(*ARROW_P1), n=64)
+apts = bezier(P(*ARROW_P0), P(*ARROW_C), P(*ARROW_P1))
 w = px(ARROW_WIDTH)
-# taper: thin at the tail, full at the head
-for i in range(1, len(apts)):
-    t = i / (len(apts) - 1)
-    ww = w * (0.45 + 0.55 * t)
-    ad.line([apts[i-1], apts[i]], fill=WHITE + (255,), width=int(ww))
-    ad.ellipse([apts[i][0]-ww/2, apts[i][1]-ww/2, apts[i][0]+ww/2, apts[i][1]+ww/2], fill=WHITE + (255,))
+# taper: thin at the tail, full at the head, as one smooth polygon
+stroke(ad, apts, w * 0.45, WHITE + (255,), w_end=w)
 # arrowhead aligned with the curve's end tangent
 ex, ey = apts[-1]; tx, ty = apts[-1][0]-apts[-4][0], apts[-1][1]-apts[-4][1]
 n = math.hypot(tx, ty); tx, ty = tx/n, ty/n; nx, ny = -ty, tx
