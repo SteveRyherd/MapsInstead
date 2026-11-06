@@ -98,9 +98,9 @@
 		0D000000000000000000010B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D000000000000000000010C /* Detour Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Detour Extension.entitlements"; sourceTree = "<group>"; };
 		0D000000000000000000010D /* Branding.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Branding.xcconfig; sourceTree = "<group>"; };
-		0D000000000000000000010E /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps Instead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D000000000000000000010E /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maps Instead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D000000000000000000010F /* Maps Instead Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Maps Instead Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D0000000000000000000110 /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps Instead.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D0000000000000000000110 /* Maps Instead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maps Instead.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0000000000000000000111 /* Maps Instead Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Maps Instead Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0000000000000000000112 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0000000000000000000113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
