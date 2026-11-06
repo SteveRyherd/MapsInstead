@@ -49,9 +49,9 @@ WHITE = (255, 255, 255)
 DIV_TOP, DIV_C1, DIV_C2, DIV_BOTTOM = (0.62, 0.0), (0.58, 0.35), (0.36, 0.65), (0.42, 1.0)
 
 PIN_CENTER, PIN_RADIUS = (0.27, 0.30), 0.115          # head centre, head radius
-ARROW_P0, ARROW_C, ARROW_P1 = (0.23, 0.74), (0.40, 0.54), (0.55, 0.56)   # quadratic Bezier
+ARROW_P0, ARROW_C, ARROW_P1 = (0.23, 0.74), (0.40, 0.54), (0.54, 0.56)   # quadratic Bezier
 ARROW_WIDTH = 0.05
-CHEV_CENTER, CHEV_SIZE, CHEV_ANGLE = (0.79, 0.58), 0.13, 22              # degrees
+CHEV_CENTER, CHEV_SIZE, CHEV_ANGLE = (0.76, 0.62), 0.13, 22              # degrees
 
 # ---------------------------------------------------------------- helpers
 def P(x, y): return (x * S, y * S)
