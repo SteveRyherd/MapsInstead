@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+
+jobs:
+  converter:
+    name: URL converter tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run tests
+        run: node tests/mapsConverter.test.js
+      - name: Syntax-check extension scripts
+        run: |
+          node --check "Shared (Extension)/Resources/background.js"
+          node --check "Shared (Extension)/Resources/content.js"
+          node --check "Shared (Extension)/Resources/popup.js"
+      - name: Validate manifest and locale JSON
+        run: |
+          node -e 'JSON.parse(require("fs").readFileSync("Shared (Extension)/Resources/manifest.json","utf8"))'
+          node -e 'JSON.parse(require("fs").readFileSync("Shared (Extension)/Resources/_locales/en/messages.json","utf8"))'

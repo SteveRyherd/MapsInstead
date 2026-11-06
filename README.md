@@ -84,6 +84,9 @@ The converter has no dependencies and the tests use Node's built-in `assert`:
 node tests/mapsConverter.test.js
 ```
 
+The same suite runs on GitHub Actions for every push to `main` and `development`, along with a
+syntax check of the extension scripts.
+
 The suite covers every URL format the extension understands, with extra weight on directions, and
 also checks that `manifest.json` keeps `host_permissions` and the content script `matches` in sync.
 
