@@ -1,6 +1,10 @@
 """
 Build docs/design/icon-source.png layer by layer, no external artwork.
 
+Prefer docs/design/icon-studio.html for design work: it is the same drawing with draggable
+handles and colour pickers, and its Export button writes icon-source.png directly. This script is
+the command-line equivalent; keep the two sets of defaults in step when you change one.
+
     python3 docs/design/build-icon.py          # writes icon-source.png
     python3 docs/design/make-icons.py          # cuts every size from it
 
@@ -41,8 +45,8 @@ STREET_R = (70, 130, 228)
 
 PIN_RED = (229, 52, 43)
 PIN_RED_DARK = (178, 28, 24)
-CHEV_BLUE = (52, 128, 250)
-CHEV_BLUE_DARK = (23, 86, 214)
+CHEV_BLUE = (111, 177, 255)
+CHEV_BLUE_DARK = (42, 116, 240)
 WHITE = (255, 255, 255)
 
 # Divider: cubic Bezier from top to bottom. x values are fractions of width.

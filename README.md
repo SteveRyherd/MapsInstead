@@ -135,18 +135,23 @@ lives in that same file.
 
 ## Updating the icon
 
-The icon is drawn in code. `docs/design/build-icon.py` renders `docs/design/icon-source.png`
-(a square 1024 x 1024 PNG) from a block of constants and seven named layers, so colours,
-positions and sizes are a one-line edit. Every size the project needs is then cut from that file:
+Open `docs/design/icon-studio.html` in Safari (double-click it; no server needed). It draws the
+icon live on a canvas with draggable handles for the pin, the chevron and the arrow, sliders for
+sizes and angles, a colour picker for every colour, and previews at home-screen, Settings,
+Spotlight and Safari sizes. Settings persist in the browser; Copy settings gives you the JSON to
+keep or share.
+
+When it looks right, press **Export icon-source.png**, save the download over
+`docs/design/icon-source.png`, and cut every size:
 
 ```
-python3 docs/design/build-icon.py
 python3 docs/design/make-icons.py
 ```
 
-The second command rewrites the iOS and macOS app icon set, the Safari extension icons, the toolbar glyph and
-the website icon. To use hand-made artwork instead, overwrite the source file and run only the
-second command. Both need Python 3 with Pillow.
+That rewrites the iOS and macOS app icon set, the Safari extension icons, the toolbar glyph and
+the website icon. `docs/design/build-icon.py` is the same drawing as a command-line script for
+anyone without a browser; keep its constants in step with the studio defaults if you change them.
+Both scripts need Python 3 with Pillow.
 
 ## Branching and releasing
 

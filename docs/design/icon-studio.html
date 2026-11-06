@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icon Studio</title>
+<style>
+  :root { color-scheme: light dark; --bg: #f5f5f7; --panel: #fff; --fg: #1d1d1f; --muted: #6e6e73; --line: #e5e5ea; --accent: #2f5ae6; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111114; --panel: #1c1c1e; --fg: #f5f5f7; --muted: #98989d; --line: #2c2c2e; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif; }
+  header { padding: 14px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 16px; margin: 0; }
+  header .hint { color: var(--muted); font-size: 13px; }
+  main { display: grid; grid-template-columns: minmax(320px, 560px) 1fr; gap: 20px; padding: 20px; max-width: 1200px; }
+  @media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+  .stage { position: relative; width: 100%; aspect-ratio: 1; background: #ddd; border-radius: 18px; overflow: hidden; touch-action: none; }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #overlay { cursor: grab; }
+  #overlay.dragging { cursor: grabbing; }
+  .previews { display: flex; gap: 14px; align-items: flex-end; margin-top: 14px; flex-wrap: wrap; }
+  .previews figure { margin: 0; text-align: center; color: var(--muted); font-size: 12px; }
+  .previews canvas { display: block; border-radius: 22%; margin: 0 auto 4px; }
+  .previews .dark { background: #000; padding: 10px; border-radius: 12px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+  .panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin: 18px 0 8px; }
+  .panel h2:first-child { margin-top: 0; }
+  .row { display: grid; grid-template-columns: 150px 1fr 64px; gap: 10px; align-items: center; margin: 6px 0; }
+  .row label { color: var(--fg); }
+  .row input[type=range] { width: 100%; }
+  .row output { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; text-align: right; }
+  .colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 14px; }
+  .colors label { display: flex; align-items: center; gap: 8px; }
+  .colors input[type=color] { width: 36px; height: 28px; border: 1px solid var(--line); border-radius: 6px; padding: 0; background: none; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  button { font: inherit; border: 1px solid var(--line); background: var(--panel); color: var(--fg); padding: 8px 14px; border-radius: 10px; cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  textarea { width: 100%; min-height: 90px; font: 12px ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 8px; padding: 8px; background: var(--bg); color: var(--fg); }
+  .check { display: flex; gap: 14px; margin: 8px 0; flex-wrap: wrap; }
+  .check label { display: flex; align-items: center; gap: 6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Icon Studio</h1>
+  <span class="hint">Drag the handles on the preview. Pin, chevron, arrow start, arrow bend, arrow end. Changes save in this browser automatically.</span>
+</header>
+<main>
+  <section>
+    <div class="stage">
+      <canvas id="view"></canvas>
+      <canvas id="overlay"></canvas>
+    </div>
+    <div class="previews">
+      <figure><canvas id="p180" width="180" height="180"></canvas>Home screen</figure>
+      <figure><canvas id="p120" width="120" height="120"></canvas>Settings</figure>
+      <figure><canvas id="p60" width="60" height="60"></canvas>Spotlight</figure>
+      <figure><canvas id="p48" width="48" height="48"></canvas>Safari</figure>
+      <figure class="dark"><canvas id="p29" width="29" height="29"></canvas>Tiny</figure>
+    </div>
+    <div class="check">
+      <label><input type="checkbox" id="showHandles" checked> Show handles</label>
+      <label><input type="checkbox" id="showGuides"> Thirds grid</label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Chevron</h2>
+    <div class="row"><label>Size</label><input type="range" id="chevSize" min="0.06" max="0.22" step="0.002"><output></output></div>
+    <div class="row"><label>Angle</label><input type="range" id="chevAngle" min="-90" max="90" step="1"><output></output></div>
+    <div class="row"><label>Outline thickness</label><input type="range" id="chevOutline" min="1.0" max="1.4" step="0.01"><output></output></div>
+    <div class="row"><label>Facet darkness</label><input type="range" id="chevFacet" min="0" max="0.5" step="0.01"><output></output></div>
+    <h2>Arrow</h2>
+    <div class="row"><label>Width</label><input type="range" id="arrowWidth" min="0.02" max="0.09" step="0.001"><output></output></div>
+    <div class="row"><label>Head length</label><input type="range" id="headLen" min="1.5" max="3.5" step="0.05"><output></output></div>
+    <div class="row"><label>Head width</label><input type="range" id="headWidth" min="1.0" max="2.5" step="0.05"><output></output></div>
+    <h2>Pin</h2>
+    <div class="row"><label>Size</label><input type="range" id="pinRadius" min="0.07" max="0.16" step="0.001"><output></output></div>
+    <h2>Scene</h2>
+    <div class="row"><label>Divider top x</label><input type="range" id="divTop" min="0.4" max="0.8" step="0.005"><output></output></div>
+    <div class="row"><label>Divider bottom x</label><input type="range" id="divBottom" min="0.2" max="0.6" step="0.005"><output></output></div>
+    <div class="row"><label>Road width</label><input type="range" id="roadWidth" min="0.08" max="0.24" step="0.002"><output></output></div>
+    <div class="row"><label>Vignette</label><input type="range" id="vignette" min="0" max="0.6" step="0.01"><output></output></div>
+
+    <h2>Colours</h2>
+    <div class="colors">
+      <label><input type="color" id="chevLight"> Chevron light</label>
+      <label><input type="color" id="chevDark"> Chevron dark</label>
+      <label><input type="color" id="chevOutlineColor"> Chevron outline</label>
+      <label><input type="color" id="arrowColor"> Arrow</label>
+      <label><input type="color" id="pinLight"> Pin light</label>
+      <label><input type="color" id="pinDark"> Pin dark</label>
+      <label><input type="color" id="paper"> Paper</label>
+      <label><input type="color" id="block"> Blocks</label>
+      <label><input type="color" id="parkL"> Parks (paper)</label>
+      <label><input type="color" id="yellow"> Yellow roads</label>
+      <label><input type="color" id="nightTop"> Night top</label>
+      <label><input type="color" id="nightBottom"> Night bottom</label>
+      <label><input type="color" id="roadDark"> Road</label>
+      <label><input type="color" id="roadEdge"> Road edge</label>
+      <label><input type="color" id="dash"> Dashes</label>
+      <label><input type="color" id="street"> Streets (night)</label>
+      <label><input type="color" id="parkR"> Parks (night)</label>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="export">Export icon-source.png (1024)</button>
+      <button id="copy">Copy settings</button>
+      <button id="paste">Load settings from box</button>
+      <button id="reset">Reset to defaults</button>
+    </div>
+    <p class="hint" style="margin:8px 0 6px">Save the export over <code>docs/design/icon-source.png</code>, then run <code>python3 docs/design/make-icons.py</code>. Settings box (JSON, also what Copy produces):</p>
+    <textarea id="json" spellcheck="false"></textarea>
+  </section>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // ------------------------------------------------------------------ state
+  const DEFAULTS = {
+    pin: [0.27, 0.30], pinRadius: 0.115,
+    arrowP0: [0.23, 0.74], arrowC: [0.40, 0.54], arrowP1: [0.54, 0.56], arrowWidth: 0.05, headLen: 2.3, headWidth: 1.5,
+    chev: [0.76, 0.62], chevSize: 0.13, chevAngle: 22, chevOutline: 1.18, chevFacet: 0.22,
+    divTop: 0.62, divBottom: 0.42, roadWidth: 0.155, vignette: 0.35,
+    chevLight: "#6fb1ff", chevDark: "#2a74f0", chevOutlineColor: "#ffffff", arrowColor: "#ffffff",
+    pinLight: "#e5342b", pinDark: "#b21c18",
+    paper: "#f4efe5", block: "#e7e2d8", parkL: "#bad68e", yellow: "#f2c84b",
+    nightTop: "#245cc4", nightBottom: "#14388c", roadDark: "#122c68", roadEdge: "#4880e8", dash: "#d6e6ff", street: "#4682e4", parkR: "#2e9e5c"
+  };
+  const STORAGE_KEY = "mapsinstead-icon-studio";
+  let state = load();
+
+  function load() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && typeof saved === "object") return Object.assign(structuredClone(DEFAULTS), saved);
+    } catch (e) {}
+    return structuredClone(DEFAULTS);
+  }
+  function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {} }
+
+  // ------------------------------------------------------------------ helpers
+  function hex2rgb(h) { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+  function rgba(h, a) { const [r, g, b] = hex2rgb(h); return `rgba(${r},${g},${b},${a})`; }
+  function rot(p, c, deg) { const a = deg * Math.PI / 180, x = p[0] - c[0], y = p[1] - c[1]; return [c[0] + x * Math.cos(a) - y * Math.sin(a), c[1] + x * Math.sin(a) + y * Math.cos(a)]; }
+  function quad(p0, c, p1, n) { const out = []; for (let i = 0; i <= n; i++) { const t = i / n, u = 1 - t; out.push([u*u*p0[0] + 2*u*t*c[0] + t*t*p1[0], u*u*p0[1] + 2*u*t*c[1] + t*t*p1[1]]); } return out; }
+  function cubic(p0, c1, c2, p1, n) { const out = []; for (let i = 0; i <= n; i++) { const t = i / n, u = 1 - t; out.push([u*u*u*p0[0] + 3*u*u*t*c1[0] + 3*u*t*t*c2[0] + t*t*t*p1[0], u*u*u*p0[1] + 3*u*u*t*c1[1] + 3*u*t*t*c2[1] + t*t*t*p1[1]]); } return out; }
+
+  // Tapered smooth stroke as a polygon (same construction as build-icon.py).
+  function taperedPath(ctx, pts, w0, w1) {
+    const n = pts.length - 1, L = [], R = [];
+    for (let i = 0; i <= n; i++) {
+      const a = pts[Math.max(i - 1, 0)], b = pts[Math.min(i + 1, n)];
+      let tx = b[0] - a[0], ty = b[1] - a[1]; const len = Math.hypot(tx, ty) || 1; tx /= len; ty /= len;
+      const hw = (w0 + (w1 - w0) * i / n) / 2;
+      L.push([pts[i][0] - ty * hw, pts[i][1] + tx * hw]); R.push([pts[i][0] + ty * hw, pts[i][1] - tx * hw]);
+    }
+    ctx.beginPath(); ctx.moveTo(L[0][0], L[0][1]);
+    for (const p of L.slice(1)) ctx.lineTo(p[0], p[1]);
+    for (const p of R.reverse()) ctx.lineTo(p[0], p[1]);
+    ctx.closePath();
+  }
+
+  function roundRectRot(ctx, cx, cy, w, h, deg, r) {
+    ctx.save(); ctx.translate(cx, cy); ctx.rotate(deg * Math.PI / 180);
+    ctx.beginPath(); ctx.roundRect(-w / 2, -h / 2, w, h, r); ctx.restore();
+  }
+
+  // ------------------------------------------------------------------ renderer
+  // Draws the icon into ctx at `S` pixels square. All geometry is in 0..1 units scaled by S.
+  function render(ctx, S) {
+    const s = state, P = (v) => v * S;
+    ctx.save();
+    ctx.clearRect(0, 0, S, S);
+
+    // 1. paper map
+    ctx.fillStyle = s.paper; ctx.fillRect(0, 0, S, S);
+    const GA = -14, pivot = [P(0.3), P(0.5)];
+    const parks = new Set(["1,0", "3,2", "5,-1"]);
+    for (let row = -2; row < 7; row++) for (let col = -2; col < 6; col++) {
+      const c = rot([P(0.08 + col * 0.21), P(0.02 + row * 0.19)], pivot, GA);
+      roundRectRot(ctx, c[0], c[1], P(0.17), P(0.15), GA, P(0.012));
+      ctx.fillStyle = parks.has(row + "," + col) ? s.parkL : s.block; ctx.fill();
+    }
+    ctx.lineCap = "round"; ctx.strokeStyle = s.yellow;
+    let a0 = rot([P(0), P(0.44)], pivot, GA), a1 = rot([P(0.75), P(0.44)], pivot, GA);
+    ctx.lineWidth = P(0.035); ctx.beginPath(); ctx.moveTo(a0[0], a0[1]); ctx.lineTo(a1[0], a1[1]); ctx.stroke();
+    a0 = rot([P(0.33), P(-0.1)], pivot, GA); a1 = rot([P(0.33), P(1.1)], pivot, GA);
+    ctx.lineWidth = P(0.03); ctx.beginPath(); ctx.moveTo(a0[0], a0[1]); ctx.lineTo(a1[0], a1[1]); ctx.stroke();
+
+    // divider curve (cubic), used as a clip for the night panel
+    const div = cubic([P(s.divTop), 0], [P(s.divTop - 0.04), P(0.35)], [P(s.divBottom - 0.06), P(0.65)], [P(s.divBottom), S], 120);
+    const divPath = new Path2D();
+    divPath.moveTo(div[0][0], div[0][1]); for (const p of div.slice(1)) divPath.lineTo(p[0], p[1]);
+    const clipPath = new Path2D(divPath); clipPath.lineTo(S, S); clipPath.lineTo(S, 0); clipPath.closePath();
+
+    // 2. night map
+    ctx.save(); ctx.clip(clipPath);
+    const g = ctx.createLinearGradient(0, 0, 0, S); g.addColorStop(0, s.nightTop); g.addColorStop(1, s.nightBottom);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, S, S);
+    for (const [cx, cy, w, h] of [[0.90, 0.12, 0.22, 0.16], [0.60, 0.92, 0.20, 0.14], [0.98, 0.80, 0.14, 0.18]]) {
+      roundRectRot(ctx, P(cx), P(cy), P(w), P(h), 30, P(0.02)); ctx.fillStyle = s.parkR; ctx.fill();
+    }
+    const road = (off) => { const p = new Path2D(); p.moveTo(P(0.44 + off), P(1.04)); p.quadraticCurveTo(P(0.68 + off), P(0.64), P(1.04 + off), P(0.36)); return p; };
+    ctx.strokeStyle = s.street; ctx.lineWidth = P(0.016); ctx.lineCap = "round";
+    ctx.stroke(road(-0.30)); ctx.stroke(road(0.30));
+    for (const [x0, y0, x1, y1] of [[0.50, 0.30, 1.05, 0.66], [0.62, 0.02, 1.05, 0.30]]) { ctx.beginPath(); ctx.moveTo(P(x0), P(y0)); ctx.lineTo(P(x1), P(y1)); ctx.stroke(); }
+    const main = road(0);
+    ctx.strokeStyle = s.roadEdge; ctx.lineWidth = P(s.roadWidth + 0.03); ctx.stroke(main);
+    ctx.strokeStyle = s.roadDark; ctx.lineWidth = P(s.roadWidth); ctx.stroke(main);
+    ctx.save(); ctx.setLineDash([P(0.07), P(0.05)]); ctx.lineCap = "butt"; ctx.strokeStyle = s.dash; ctx.lineWidth = P(0.014); ctx.stroke(main); ctx.restore();
+    ctx.restore();
+
+    // 3. divider rim and shadow
+    ctx.save(); ctx.clip(clipPath);
+    ctx.strokeStyle = "rgba(255,255,255,0.47)"; ctx.lineWidth = P(0.012); ctx.filter = `blur(${P(0.004)}px)`; ctx.stroke(divPath); ctx.restore();
+    ctx.save();
+    const outside = new Path2D(divPath); outside.lineTo(0, S); outside.lineTo(0, 0); outside.closePath(); ctx.clip(outside);
+    ctx.strokeStyle = "rgba(0,0,0,0.24)"; ctx.lineWidth = P(0.02); ctx.filter = `blur(${P(0.012)}px)`;
+    ctx.translate(-P(0.008), 0); ctx.stroke(divPath); ctx.restore();
+
+    // 4. arrow
+    const apts = quad([P(s.arrowP0[0]), P(s.arrowP0[1])], [P(s.arrowC[0]), P(s.arrowC[1])], [P(s.arrowP1[0]), P(s.arrowP1[1])], 160);
+    const w = P(s.arrowWidth);
+    const drawArrow = () => {
+      taperedPath(ctx, apts, w * 0.45, w); ctx.fill();
+      const e = apts[apts.length - 1], q = apts[apts.length - 4];
+      let tx = e[0] - q[0], ty = e[1] - q[1]; const n = Math.hypot(tx, ty); tx /= n; ty /= n; const nx = -ty, ny = tx;
+      const L = w * s.headLen, H = w * s.headWidth, back = [e[0] - tx * w * 0.6, e[1] - ty * w * 0.6];
+      ctx.beginPath(); ctx.moveTo(back[0] + tx * L, back[1] + ty * L); ctx.lineTo(back[0] + nx * H, back[1] + ny * H); ctx.lineTo(back[0] - nx * H, back[1] - ny * H); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.arc(apts[0][0], apts[0][1], w * 0.45 / 2, 0, Math.PI * 2); ctx.fill();
+    };
+    ctx.save(); ctx.fillStyle = s.arrowColor; ctx.shadowColor = "rgba(0,0,0,0.35)"; ctx.shadowBlur = P(0.024); ctx.shadowOffsetX = P(0.008); ctx.shadowOffsetY = P(0.014); drawArrow(); ctx.restore();
+
+    // 5. pin
+    const [cx, cy] = [P(s.pin[0]), P(s.pin[1])], R = P(s.pinRadius), tipy = cy + R * 2.0;
+    const ang = Math.asin(R / (tipy - cy));
+    const pinPath = new Path2D();
+    pinPath.arc(cx, cy, R, Math.PI / 2 - ang + Math.PI, Math.PI / 2 - ang + Math.PI + (2 * Math.PI - 2 * (Math.PI / 2 - ang)), false);
+    // simpler: circle plus triangle
+    const pin2 = new Path2D(); pin2.arc(cx, cy, R, 0, Math.PI * 2);
+    const tri = new Path2D(); tri.moveTo(cx - R * Math.cos(ang), cy + R * Math.sin(ang)); tri.lineTo(cx + R * Math.cos(ang), cy + R * Math.sin(ang)); tri.lineTo(cx, tipy); tri.closePath();
+    // ground shadow
+    ctx.save(); ctx.fillStyle = "rgba(0,0,0,0.43)"; ctx.filter = `blur(${P(0.01)}px)`; ctx.beginPath(); ctx.ellipse(cx, tipy, R * 0.55, R * 0.12, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    const pg = ctx.createLinearGradient(0, cy - R, 0, tipy); pg.addColorStop(0, s.pinLight); pg.addColorStop(1, s.pinDark);
+    ctx.save(); ctx.fillStyle = pg; ctx.shadowColor = "rgba(0,0,0,0.30)"; ctx.shadowBlur = P(0.03); ctx.shadowOffsetX = P(0.012); ctx.shadowOffsetY = P(0.018);
+    ctx.fill(pin2); ctx.shadowColor = "transparent"; ctx.fill(tri); ctx.fill(pin2); ctx.restore();
+    ctx.save(); ctx.fillStyle = "rgb(250,240,236)"; ctx.beginPath(); ctx.arc(cx, cy, R * 0.40, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    ctx.save(); ctx.clip(pin2); ctx.fillStyle = "rgba(255,255,255,0.35)"; ctx.filter = `blur(${P(0.012)}px)`;
+    ctx.beginPath(); ctx.ellipse(cx - R * 0.275, cy - R * 0.6, R * 0.475, R * 0.35, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+
+    // 6. chevron
+    const cc = [P(s.chev[0]), P(s.chev[1])], cs = P(s.chevSize);
+    const chevPts = (scale) => [[0, -1], [-0.78, 0.78], [0, 0.42], [0.78, 0.78]].map(([x, y]) => rot([cc[0] + x * cs * scale, cc[1] + y * cs * scale], cc, s.chevAngle));
+    const poly = (pts) => { const p = new Path2D(); p.moveTo(pts[0][0], pts[0][1]); for (const q of pts.slice(1)) p.lineTo(q[0], q[1]); p.closePath(); return p; };
+    const outline = poly(chevPts(s.chevOutline)), body = poly(chevPts(1));
+    ctx.save(); ctx.fillStyle = s.chevOutlineColor; ctx.shadowColor = "rgba(0,0,0,0.40)"; ctx.shadowBlur = P(0.032); ctx.shadowOffsetX = P(0.010); ctx.shadowOffsetY = P(0.018); ctx.fill(outline); ctx.restore();
+    const bp = chevPts(1);
+    const cg = ctx.createLinearGradient(0, Math.min(...bp.map(p => p[1])), 0, Math.max(...bp.map(p => p[1]))); cg.addColorStop(0, s.chevLight); cg.addColorStop(1, s.chevDark);
+    ctx.fillStyle = cg; ctx.fill(body);
+    ctx.fillStyle = `rgba(0,0,0,${s.chevFacet})`; ctx.fill(poly([bp[0], bp[2], bp[3]]));
+
+    // 7. lighting
+    const lg = ctx.createLinearGradient(0, 0, 0, S); lg.addColorStop(0, "rgba(255,255,255,0.11)"); lg.addColorStop(1, "rgba(0,0,0,0.11)");
+    ctx.fillStyle = lg; ctx.fillRect(0, 0, S, S);
+    const vg = ctx.createRadialGradient(S / 2, S / 2, S * 0.45, S / 2, S / 2, S * 0.85); vg.addColorStop(0, "rgba(0,0,0,0)"); vg.addColorStop(1, `rgba(0,0,0,${s.vignette})`);
+    ctx.fillStyle = vg; ctx.fillRect(0, 0, S, S);
+    ctx.restore();
+  }
+
+  // ------------------------------------------------------------------ canvases
+  const view = document.getElementById("view"), overlay = document.getElementById("overlay");
+  const VIEW = 1024;
+  view.width = overlay.width = VIEW; view.height = overlay.height = VIEW;
+  const vctx = view.getContext("2d"), octx = overlay.getContext("2d");
+  const previews = ["p180", "p120", "p60", "p48", "p29"].map(id => document.getElementById(id));
+  const scratch = document.createElement("canvas"); scratch.width = scratch.height = 1024;
+
+  function drawAll() {
+    render(vctx, VIEW);
+    render(scratch.getContext("2d"), 1024);
+    for (const c of previews) {
+      const ctx = c.getContext("2d"); ctx.clearRect(0, 0, c.width, c.height);
+      ctx.imageSmoothingQuality = "high"; ctx.drawImage(scratch, 0, 0, c.width, c.height);
+    }
+    drawOverlay();
+    document.getElementById("json").value = JSON.stringify(state, null, 2);
+    save();
+  }
+
+  // handles
+  const HANDLES = [
+    { key: "pin", label: "Pin" }, { key: "chev", label: "Chevron" },
+    { key: "arrowP0", label: "Arrow start" }, { key: "arrowC", label: "Arrow bend" }, { key: "arrowP1", label: "Arrow end" },
+  ];
+  function drawOverlay() {
+    octx.clearRect(0, 0, VIEW, VIEW);
+    if (document.getElementById("showGuides").checked) {
+      octx.strokeStyle = "rgba(255,255,255,0.5)"; octx.lineWidth = 2; octx.setLineDash([8, 8]);
+      for (const f of [1 / 3, 2 / 3]) { octx.beginPath(); octx.moveTo(f * VIEW, 0); octx.lineTo(f * VIEW, VIEW); octx.moveTo(0, f * VIEW); octx.lineTo(VIEW, f * VIEW); octx.stroke(); }
+      octx.setLineDash([]);
+    }
+    if (!document.getElementById("showHandles").checked) return;
+    octx.font = "600 22px -apple-system, Helvetica, Arial"; octx.textBaseline = "middle";
+    // arrow guide lines
+    octx.strokeStyle = "rgba(255,255,255,0.6)"; octx.lineWidth = 2; octx.setLineDash([6, 6]);
+    octx.beginPath(); octx.moveTo(state.arrowP0[0] * VIEW, state.arrowP0[1] * VIEW); octx.lineTo(state.arrowC[0] * VIEW, state.arrowC[1] * VIEW); octx.lineTo(state.arrowP1[0] * VIEW, state.arrowP1[1] * VIEW); octx.stroke(); octx.setLineDash([]);
+    for (const h of HANDLES) {
+      const [x, y] = [state[h.key][0] * VIEW, state[h.key][1] * VIEW];
+      octx.beginPath(); octx.arc(x, y, 18, 0, Math.PI * 2); octx.fillStyle = "rgba(255,255,255,0.9)"; octx.fill(); octx.lineWidth = 3; octx.strokeStyle = "#1d1d1f"; octx.stroke();
+      octx.fillStyle = "#1d1d1f"; octx.fillText(h.label, x + 26, y);
+    }
+  }
+
+  let drag = null;
+  function pointer(ev) { const r = overlay.getBoundingClientRect(); return [(ev.clientX - r.left) / r.width, (ev.clientY - r.top) / r.height]; }
+  overlay.addEventListener("pointerdown", (ev) => {
+    if (!document.getElementById("showHandles").checked) return;
+    const [px, py] = pointer(ev); let best = null, bestD = 0.05;
+    for (const h of HANDLES) { const d = Math.hypot(state[h.key][0] - px, state[h.key][1] - py); if (d < bestD) { best = h.key; bestD = d; } }
+    if (!best) return;
+    drag = { key: best, dx: state[best][0] - px, dy: state[best][1] - py };
+    overlay.setPointerCapture(ev.pointerId); overlay.classList.add("dragging");
+  });
+  overlay.addEventListener("pointermove", (ev) => {
+    if (!drag) return; const [px, py] = pointer(ev);
+    state[drag.key] = [Math.round((px + drag.dx) * 1000) / 1000, Math.round((py + drag.dy) * 1000) / 1000];
+    drawAll();
+  });
+  const endDrag = () => { drag = null; overlay.classList.remove("dragging"); };
+  overlay.addEventListener("pointerup", endDrag); overlay.addEventListener("pointercancel", endDrag);
+  // arrow keys nudge the last dragged handle (or the chevron) by 0.5%
+  let lastKey = "chev";
+  overlay.addEventListener("pointerdown", () => { if (drag) lastKey = drag.key; });
+  window.addEventListener("keydown", (ev) => {
+    const d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[ev.key];
+    if (!d || ev.target.tagName === "TEXTAREA" || ev.target.tagName === "INPUT") return;
+    const step = ev.shiftKey ? 0.02 : 0.005;
+    state[lastKey] = [Math.round((state[lastKey][0] + d[0] * step) * 1000) / 1000, Math.round((state[lastKey][1] + d[1] * step) * 1000) / 1000];
+    ev.preventDefault(); drawAll();
+  });
+
+  // ------------------------------------------------------------------ controls
+  const ranges = ["chevSize", "chevAngle", "chevOutline", "chevFacet", "arrowWidth", "headLen", "headWidth", "pinRadius", "divTop", "divBottom", "roadWidth", "vignette"];
+  const colors = ["chevLight", "chevDark", "chevOutlineColor", "arrowColor", "pinLight", "pinDark", "paper", "block", "parkL", "yellow", "nightTop", "nightBottom", "roadDark", "roadEdge", "dash", "street", "parkR"];
+  function syncControls() {
+    for (const id of ranges) { const el = document.getElementById(id); el.value = state[id]; el.nextElementSibling.value = state[id]; }
+    for (const id of colors) document.getElementById(id).value = state[id];
+  }
+  for (const id of ranges) document.getElementById(id).addEventListener("input", (ev) => { state[id] = parseFloat(ev.target.value); ev.target.nextElementSibling.value = ev.target.value; drawAll(); });
+  for (const id of colors) document.getElementById(id).addEventListener("input", (ev) => { state[id] = ev.target.value; drawAll(); });
+  document.getElementById("showHandles").addEventListener("change", drawOverlay);
+  document.getElementById("showGuides").addEventListener("change", drawOverlay);
+
+  document.getElementById("export").addEventListener("click", () => {
+    // Render at 2048 and downsample for cleaner edges.
+    const big = document.createElement("canvas"); big.width = big.height = 2048; render(big.getContext("2d"), 2048);
+    const out = document.createElement("canvas"); out.width = out.height = 1024;
+    const octx2 = out.getContext("2d"); octx2.imageSmoothingQuality = "high"; octx2.drawImage(big, 0, 0, 1024, 1024);
+    out.toBlob((blob) => {
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "icon-source.png"; a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    }, "image/png");
+  });
+  document.getElementById("copy").addEventListener("click", () => {
+    const text = JSON.stringify(state, null, 2);
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).catch(() => { document.getElementById("json").select(); document.execCommand("copy"); });
+  });
+  document.getElementById("paste").addEventListener("click", () => {
+    try { state = Object.assign(structuredClone(DEFAULTS), JSON.parse(document.getElementById("json").value)); syncControls(); drawAll(); }
+    catch (e) { alert("That box does not contain valid settings JSON."); }
+  });
+  document.getElementById("reset").addEventListener("click", () => { state = structuredClone(DEFAULTS); syncControls(); drawAll(); });
+
+  syncControls(); drawAll();
+})();
+</script>
+</body>
+</html>
