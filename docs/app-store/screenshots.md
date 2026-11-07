@@ -17,6 +17,17 @@ Up to 10 screenshots per device class. App previews (video) are optional.
 Simulator tip: take iPhone and iPad shots in the Simulator at 100% scale with File › Save Screen Shot.
 Mac shots: Shift-Command-4, then Space, then click the window, on a Retina display.
 
+## Design
+
+The iPhone set is drafted in `slides/` in the Paper map style: one illustrated map across all six
+slides, using the icon's two halves. The paper side has a route on slides 1 to 3, and the icon's
+curved edge crosses into the night side, with its highway and blue arrow, on slides 3 and 4. Edit `slides/paper.html`, then run
+`python3 docs/app-store/slides/build-slides.py`. `slides/compare.png` shows the styles that were tried.
+
+Before submitting, replace slide 2's capture with the Maps app showing a route, replace slide 3's
+bubbles with a real Messages capture, and remove the red draft tags. Add a capture of the iPhone
+app's main screen, which Review will want to see. Don't put the price on a slide.
+
 ## Suggested shots, in order
 
 1. **Hero: the result.** Apple Maps showing directions to a place, with a caption such as

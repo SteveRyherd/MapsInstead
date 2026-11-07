@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Paper map</title><link rel="stylesheet" href="common.css">
+<style>
+  .stage { width: 7920px; background: #e7e2d8; color: #1d2b3a; }
+  .cap { top: 170px; left: 0; }
+  .cap span { display: inline-block; background: #fffdf8; padding: 46px 60px; border-radius: 64px; box-shadow: 0 18px 44px rgba(70, 55, 20, .16); }
+  .cap b { color: #d6382c; font-weight: 700; }
+  .cap.night b { color: #2a74f0; }
+  .cap { font-size: 132px; }
+  .card { top: 1040px; box-shadow: 0 34px 70px rgba(70, 55, 20, .3); }
+  .phone { top: 860px; box-shadow: 0 44px 100px rgba(70, 55, 20, .42); }
+  .chat { top: 1020px; }
+  .shot-card { position: absolute; border-radius: 56px; overflow: hidden; box-shadow: 0 34px 70px rgba(70, 55, 20, .3); }
+  .shot-card img { display: block; width: 100%; }
+  .promises { position: absolute; left: 5400px; top: 980px; width: 1080px; box-sizing: border-box; padding: 40px 70px; border-radius: 64px; background: #fffdf8; box-shadow: 0 34px 70px rgba(70, 55, 20, .3); font-size: 84px; font-weight: 600; }
+  .promises div { display: flex; align-items: center; gap: 44px; padding: 58px 0; border-bottom: 4px solid #eee7d8; }
+  .promises div:last-child { border: 0; }
+  .promises i { flex: none; width: 92px; height: 92px; border-radius: 50%; background: #2f5ae6; color: #fff; font: 700 60px/92px -apple-system, sans-serif; text-align: center; }
+  .device { position: absolute; box-sizing: border-box; background: #fffdf8; border: 26px solid #1b1b1f; display: grid; place-items: center; box-shadow: 0 34px 70px rgba(70, 55, 20, .34); }
+  .device img { border-radius: 22%; }
+  .base { position: absolute; left: 6660px; top: 1880px; width: 1200px; height: 56px; border-radius: 0 0 50px 50px; background: #b9b6ae; box-shadow: 0 30px 50px rgba(70, 55, 20, .3); }
+  .draft { position: absolute; font: 600 38px/1 -apple-system, sans-serif; color: #fff; background: #d6382c; padding: 14px 22px; border-radius: 14px; }
+  .pin { position: absolute; left: 3110px; top: 1730px; width: 380px; filter: drop-shadow(0 26px 30px rgba(70, 55, 20, .4)); }
+</style></head><body><div class="stage">
+  <svg class="art" width="7920" height="2868" viewBox="0 0 7920 2868" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- The curved boundary from the icon, stretched across slides 3 and 4. -->
+      <path id="wave" d="M 5050 -100 C 4850 500, 4250 700, 4150 1200 S 4250 1800, 3900 2200 S 3500 2700, 3480 2968"/>
+      <clipPath id="night-side"><path d="M 5050 -100 C 4850 500, 4250 700, 4150 1200 S 4250 1800, 3900 2200 S 3500 2700, 3480 2968 L 8100 2968 L 8100 -100 Z"/></clipPath>
+      <linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#245cc4"/><stop offset="1" stop-color="#14388c"/></linearGradient>
+      <path id="highway" d="M 3700 3060 C 4300 2380, 5000 2800, 5800 2520 S 7300 2240, 8120 2520"/>
+      <filter id="soft" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="30"/></filter>
+    </defs>
+
+    <!-- Paper side: the left half of the icon. -->
+    <path d="M 1050 2868 L 1500 1900 L 2500 1950 L 2750 2868 Z" fill="#bad68e"/>
+    <g id="streets" fill="none" stroke="#f4efe5" stroke-width="56" stroke-linecap="round"></g>
+    <path d="M -80 2500 C 800 2200, 1500 2780, 2300 2500 S 3500 1900, 4300 2060" fill="none" stroke="#f2c84b" stroke-width="92"/>
+    <path d="M 760 1600 L 836 2470 Q 840 2520 890 2510 L 2640 2200 Q 2690 2190 2700 2240 L 2760 2640 Q 2770 2690 2820 2680 L 3250 2620 Q 3300 2610 3300 2560 L 3300 2120" fill="none" stroke="#fff" stroke-width="104" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 760 1600 L 836 2470 Q 840 2520 890 2510 L 2640 2200 Q 2690 2190 2700 2240 L 2760 2640 Q 2770 2690 2820 2680 L 3250 2620 Q 3300 2610 3300 2560 L 3300 2120" fill="none" stroke="#2f5ae6" stroke-width="68" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Night side: the right half of the icon. -->
+    <use href="#wave" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="70" filter="url(#soft)"/>
+    <g clip-path="url(#night-side)">
+      <rect x="3300" y="-100" width="4800" height="3100" fill="url(#night-sky)"/>
+      <g fill="#2e9e5c">
+        <rect x="4750" y="330" width="560" height="360" rx="56" transform="rotate(-28 5030 510)"/>
+        <rect x="6300" y="560" width="620" height="400" rx="56" transform="rotate(-28 6610 760)"/>
+        <rect x="7320" y="1050" width="560" height="380" rx="56" transform="rotate(-28 7600 1240)"/>
+        <rect x="5150" y="2250" width="420" height="300" rx="50" transform="rotate(-28 5360 2400)"/>
+      </g>
+      <g id="night-streets" fill="none" stroke="#4682e4" stroke-width="30" stroke-linecap="round"></g>
+      <g fill="none" stroke-linecap="round">
+        <use href="#highway" stroke="#b3cdff" stroke-width="350"/>
+        <use href="#highway" stroke="#17264a" stroke-width="316"/>
+        <use href="#highway" stroke="#d6e6ff" stroke-width="20" stroke-dasharray="110 100"/>
+      </g>
+      <path d="M 0 -170 L 130 130 L 0 70 L -130 130 Z" transform="translate(5960 2470) rotate(78)" fill="#009dff" stroke="#fff" stroke-width="24" stroke-linejoin="round"/>
+    </g>
+    <use href="#wave" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="18"/>
+  </svg>
+  <div class="cap" style="left:0"><span>Google Maps links open in <b>Apple Maps</b></span></div>
+  <div class="cap" style="left:1320px"><span>Directions <b>actually work</b></span></div>
+  <div class="cap" style="left:2640px"><span>Shared links <b>too</b></span></div>
+  <div class="cap" style="left:3960px"><span>Set up in <b>a minute</b></span></div>
+  <div class="cap night" style="left:5280px"><span>Privacy<br><b>you can check</b></span></div>
+  <div class="cap night" style="left:6600px"><span>Buy once.<br><b>Get all three.</b></span></div>
+  <div class="card"><img src="../../images/ios-google-result.png" alt=""></div>
+  <div class="phone"><img src="../../screenshots/ios-success.png" alt=""></div>
+  <div class="chat"><div class="bubble">Dinner here tonight?</div><br><div class="bubble link">maps.app.goo.gl/x7Qa</div></div>
+  <svg class="pin" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg"><path d="M100 6C48 6 8 46 8 97c0 66 92 157 92 157s92-91 92-157C192 46 152 6 100 6z" fill="#e8402f" stroke="#fff" stroke-width="10"/><circle cx="100" cy="96" r="36" fill="#fff"/></svg>
+
+  <div class="shot-card" style="left:4070px;top:800px;width:1100px;transform:rotate(2deg)"><img src="../../images/ios-settings-remapped.png" alt=""></div>
+  <div class="shot-card" style="left:4240px;top:1950px;width:960px;transform:rotate(-3deg)"><img src="../../images/popup.png" alt=""></div>
+
+  <div class="promises">
+    <div><i>✓</i>No analytics</div>
+    <div><i>✓</i>No tracking</div>
+    <div><i>✓</i>No data collected</div>
+    <div><i>✓</i>Open source</div>
+  </div>
+
+  <div class="device" style="left:6720px;top:1080px;width:1080px;height:810px;border-radius:44px 44px 0 0"><img src="../../images/icon.png" width="300" alt=""></div>
+  <div class="base"></div>
+  <div class="device" style="left:6700px;top:1640px;width:560px;height:760px;border-radius:60px"><img src="../../images/icon.png" width="220" alt=""></div>
+  <div class="device" style="left:7380px;top:1560px;width:380px;height:800px;border-radius:80px"><img src="../../images/icon.png" width="170" alt=""></div>
+
+  <span class="draft" style="left:1360px;top:50px">Draft: needs a Maps app capture with the route drawn</span>
+  <span class="draft" style="left:2680px;top:50px">Draft: placeholder for a Messages capture</span>
+</div>
+<script>
+  // The streets, drawn across the whole canvas.
+  var streets = document.getElementById("streets");
+  function street(d) {
+    var p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", d);
+    streets.appendChild(p);
+  }
+  for (var y = 620; y <= 3120; y += 500) street("M -50 " + y + " L 5200 " + (y - 310));
+  for (var x = 360; x < 5200; x += 620) street("M " + x + " -50 L " + (x + 200) + " 2920");
+  // Thinner, angled streets on the night side, as in the icon.
+  streets = document.getElementById("night-streets");
+  for (var c = -2600; c < 8000; c += 760) street("M " + c + " 2920 L " + (c + 1660) + " -50");
+  for (var r = 0; r < 4600; r += 760) street("M 3400 " + r + " L 8000 " + (r + 2440));
+  // Chrome can't reliably screenshot the whole canvas, so build-slides.py takes it in halves.
+  if (location.search === "?part=2") document.querySelector(".stage").style.marginLeft = "-3960px";
+</script>
+</body></html>

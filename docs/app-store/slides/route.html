@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>App Store slides</title>
+<!-- One long canvas, cut into 1320 x 2868 slides by build-slides.py. Draft: see the .draft tags. -->
+<link rel="stylesheet" href="common.css">
+<style>
+  .stage { background: linear-gradient(180deg, #f6f9ff 0%, #dbe8ff 42%, #8fb4ff 74%, #3f6bea 100%); color: #0f2358; }
+  .cap b { color: #2f5ae6; font-weight: 700; }
+  .route { position: absolute; inset: 0; }
+  .pin { position: absolute; left: 3085px; top: 1560px; width: 430px; filter: drop-shadow(0 34px 44px rgba(15, 35, 88, .4)); }
+  .draft { position: absolute; font: 600 38px/1 -apple-system, sans-serif; color: #fff; background: #d6382c; padding: 14px 22px; border-radius: 14px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="cap" style="left:0">Google Maps links open in <b>Apple Maps</b></div>
+  <div class="cap" style="left:1320px">Directions <b>actually work</b></div>
+  <div class="cap" style="left:2640px">Shared links <b>too</b></div>
+
+  <svg class="route" viewBox="0 0 3960 2868" xmlns="http://www.w3.org/2000/svg">
+    <defs><path id="line" d="M 700 1500 C 660 1900, 900 2500, 1500 2360 S 2460 1200, 2800 1760 C 2960 2020, 3010 2560, 3180 2540 C 3270 2530, 3300 2350, 3300 2120"/></defs>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#line" stroke="#fff" stroke-width="112"/>
+      <use href="#line" stroke="#0a84ff" stroke-width="76"/>
+    </g>
+    <g id="chevrons" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"></g>
+  </svg>
+
+  <div class="card"><img src="../../images/ios-google-result.png" alt=""></div>
+
+  <div class="phone"><img src="../../screenshots/ios-success.png" alt=""></div>
+
+  <div class="chat">
+    <div class="bubble">Dinner here tonight?</div><br>
+    <div class="bubble link">maps.app.goo.gl/x7Qa</div>
+  </div>
+
+  <svg class="pin" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 6C48 6 8 46 8 97c0 66 92 157 92 157s92-91 92-157C192 46 152 6 100 6z" fill="#e8402f" stroke="#fff" stroke-width="10"/>
+    <circle cx="100" cy="96" r="36" fill="#fff"/>
+  </svg>
+
+  <span class="draft" style="left:1360px;top:60px">Draft: needs a Maps app capture with the route drawn</span>
+  <span class="draft" style="left:2680px;top:60px">Draft: placeholder for a Messages capture</span>
+</div>
+<script>
+  // Chevrons along the route, as on a navigation line.
+  var line = document.getElementById("line"), group = document.getElementById("chevrons");
+  var total = line.getTotalLength();
+  for (var d = 520; d < total - 330; d += 150) {
+    var a = line.getPointAtLength(d), b = line.getPointAtLength(d + 2);
+    var angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+    var c = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    c.setAttribute("d", "M -12 -20 L 12 0 L -12 20");
+    c.setAttribute("transform", "translate(" + a.x + " " + a.y + ") rotate(" + angle + ")");
+    group.appendChild(c);
+  }
+</script>
+</body>
+</html>

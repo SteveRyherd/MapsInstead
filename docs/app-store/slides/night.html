@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Night drive</title><link rel="stylesheet" href="common.css">
+<style>
+  .stage { background: radial-gradient(1800px 1500px at 2000px 1500px, #1b3f9e 0%, #0f2566 55%, #081238 100%); color: #fff; }
+  .cap b { color: #58d2ff; font-weight: 700; }
+  .phone { left: 1460px; transform: rotate(-6deg); box-shadow: 0 0 160px rgba(88, 210, 255, .35), 0 50px 120px rgba(0, 0, 0, .6); }
+</style></head><body><div class="stage">
+  <div class="cap" style="left:0">Google Maps links open in <b>Apple Maps</b></div>
+  <div class="cap" style="left:1320px">Directions <b>actually work</b></div>
+  <div class="cap" style="left:2640px">Shared links <b>too</b></div>
+  <svg class="art" viewBox="0 0 3960 2868" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="road" d="M -200 2500 C 700 2950, 1200 2300, 1900 2200 S 2900 2700, 3320 1980"/>
+      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="34"/></filter>
+    </defs>
+    <g fill="none" stroke-linecap="round">
+      <use href="#road" stroke="#58d2ff" stroke-width="330" opacity=".55" filter="url(#glow)"/>
+      <use href="#road" stroke="#58d2ff" stroke-width="316"/>
+      <use href="#road" stroke="#0b1b4d" stroke-width="290"/>
+      <use href="#road" stroke="#fff" stroke-width="20" stroke-dasharray="90 80"/>
+    </g>
+    <g transform="translate(3320 1900) rotate(-30)">
+      <path d="M 0 -250 L 190 190 L 0 100 L -190 190 Z" fill="#2ea8ff" stroke="#fff" stroke-width="26" stroke-linejoin="round"/>
+    </g>
+  </svg>
+  <div class="card"><img src="../../images/ios-google-result.png" alt=""></div>
+  <div class="phone"><img src="../../screenshots/ios-success.png" alt=""></div>
+  <div class="chat"><div class="bubble">Dinner here tonight?</div><br><div class="bubble link">maps.app.goo.gl/x7Qa</div></div>
+</div></body></html>

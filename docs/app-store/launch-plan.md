@@ -76,7 +76,7 @@ Captions short enough to read at thumbnail size. Device frames are optional; Map
 | 3 | Messages thread with a Google Maps short link, Apple Maps peeking behind | Shared links open in Apple Maps |
 | 4 | **Maps Instead** main screen, status On | Set up in a minute |
 | 5 | Safari popup with the toggle and counter | Pause any time |
-| 6 | Simple graphic: iPhone, iPad, Mac outlines | Buy once. All three. |
+| 6 | Simple graphic: iPhone, iPad, Mac outlines | Buy once. Get all three. |
 | 7 | Simple graphic: lock, "No tracking, no data, open source" | Privacy you can check |
 
 Sizes and the capture process are in `screenshots.md`.
