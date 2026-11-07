@@ -2,7 +2,7 @@
 //
 // THE ONE PLACE TO RENAME THE APP.
 //
-// "Detour" was the working title and survives as the repository name and in internal
+// "Detour" was the working title and survives only in internal
 // identifiers (DETOUR_* settings, the DetourMaps JavaScript object). Users never see those.
 //
 // Every Xcode target reads these values. Change DETOUR_DISPLAY_NAME (what users see
@@ -24,7 +24,7 @@ DETOUR_EXTENSION_BUNDLE_ID = $(DETOUR_BUNDLE_ID).Extension
 // Public pages (GitHub Pages from the docs/ folder). Also referenced in popup.js.
 DETOUR_SUPPORT_URL = https:/$()/mapsinstead.com/support.html
 DETOUR_PRIVACY_URL = https:/$()/mapsinstead.com/privacy.html
-DETOUR_SOURCE_URL = https:/$()/github.com/SteveRyherd/detour
+DETOUR_SOURCE_URL = https:/$()/github.com/SteveRyherd/MapsInstead
 
 // A real Google Maps directions link used by the "Test it" button.
 DETOUR_TEST_URL = https:/$()/www.google.com/maps/dir/?api=1&destination=Apple+Park,+Cupertino,+CA

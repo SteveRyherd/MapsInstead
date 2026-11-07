@@ -14,8 +14,8 @@ including the "Directions" buttons in Google search results.
 
 Site, setup guide, support and privacy policy: `docs/` (published with GitHub Pages).
 
-"Detour" was the working title. It survives as the repository name, in the `DETOUR_*` build
-settings and in the `DetourMaps` JavaScript object. Users never see it.
+"Detour" was the working title. It survives only in the `DETOUR_*` build
+settings, the `DetourMaps` JavaScript object and a few source file names. Users never see it.
 
 ## Repository layout
 
@@ -42,8 +42,8 @@ docs/                        GitHub Pages site: index, support, privacy, App Sto
 Requirements: Xcode 15 or later, a paid Apple Developer account, Node 18 or later for the tests.
 
 ```
-git clone https://github.com/SteveRyherd/detour.git
-cd detour
+git clone https://github.com/SteveRyherd/MapsInstead.git
+cd MapsInstead
 open MapsInstead.xcodeproj
 ```
 

@@ -15,7 +15,7 @@ enum Branding {
 
     static let supportURL = url("DetourSupportURL", fallback: "https://mapsinstead.com/support.html")
     static let privacyURL = url("DetourPrivacyURL", fallback: "https://mapsinstead.com/privacy.html")
-    static let sourceURL = url("DetourSourceURL", fallback: "https://github.com/SteveRyherd/detour")
+    static let sourceURL = url("DetourSourceURL", fallback: "https://github.com/SteveRyherd/MapsInstead")
     static let testURL = url("DetourTestURL", fallback: "https://www.google.com/maps/dir/?api=1&destination=Apple+Park,+Cupertino,+CA")
 
     static let version: String = {

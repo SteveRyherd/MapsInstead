@@ -6,8 +6,9 @@ mistakes already made so they are not repeated.
 ## What this is
 
 **Maps Instead** is a Safari Web Extension app for iPhone, iPad and Mac that opens Google Maps links
-in Apple Maps. "Detour" was the working title and survives only as the repository name, the
-`DETOUR_*` build settings and the `DetourMaps` JavaScript object. The App Store name is Maps Instead;
+in Apple Maps. "Detour" was the working title and survives only in the `DETOUR_*`
+build settings, the `DetourMaps` JavaScript object and a few source file names. The repository is
+`SteveRyherd/MapsInstead` (renamed from `detour` on 7 November 2026; GitHub redirects the old URL). The App Store name is Maps Instead;
 the subtitle is "Google Maps links open in Maps"; the price plan is $1.99, universal purchase.
 
 Everything a user sees is driven from two files: `Config/Branding.xcconfig` (names, bundle IDs,
@@ -40,7 +41,9 @@ popup strings). App copy is in `Shared (App)/Branding.swift`.
 6. Optional: show the same Settings screenshots inside the in-app walkthrough (`OnboardingView.swift`)
    once they exist.
 7. Create the App Store Connect record, add macOS as a platform, paste `docs/app-store/copy.md`,
-   archive both platforms, TestFlight, submit.
+   archive both platforms, TestFlight, submit. Step-by-step, for a first-time Apple developer:
+   `docs/app-store/submit-guide.md`. iPad (2064 x 2752) and Mac (2880 x 1800) screenshots are
+   required too and not drafted yet.
 
 ## Open decisions and loose ends (7 November 2026)
 

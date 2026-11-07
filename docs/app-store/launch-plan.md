@@ -111,7 +111,7 @@ Metadata and assets:
 
 Code and repo:
 
-8. Set `DETOUR_BUNDLE_ID_PREFIX` in `Config/Branding.xcconfig` to your real prefix.
+8. Done: `DETOUR_BUNDLE_ID_PREFIX` is `com.desatt`. The full walkthrough is `submit-guide.md`.
 9. Archive both platforms, upload, and run a TestFlight build on a real iPhone, iPad and Mac.
 10. Verify the three website URLs load (support, privacy, marketing) once GitHub Pages is on.
 11. Tag the release: `git tag v1.0.0` on `main`.

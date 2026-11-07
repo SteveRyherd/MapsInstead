@@ -13,6 +13,7 @@
 		0D0000000000000000000204 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
 		0D0000000000000000000205 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
 		0D0000000000000000000206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
+		0D0000000000000000000208 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011D /* PrivacyInfo.xcprivacy */; };
 		0D0000000000000000000207 /* Maps Instead Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000010F /* Maps Instead Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000211 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
 		0D0000000000000000000221 /* DetourApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000101 /* DetourApp.swift */; };
@@ -21,6 +22,7 @@
 		0D0000000000000000000224 /* Branding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000104 /* Branding.swift */; };
 		0D0000000000000000000225 /* ExtensionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000105 /* ExtensionStatus.swift */; };
 		0D0000000000000000000226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000106 /* Assets.xcassets */; };
+		0D0000000000000000000228 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D000000000000000000011D /* PrivacyInfo.xcprivacy */; };
 		0D0000000000000000000227 /* Maps Instead Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000111 /* Maps Instead Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0D0000000000000000000231 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000107 /* SafariWebExtensionHandler.swift */; };
 		0D0000000000000000000240 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0000000000000000000114 /* manifest.json */; };
@@ -92,6 +94,7 @@
 		0D0000000000000000000104 /* Branding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branding.swift; sourceTree = "<group>"; };
 		0D0000000000000000000105 /* ExtensionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStatus.swift; sourceTree = "<group>"; };
 		0D0000000000000000000106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D000000000000000000011D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		0D0000000000000000000107 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		0D0000000000000000000109 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D000000000000000000010A /* Detour.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detour.entitlements; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 				0D0000000000000000000105 /* ExtensionStatus.swift */,
 				0D0000000000000000000104 /* Branding.swift */,
 				0D0000000000000000000106 /* Assets.xcassets */,
+				0D000000000000000000011D /* PrivacyInfo.xcprivacy */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -378,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0000000000000000000206 /* Assets.xcassets in Resources */,
+				0D0000000000000000000208 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D0000000000000000000226 /* Assets.xcassets in Resources */,
+				0D0000000000000000000228 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
