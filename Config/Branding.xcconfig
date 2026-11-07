@@ -27,7 +27,7 @@ DETOUR_PRIVACY_URL = https:/$()/mapsinstead.com/privacy.html
 DETOUR_SOURCE_URL = https:/$()/github.com/SteveRyherd/detour
 
 // A real Google Maps directions link used by the "Test it" button.
-DETOUR_TEST_URL = https:/$()/www.google.com/maps/dir//Apple+Park,+One+Apple+Park+Way,+Cupertino,+CA+95014
+DETOUR_TEST_URL = https:/$()/www.google.com/maps/dir/?api=1&destination=Apple+Park,+Cupertino,+CA
 
 // Version numbers. The app and its extension must always match; they both read these.
 MARKETING_VERSION = 1.0.0
