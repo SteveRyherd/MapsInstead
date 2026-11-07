@@ -42,6 +42,22 @@ popup strings). App copy is in `Shared (App)/Branding.swift`.
 7. Create the App Store Connect record, add macOS as a platform, paste `docs/app-store/copy.md`,
    archive both platforms, TestFlight, submit.
 
+## Open decisions and loose ends (7 November 2026)
+
+- **Map imagery.** The rule below says no real Google or Apple map imagery, but the website's
+  `ios-google-result.png`, `ios-test.png` and `hero.jpg`, and App Store slides 1 and 2, all show it.
+  Decide whether to relax the rule or replace those pictures.
+- **Claims ahead of the facts.** The setup page's "Is it safe?" section says Apple reviews each
+  version and the privacy label is "Data Not Collected"; both become true only at launch. "Runs only
+  on Google's sites" relies on `NAVIGATION_FILTER`, untested in Safari (step 4 below).
+- **App Store slides** are drafted in `docs/app-store/slides/` (see `docs/app-store/screenshots.md`).
+  Slides 2 and 3 need a Maps app capture with a route and a Messages capture with a short link.
+- **`ios-success.png` is Safari showing maps.apple.com**, not the Maps app. Check whether that is
+  what normally happens on iPhone; if so, the site's "Apple Maps takes over" overstates it.
+- **Website images** are cut by `docs/design/build-screenshots.py` from raw captures in
+  `docs/screenshots/`, which stays out of git (personal content). The popup and Mac app pictures are
+  rendered by `docs/design/render-app-images.sh`. The hero video slot is still empty.
+
 ## Conventions
 
 - Work on `development`, push to `development` and fast-forward `main` when it is green:
