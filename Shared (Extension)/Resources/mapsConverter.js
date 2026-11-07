@@ -33,6 +33,18 @@
   // google.com, google.co.uk, google.com.au, google.de, google.cat ...
   var GOOGLE_HOST_RE = /(^|\.)google\.(com|[a-z]{2,3}|co\.[a-z]{2}|com\.[a-z]{2})$/i;
 
+  // Which navigations the background page asks Safari to report. Everything classify() can act on
+  // has to pass this filter. It may let a little more through (notgoogle.com); classify() drops those.
+  var NAVIGATION_FILTER = {
+    url: [
+      { hostContains: "google." },
+      { hostEquals: "maps.app.goo.gl" },
+      { hostEquals: "goo.gl" },
+      { hostEquals: "g.page" },
+      { schemes: ["comgooglemaps", "comgooglemaps-x-callback", "geo"] }
+    ]
+  };
+
   // Paths under /maps that have no Apple Maps equivalent. Leave them alone so
   // the regular Google web page loads.
   var SKIP_PATH_RE = /^\/maps\/(embed|d\/|contrib|reviews|timeline|about|vt|api|_\/|local\/)/i;
@@ -522,6 +534,7 @@
     buildAppleMapsURL: buildAppleMapsURL,
     toDirflg: toDirflg,
     APPLE_MAPS_BASE: APPLE_MAPS_BASE,
+    NAVIGATION_FILTER: NAVIGATION_FILTER,
     _internal: {
       safeDecode: safeDecode,
       decodeSegment: decodeSegment,

@@ -107,29 +107,37 @@ function convertShortLink(url, fallbackText) {
 // Redirect the tab before the page even starts loading. This beats both Google's
 // "open in app" interstitials and short links that bounce to the App Store. The
 // content script remains as a backup for navigations this event does not see.
+function handleNavigation(details) {
+  if (details.frameId !== 0 || details.tabId < 0) return;
+  var url = details.url;
+  var cls = DetourMaps.classify(url);
+  if (cls !== "maps" && cls !== "short") return;
+  isEnabled().then(function (enabled) {
+    if (!enabled || wasHandled(details.tabId, url)) return;
+    var conversion;
+    if (cls === "maps") {
+      var result = DetourMaps.convert(url);
+      conversion = Promise.resolve(result ? result.url : null);
+    } else {
+      conversion = convertShortLink(url);
+    }
+    return conversion.then(function (appleURL) {
+      if (!appleURL || wasHandled(details.tabId, url)) return;
+      markHandled(details.tabId, url);
+      markHandled(details.tabId, appleURL);
+      return browserAPI.tabs.update(details.tabId, { url: appleURL }).then(incrementCount);
+    });
+  }).catch(function () {});
+}
+
+// The filter keeps every other site's addresses from reaching the extension at all. If a Safari
+// version rejects it, listen unfiltered rather than lose redirects: handleNavigation ignores those.
 if (browserAPI.webNavigation && browserAPI.webNavigation.onBeforeNavigate) {
-  browserAPI.webNavigation.onBeforeNavigate.addListener(function (details) {
-    if (details.frameId !== 0 || details.tabId < 0) return;
-    var url = details.url;
-    var cls = DetourMaps.classify(url);
-    if (cls !== "maps" && cls !== "short") return;
-    isEnabled().then(function (enabled) {
-      if (!enabled || wasHandled(details.tabId, url)) return;
-      var conversion;
-      if (cls === "maps") {
-        var result = DetourMaps.convert(url);
-        conversion = Promise.resolve(result ? result.url : null);
-      } else {
-        conversion = convertShortLink(url);
-      }
-      return conversion.then(function (appleURL) {
-        if (!appleURL || wasHandled(details.tabId, url)) return;
-        markHandled(details.tabId, url);
-        markHandled(details.tabId, appleURL);
-        return browserAPI.tabs.update(details.tabId, { url: appleURL }).then(incrementCount);
-      });
-    }).catch(function () {});
-  });
+  try {
+    browserAPI.webNavigation.onBeforeNavigate.addListener(handleNavigation, DetourMaps.NAVIGATION_FILTER);
+  } catch (e) {
+    browserAPI.webNavigation.onBeforeNavigate.addListener(handleNavigation);
+  }
 }
 
 browserAPI.runtime.onMessage.addListener(function (message, sender, sendResponse) {

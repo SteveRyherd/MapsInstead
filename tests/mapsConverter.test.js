@@ -431,6 +431,47 @@ test("manifest: host_permissions and content script matches are identical", () =
   }
 });
 
+// The filter is what Safari applies before the extension hears about a navigation.
+function passesNavigationFilter(urlString) {
+  const url = new URL(urlString);
+  const scheme = url.protocol.slice(0, -1);
+  return Maps.NAVIGATION_FILTER.url.some((rule) =>
+    (rule.hostContains && url.hostname.includes(rule.hostContains)) ||
+    (rule.hostEquals && url.hostname === rule.hostEquals) ||
+    (rule.schemes && rule.schemes.includes(scheme)));
+}
+
+test("navigation filter passes every host the extension asks for", () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(resources, "manifest.json"), "utf8"));
+  for (const pattern of manifest.host_permissions) {
+    const host = pattern.replace("*://", "").replace("*.", "www.").replace("/*", "");
+    assert.ok(passesNavigationFilter("https://" + host + "/maps"), "filter drops " + host);
+  }
+});
+
+test("navigation filter passes every link form classify handles", () => {
+  for (const url of [
+    "https://www.google.com/maps/place/Apple+Park",
+    "https://maps.google.co.uk/maps?q=London",
+    "https://google.com.au/maps/dir/Sydney/Melbourne",
+    "https://maps.app.goo.gl/abc123",
+    "https://goo.gl/maps/abc123",
+    "https://g.page/some-business",
+    "comgooglemaps://?daddr=Cupertino",
+    "comgooglemaps-x-callback://?daddr=Cupertino",
+    "geo:37.33,-122.03?q=Apple+Park"
+  ]) {
+    assert.ok(["maps", "short"].includes(Maps.classify(url)), "classify ignores " + url);
+    assert.ok(passesNavigationFilter(url), "filter drops " + url);
+  }
+});
+
+test("navigation filter keeps other sites out", () => {
+  for (const url of ["https://www.chase.com/login", "https://example.org/", "https://www.apple.com/maps/"]) {
+    assert.ok(!passesNavigationFilter(url), "filter passes " + url);
+  }
+});
+
 // ---------------------------------------------------------------------------
 
 for (const f of failures) {
