@@ -22,8 +22,8 @@ DETOUR_BUNDLE_ID = $(DETOUR_BUNDLE_ID_PREFIX).MapsInstead
 DETOUR_EXTENSION_BUNDLE_ID = $(DETOUR_BUNDLE_ID).Extension
 
 // Public pages (GitHub Pages from the docs/ folder). Also referenced in popup.js.
-DETOUR_SUPPORT_URL = https:/$()/steveryherd.github.io/detour/support.html
-DETOUR_PRIVACY_URL = https:/$()/steveryherd.github.io/detour/privacy.html
+DETOUR_SUPPORT_URL = https:/$()/mapsinstead.com/support.html
+DETOUR_PRIVACY_URL = https:/$()/mapsinstead.com/privacy.html
 DETOUR_SOURCE_URL = https:/$()/github.com/SteveRyherd/detour
 
 // A real Google Maps directions link used by the "Test it" button.

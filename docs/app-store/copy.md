@@ -73,9 +73,9 @@ First release. Google Maps links, including directions, open in Apple Maps on iP
 
 ## URLs
 
-- Support URL: https://steveryherd.github.io/detour/support.html
-- Marketing URL: https://steveryherd.github.io/detour/
-- Privacy Policy URL: https://steveryherd.github.io/detour/privacy.html
+- Support URL: https://mapsinstead.com/support.html
+- Marketing URL: https://mapsinstead.com/
+- Privacy Policy URL: https://mapsinstead.com/privacy.html
 
 ## Category
 

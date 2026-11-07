@@ -9,8 +9,8 @@
   var browserAPI = typeof browser !== "undefined" ? browser : chrome;
 
   // Public URLs for the footer. Keep in sync with Config/Branding.xcconfig.
-  var PRIVACY_URL = "https://steveryherd.github.io/detour/privacy.html";
-  var SUPPORT_URL = "https://steveryherd.github.io/detour/support.html";
+  var PRIVACY_URL = "https://mapsinstead.com/privacy.html";
+  var SUPPORT_URL = "https://mapsinstead.com/support.html";
 
   var enabledInput = document.getElementById("enabled");
   var statusText = document.getElementById("status");

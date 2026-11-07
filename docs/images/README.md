@@ -12,14 +12,20 @@ rectangle.
 | `icon.png` | all pages | Generated from the app icon. Already present. |
 | `hero.mp4` | index | 15 to 30 s screen recording: tap Directions on a Google result, Apple Maps opens. Same cut as the App Preview. Optional `hero-poster.jpg` as the poster frame. |
 | `hero.jpg` | index (fallback when no video) | Apple Maps showing directions that arrived from a Google link. |
-| `ios-settings-apps.png` | setup (iPhone/iPad) | Settings > Apps, with Safari highlighted. |
+| `ios-settings-apps.png` | setup (iPhone/iPad) | Settings main list, with Apps highlighted. |
+| `ios-settings-apps-safari.png` | setup (iPhone/iPad) | Settings > Apps, with Safari highlighted. |
 | `ios-settings-safari.png` | setup (iPhone/iPad) | Settings > Apps > Safari, with Extensions highlighted. |
-| `ios-settings-extensions.png` | setup (iPhone/iPad) | The Extensions list, with **Maps Instead** highlighted. |
-| `ios-settings-remapped.png` | setup (iPhone/iPad) | **Maps Instead**'s page: Allow Extension on, Permissions section with Google sites set to Allow. |
-| `ios-safari-prompt.png` | setup (iPhone/iPad), support | Safari's "Maps Instead would like to access google.com" prompt with Always Allow highlighted. |
-| `ios-test.png` | setup (iPhone/iPad) | Apple Maps with directions to Apple Park, after pressing Test it. |
+| `ios-settings-remapped.png` | setup (iPhone/iPad) | **Maps Instead**'s page with the extension switched on. The name is historical; keep it. |
+| `ios-safari-menu.png` | setup (iPhone/iPad) | Safari's page menu with Manage Extensions highlighted. |
+| `ios-safari-prompt.png` | setup (iPhone/iPad) | Safari's "Maps Instead would like to access google.com" prompt with Always Allow highlighted. |
+| `ios-safari-every-website.png` | setup (iPhone/iPad) | Safari's follow-up with Always Allow on Every Website highlighted. |
+| `ios-google-result.png` | index | A Google result in Safari with a map link. |
+| `ios-test.png` | index, setup (iPhone/iPad) | Apple Maps with directions to Apple Park, after pressing Test it. |
 | `mac-safari-settings.png` | setup (Mac) | Safari > Settings > Extensions with **Maps Instead** ticked. |
 | `mac-permissions.png` | setup (Mac) | The Edit Websites sheet, or Always Allow on Every Website highlighted. |
 | `mac-test.png` | setup (Mac) | Maps on the Mac showing directions to Apple Park. |
-| `popup.png` | index, support | Safari's toolbar popup: toggle on, a redirect count showing. |
-| `app-main.png` | index | The **Maps Instead** app's main screen with the status card. |
+| `popup.png` | index | Safari's toolbar popup: toggle on, a redirect count showing. |
+| `app-main.png` | setup (Mac) | The **Maps Instead** app's main screen with the status card. |
+| `dancing.png` | index | The developer and his girlfriend, for the Who made this section. |
+| `person-dancing.png` | setup | Sign-off at the end of the steps. |
+| `person-suit.png` | support | Beside Report a problem. |

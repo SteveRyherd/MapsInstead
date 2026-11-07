@@ -3,10 +3,13 @@
 (function () {
   "use strict";
 
+  // Placeholders are for reviewing the layout locally. On the public site an empty slot just disappears.
+  var isLocal = /^(localhost|127\.0\.0\.1|)$/.test(location.hostname);
+
   // Screenshot slots: <div class="shot" data-src="..."><img><span class="placeholder">...</span></div>
   document.querySelectorAll(".shot[data-src]").forEach(function (slot) {
     var img = slot.querySelector("img");
-    img.addEventListener("error", function () { slot.classList.add("missing"); });
+    img.addEventListener("error", function () { slot.classList.add("missing"); slot.hidden = !isLocal; });
     img.addEventListener("load", function () { slot.classList.remove("missing"); });
     img.src = slot.getAttribute("data-src");
   });
@@ -16,10 +19,12 @@
   var image = document.getElementById("hero-image");
   var note = document.getElementById("hero-placeholder");
   if (video && image && note) {
+    var media = document.getElementById("hero-media");
+    media.hidden = !isLocal;
     var probe = new Image();
-    probe.onload = function () { image.hidden = false; note.hidden = true; };
+    probe.onload = function () { media.hidden = false; image.hidden = false; note.hidden = true; };
     probe.src = image.getAttribute("src");
-    video.addEventListener("loadeddata", function () { video.hidden = false; image.hidden = true; note.hidden = true; });
+    video.addEventListener("loadeddata", function () { media.hidden = false; video.hidden = false; image.hidden = true; note.hidden = true; });
     video.addEventListener("error", function () {}, true);
     video.load();
   }

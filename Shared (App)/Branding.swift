@@ -13,8 +13,8 @@ enum Branding {
         info("DetourExtensionBundleIdentifier")
         ?? (Bundle.main.bundleIdentifier ?? "com.example.MapsInstead") + ".Extension"
 
-    static let supportURL = url("DetourSupportURL", fallback: "https://steveryherd.github.io/detour/support.html")
-    static let privacyURL = url("DetourPrivacyURL", fallback: "https://steveryherd.github.io/detour/privacy.html")
+    static let supportURL = url("DetourSupportURL", fallback: "https://mapsinstead.com/support.html")
+    static let privacyURL = url("DetourPrivacyURL", fallback: "https://mapsinstead.com/privacy.html")
     static let sourceURL = url("DetourSourceURL", fallback: "https://github.com/SteveRyherd/detour")
     static let testURL = url("DetourTestURL", fallback: "https://www.google.com/maps/dir//Apple+Park,+Cupertino,+CA")
 

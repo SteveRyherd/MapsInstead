@@ -22,15 +22,15 @@ popup strings). App copy is in `Shared (App)/Branding.swift`.
 - Icon finished: `docs/design/icon-source.png`, produced by `docs/design/icon-studio.html`
   (interactive) or `docs/design/build-icon.py` (script); `docs/design/make-icons.py` cuts every size.
 - Website in `docs/` with picture slots that show placeholders until the files in
-  `docs/images/README.md` exist. GitHub Pages is not switched on yet.
+  `docs/images/README.md` exist. Placeholders show only on localhost; the public site hides empty slots.
 - App Store copy, privacy answers, review notes, screenshot list and launch plan in `docs/app-store/`.
 
 ## Remaining work, in order
 
 1. Capture the images listed in `docs/images/README.md` and drop them in with those exact names.
 2. Put a real support email in `docs/support.html` (it says where).
-3. Switch on GitHub Pages: repository Settings > Pages, branch `main`, folder `/docs`. Check that
-   the privacy and support URLs in `Config/Branding.xcconfig` load.
+3. Website: hosted on Cloudflare at mapsinstead.com. Publish with `scripts/deploy-site.sh`, which
+   sends only the public pages and images, not the notes and raw files that also live in `docs/`.
 4. Rebuild on device under the new name; delete old Detour/Remapped installs first. Test the
    Directions button in Google results, a shared `maps.app.goo.gl` link, and a place result.
 5. Record the App Preview and take screenshots per `docs/app-store/launch-plan.md` sections 4 and 5.

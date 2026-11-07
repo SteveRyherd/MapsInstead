@@ -1,0 +1,10 @@
+// The mapsinstead.com website. Publish with scripts/deploy-site.sh.
+{
+  "name": "maps-instead",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./.site-build" },
+  "routes": [
+    { "pattern": "mapsinstead.com", "custom_domain": true },
+    { "pattern": "www.mapsinstead.com", "custom_domain": true }
+  ]
+}
