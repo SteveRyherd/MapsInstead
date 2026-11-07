@@ -12,7 +12,7 @@ captures; the script paints out the boxes on the existing ones.
 |---|---|---|
 | `icon.png` | all pages | Generated from the app icon. Already present. |
 | `hero.mp4` | index | 15 to 30 s screen recording: tap Directions on a Google result, Apple Maps opens. Same cut as the App Preview. Optional `hero-poster.jpg` as the poster frame. |
-| `hero.jpg` | index (fallback when no video) | Apple Maps showing directions that arrived from a Google link. |
+| `hero.jpg` | index (fallback when no video) | Made by `build-screenshots.py` from the Google result and Apple Maps captures. |
 | `ios-settings-apps.png` | setup (iPhone/iPad) | Settings main list, with Apps highlighted. |
 | `ios-settings-apps-safari.png` | setup (iPhone/iPad) | Settings > Apps, with Safari highlighted. |
 | `ios-settings-safari.png` | setup (iPhone/iPad) | Settings > Apps > Safari, with Extensions highlighted. |
@@ -25,9 +25,9 @@ captures; the script paints out the boxes on the existing ones.
 | `ios-test.png` | index, setup (iPhone/iPad) | Apple Maps with directions to Apple Park, after pressing Test it. |
 | `mac-safari-settings.png` | setup (Mac) | Safari > Settings > Extensions with **Maps Instead** ticked. |
 | `mac-permissions.png` | setup (Mac) | The Edit Websites sheet, or Always Allow on Every Website highlighted. |
-| `mac-test.png` | setup (Mac) | Maps on the Mac showing directions to Apple Park. |
-| `popup.png` | index | Safari's toolbar popup: toggle on, a redirect count showing. |
-| `app-main.png` | setup (Mac) | The **Maps Instead** app's main screen with the status card. |
+| `mac-test.png` | setup (Mac) | Rendered: the app's status card and Test it button. |
+| `popup.png` | index | Rendered from the real popup by `render-app-images.sh`, with a sample count. Replace with a capture when convenient. |
+| `app-main.png` | setup (Mac) | Rendered from the real SwiftUI view by `render-app-images.sh`, status forced to On. |
 | `dancing.png` | index | The developer and his girlfriend, for the Who made this section. |
 | `person-dancing.png` | setup | Sign-off at the end of the steps. |
 | `person-suit.png` | support | Beside Report a problem. |

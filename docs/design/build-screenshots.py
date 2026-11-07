@@ -13,7 +13,7 @@ Coordinates are pixels in the raw capture. To change a picture, edit its entry a
 import glob
 import os
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RAW = os.path.join(HERE, "..", "screenshots")
@@ -57,6 +57,9 @@ SHOTS = {
     "mac-safari-settings": dict(
         src="Screenshot 2026-11-06 at 7.34.32\u202fPM.png", crop=(0, 195, 1672, 1092),
         erase=(13, 423, 481, 560), line=15, spot=(22, 434, 472, 550, 16), dim=.3, width=MAC_WIDTH),
+    # Rendered by render-app-images.sh rather than captured.
+    "popup": dict(src="popup-raw.png", crop=(0, 0, 1020, 680)),
+    "app-main": dict(src="app-main-raw.png", crop=(0, 0, 1440, 960)),
     "mac-permissions": dict(
         src="Screenshot 2026-11-06 at 7.37.46\u202fPM.png", crop=(480, 200, 1660, 1090),
         erase=(1128, 900, 1632, 1031), line=15, blank=(1120, 1022, 1645, 1046),
@@ -120,9 +123,58 @@ def build(name, src, crop, erase=None, line=4, blank=None, spot=None, dim=0, wid
     print(f"{name}.png  {width}x{height}")
 
 
+def build_mac_test():
+    """The Mac app's status card and Test it button, with the steps between them left out."""
+    raw = Image.open(os.path.join(RAW, "app-main-raw.png")).convert("RGB")
+    status, button = raw.crop((0, 590, 1440, 930)), raw.crop((0, 1910, 1440, 2060))
+    image = Image.new("RGB", (1440, status.height + button.height))
+    image.paste(status, (0, 0))
+    image.paste(button, (0, status.height))
+    spotlight(image, (60, status.height + 18, 1380, status.height + 134, 58), .12, 7)
+    image = image.resize((PHONE_WIDTH, round(image.height * PHONE_WIDTH / image.width)), Image.LANCZOS)
+    image.save(os.path.join(OUT, "mac-test.png"), optimize=True)
+    print(f"mac-test.png  {image.width}x{image.height}")
+
+
+def rounded(image, radius):
+    mask = Image.new("L", (image.width * SUPERSAMPLE, image.height * SUPERSAMPLE), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, mask.width - 1, mask.height - 1], radius * SUPERSAMPLE, fill=255)
+    return mask.resize(image.size, Image.LANCZOS)
+
+
+def build_hero():
+    """The home page banner: a real Google result, an arrow, and the Apple Maps page it became."""
+    width, height, card = 1640, 922, 600
+    top, bottom = (47, 90, 230), (28, 180, 200)
+    hero = Image.new("RGB", (1, height))
+    for y in range(height):
+        hero.putpixel((0, y), tuple(round(a + (b - a) * y / height) for a, b in zip(top, bottom)))
+    hero = hero.resize((width, height))
+    draw = ImageDraw.Draw(hero)
+    font = ImageFont.truetype("/System/Library/Fonts/HelveticaNeue.ttc", 38, index=1)  # Bold
+
+    left = Image.open(os.path.join(RAW, "ios-first-test-search.png")).convert("RGB").crop((0, 905, 1206, 1720))
+    right = Image.open(os.path.join(RAW, "ios-success.png")).convert("RGB").crop((0, 560, 1206, 1800))
+    for image, x, label in ((left, 120, "A Google Maps link"), (right, width - 120 - card, "Opens in Apple Maps")):
+        image = image.resize((card, round(image.height * card / image.width)), Image.LANCZOS)
+        y = (height - image.height) // 2 + 28
+        hero.paste(image, (x, y), rounded(image, 28))
+        draw.text((x + card / 2, y - 26), label, font=font, fill="white", anchor="md")
+
+    icon = Image.open(os.path.join(OUT, "icon.png")).convert("RGB").resize((120, 120), Image.LANCZOS)
+    hero.paste(icon, ((width - 120) // 2, height // 2 - 60), rounded(icon, 27))
+    middle = height // 2 + 100
+    draw.line([(width / 2 - 52, middle), (width / 2 + 44, middle)], fill="white", width=9)
+    draw.polygon([(width / 2 + 62, middle), (width / 2 + 34, middle - 20), (width / 2 + 34, middle + 20)], fill="white")
+    hero.save(os.path.join(OUT, "hero.jpg"), quality=88, optimize=True)
+    print(f"hero.jpg  {width}x{height}")
+
+
 def main():
     for name, shot in SHOTS.items():
         build(name, **shot)
+    build_mac_test()
+    build_hero()
 
 
 if __name__ == "__main__":
