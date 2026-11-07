@@ -33,6 +33,9 @@ popup strings). App copy is in `Shared (App)/Branding.swift`.
    sends only the public pages and images, not the notes and raw files that also live in `docs/`.
 4. Rebuild on device under the new name; delete old Detour/Remapped installs first. Test the
    Directions button in Google results, a shared `maps.app.goo.gl` link, and a place result.
+   This is also the first real test of `NAVIGATION_FILTER` in `mapsConverter.js`: it passes the Node
+   tests and matches WebKit's source, but has not yet run in Safari. If short links stop redirecting,
+   look there first. The setup page's "Runs only on Google's sites" relies on it.
 5. Record the App Preview and take screenshots per `docs/app-store/launch-plan.md` sections 4 and 5.
 6. Optional: show the same Settings screenshots inside the in-app walkthrough (`OnboardingView.swift`)
    once they exist.

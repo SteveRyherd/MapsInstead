@@ -3,9 +3,10 @@
 Drop real captures in with these exact names and the pages pick them up. Until a file exists,
 its slot shows a labelled placeholder so the layout can be reviewed without it.
 
-Capture tips are in `../app-store/launch-plan.md` section 6. Keep iPhone shots in portrait at the
-device's native size; the site scales them. Annotate the control to tap with one red rounded
-rectangle.
+Capture tips are in `../app-store/launch-plan.md` section 6. Put raw captures in `../screenshots`
+at the device's native size, then add them to `../design/build-screenshots.py`, which crops each one
+to the part that matters, dims the rest and rings the control to tap. Don't hand-annotate new
+captures; the script paints out the boxes on the existing ones.
 
 | File | Used on | What to capture |
 |---|---|---|
@@ -17,6 +18,7 @@ rectangle.
 | `ios-settings-safari.png` | setup (iPhone/iPad) | Settings > Apps > Safari, with Extensions highlighted. |
 | `ios-settings-remapped.png` | setup (iPhone/iPad) | **Maps Instead**'s page with the extension switched on. The name is historical; keep it. |
 | `ios-safari-menu.png` | setup (iPhone/iPad) | Safari's page menu with Manage Extensions highlighted. |
+| `ios-safari-menu-app.png` | setup (iPhone/iPad) | Safari's page menu with **Maps Instead** highlighted. |
 | `ios-safari-prompt.png` | setup (iPhone/iPad) | Safari's "Maps Instead would like to access google.com" prompt with Always Allow highlighted. |
 | `ios-safari-every-website.png` | setup (iPhone/iPad) | Safari's follow-up with Always Allow on Every Website highlighted. |
 | `ios-google-result.png` | index | A Google result in Safari with a map link. |

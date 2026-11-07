@@ -19,6 +19,11 @@
 <h1>Set up in about a minute</h1>
 <p class="small">Safari extensions are off until you turn them on. These are the exact taps.</p>
 
+<aside class="notice">
+  <span class="ic" aria-hidden="true">🛡️</span>
+  <p><strong>Safari will show a warning during setup.</strong> It shows the same one for every extension, and it's normal. <a href="#safe">What it means, and why it's OK to allow</a>.</p>
+</aside>
+
 <div class="platform-tabs" role="tablist">
   <button role="tab" data-platform="ios" aria-selected="true">iPhone and iPad</button>
   <button role="tab" data-platform="mac" aria-selected="false">Mac</button>
@@ -43,19 +48,23 @@
     <div class="shot" data-src="images/ios-settings-remapped.png"><img alt="“Maps Instead” settings page with the Personal, Work and Developer profiles switched on"><span class="placeholder">Screenshot slot<br><code>images/ios-settings-remapped.png</code></span></div>
   </div>
   <div class="step">
-    <div><span class="num">5</span><h3>Open a Google page in Safari, then Manage Extensions</h3><p>Tap the button at the left of the address bar, then Manage Extensions, and make sure “Maps Instead” is on. It then appears in that same menu; tap it.</p></div>
+    <div><span class="num">5</span><h3>Open a Google page in Safari, then Manage Extensions</h3><p>Tap the button at the left of the address bar, then Manage Extensions, and make sure “Maps Instead” is on.</p></div>
     <div class="shot" data-src="images/ios-safari-menu.png"><img alt="Safari’s page menu with Manage Extensions highlighted"><span class="placeholder">Screenshot slot<br><code>images/ios-safari-menu.png</code></span></div>
   </div>
   <div class="step">
-    <div><span class="num">6</span><h3>Choose Always Allow…</h3><p>"Allow for One Day" would mean setting it up again tomorrow.</p></div>
+    <div><span class="num">6</span><h3>Tap “Maps Instead” in the same menu</h3><p>Open the menu again. “Maps Instead” is now listed in it, just above Describe Extension.</p></div>
+    <div class="shot" data-src="images/ios-safari-menu-app.png"><img alt="Safari’s page menu with “Maps Instead” highlighted"><span class="placeholder">Screenshot slot<br><code>images/ios-safari-menu-app.png</code></span></div>
+  </div>
+  <div class="step">
+    <div><span class="num">7</span><h3>Choose Always Allow…</h3><p>"Allow for One Day" would mean setting it up again tomorrow. Safari's mention of passwords and credit cards is its standard wording, not something <strong>Maps Instead</strong> does. <a href="#safe">Here's what it actually does</a>.</p></div>
     <div class="shot" data-src="images/ios-safari-prompt.png"><img alt="Safari permission prompt with Always Allow highlighted"><span class="placeholder">Screenshot slot<br><code>images/ios-safari-prompt.png</code></span></div>
   </div>
   <div class="step">
-    <div><span class="num">7</span><h3>Choose Always Allow on Every Website</h3><p>Safari's warning is the same for every extension. <strong>Maps Instead</strong> only asks for Google's domains and Google's short-link domains, so it can't touch any other site. This option covers all of Google's sites at once; Safari treats each one separately.</p></div>
+    <div><span class="num">8</span><h3>Choose Always Allow on Every Website</h3><p>This sounds bigger than it is. <strong>Maps Instead</strong> only asks for Google's domains and Google's short-link domains, so “every website” here means every Google site. It still can't touch anything else. Safari treats each Google site separately, and this option covers them all at once.</p></div>
     <div class="shot" data-src="images/ios-safari-every-website.png"><img alt="Safari confirmation with Always Allow on Every Website highlighted"><span class="placeholder">Screenshot slot<br><code>images/ios-safari-every-website.png</code></span></div>
   </div>
   <div class="step">
-    <div><span class="num">8</span><h3>Test it</h3><p>Open the <strong>Maps Instead</strong> app and press Test it. Safari opens a real Google Maps directions link and Apple Maps should take over with directions to Apple Park.</p></div>
+    <div><span class="num">9</span><h3>Test it</h3><p>Open the <strong>Maps Instead</strong> app and press Test it. Safari opens a real Google Maps directions link and Apple Maps should take over with directions to Apple Park.</p></div>
     <div class="shot" data-src="images/ios-test.png"><img alt="Apple Maps showing 1 Apple Park Way"><span class="placeholder">Screenshot slot<br><code>images/ios-test.png</code></span></div>
   </div>
 </div>
@@ -72,7 +81,7 @@
     <div class="shot wide" data-src="images/mac-safari-settings.png"><img alt="Safari Extensions settings with “Maps Instead” ticked"><span class="placeholder">Screenshot slot<br><code>images/mac-safari-settings.png</code></span></div>
   </div>
   <div class="step">
-    <div><span class="num">3</span><h3>Allow it on Google sites</h3><p>With “Maps Instead” selected, click Always Allow on Every Website, or Edit Websites… to allow only Google. <strong>Maps Instead</strong> only ever asks for Google domains either way.</p></div>
+    <div><span class="num">3</span><h3>Allow it on Google sites</h3><p>With “Maps Instead” selected, click Edit Websites…, then set For other websites to Allow. <strong>Maps Instead</strong> only asks for Google's domains, so this covers every Google site and nothing else. <a href="#safe">Why Safari's warning sounds worse than this</a>.</p></div>
     <div class="shot wide" data-src="images/mac-permissions.png"><img alt="Safari website permissions for “Maps Instead”"><span class="placeholder">Screenshot slot<br><code>images/mac-permissions.png</code></span></div>
   </div>
   <div class="step">
@@ -86,6 +95,42 @@
   <img src="images/person-dancing.png" alt="Cartoon of a woman in a pink dress dancing">
   <p><strong>That's it.</strong> Tap any Google Maps link in Safari. Dancing optional.</p>
 </div>
+
+<section class="safety" id="safe">
+  <h2>Is it safe to allow this?</h2>
+  <p>Yes. A Safari extension is a small add-on that changes how Safari behaves on certain websites. Safari can't know what any one extension will do, so its warning describes the most an extension could do on the sites it's allowed on. Every extension that works with web pages gets the same wording.</p>
+
+  <div class="compare">
+    <div>
+      <h3>What <strong>Maps Instead</strong> does</h3>
+      <ul class="yes">
+        <li>Runs only on Google's sites, and looks only for links to Google Maps</li>
+        <li>Turns those links into Apple Maps links, on your device</li>
+        <li>Asks Google where a shortened map link leads, when the link doesn't say</li>
+        <li>Remembers two things: whether it's switched on, and how many links it has redirected</li>
+      </ul>
+    </div>
+    <div>
+      <h3>What it doesn't do</h3>
+      <ul class="no">
+        <li>Run on any site outside Google, such as your bank</li>
+        <li>Read passwords, card numbers or what you type</li>
+        <li>Keep or send your browsing history</li>
+        <li>Use analytics, ads, accounts or servers of its own</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>You don't have to take our word for it</h3>
+  <div class="grid">
+    <div class="card"><div class="ic" aria-hidden="true">🍎</div><h3>Apple reviews it</h3><p><strong>Maps Instead</strong> is sold only through the App Store, and Apple checks each version before release. Its privacy label there is "Data Not Collected".</p></div>
+    <div class="card"><div class="ic" aria-hidden="true">🧱</div><h3>Safari enforces the limits</h3><p>The list of sites an extension can reach is fixed in the extension itself. Safari blocks it from everything else, whichever option you chose.</p></div>
+    <div class="card"><div class="ic" aria-hidden="true">🔍</div><h3>The code is public</h3><p>Anyone can read exactly what it does on <a href="https://github.com/SteveRyherd/detour">GitHub</a>, including the <a href="https://github.com/SteveRyherd/detour/blob/development/Shared%20(Extension)/Resources/manifest.json">list of sites it asks for</a>.</p></div>
+  </div>
+
+  <h3>Changed your mind?</h3>
+  <p>You stay in charge. Switch it off in the same Settings screen, or delete the app and the extension goes with it. Nothing is left behind, because nothing was kept anywhere else. For any other extension, the same habits serve you well: get it from the App Store, check its privacy label, and notice which sites it asks for.</p>
+</section>
 
 <h2>Not working?</h2>
 <p>The <a href="support.html">support page</a> covers the three things that account for nearly every problem, and how to report a link that misbehaves.</p>
