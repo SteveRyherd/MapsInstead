@@ -16,7 +16,7 @@ enum Branding {
     static let supportURL = url("DetourSupportURL", fallback: "https://steveryherd.github.io/detour/support.html")
     static let privacyURL = url("DetourPrivacyURL", fallback: "https://steveryherd.github.io/detour/privacy.html")
     static let sourceURL = url("DetourSourceURL", fallback: "https://github.com/SteveRyherd/detour")
-    static let testURL = url("DetourTestURL", fallback: "https://www.google.com/maps/dir//Apple+Park,+Cupertino,+CA")
+    static let testURL = url("DetourTestURL", fallback: "https://www.google.com/maps/dir/?api=1&destination=Apple+Park,+Cupertino,+CA")
 
     static let version: String = {
         let short = info("CFBundleShortVersionString") ?? "1.0"

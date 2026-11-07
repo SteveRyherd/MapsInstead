@@ -106,7 +106,7 @@ already does (Config/Branding.xcconfig). Set the price once; it applies to both.
 "Maps Instead" is a Safari Web Extension. To test:
 
 1. Install and open the app, then enable "Maps Instead" in Settings › Apps › Safari › Extensions (iOS) or Safari › Settings › Extensions (macOS) and allow it on google.com.
-2. In Safari, open https://www.google.com/maps/dir//Apple+Park,+Cupertino,+CA (the app's "Test it" button opens this link).
+2. In Safari, open https://www.google.com/maps/dir/?api=1&destination=Apple+Park,+Cupertino,+CA (the app's "Test it" button opens this link).
 3. Apple Maps opens with directions to Apple Park.
 
 No account is needed. The app collects no data. The only network request is resolving Google's
