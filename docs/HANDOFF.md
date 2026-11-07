@@ -58,7 +58,8 @@ popup strings). App copy is in `Shared (App)/Branding.swift`.
 - **`ios-success.png` is Safari showing maps.apple.com**, not the Maps app. Check whether that is
   what normally happens on iPhone; if so, the site's "Apple Maps takes over" overstates it.
 - **Website images** are cut by `docs/design/build-screenshots.py` from raw captures in
-  `docs/screenshots/`, which stays out of git (personal content). The popup and Mac app pictures are
+  `docs/screenshots/`, committed so they survive a lost Mac. The repository is public, so new raw
+  captures there are public too: check them before committing. The popup and Mac app pictures are
   rendered by `docs/design/render-app-images.sh`. The hero video slot is still empty.
 
 ## Conventions
